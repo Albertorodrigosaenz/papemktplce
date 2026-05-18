@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXUS</title>
+<title>PAPE — Business Marketplace</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -31,8 +31,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);m
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:-0.5px;color:var(--ink)}
-.nav-logo span{color:var(--gold)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;letter-spacing:-0.5px;cursor:pointer}
+.nav-logo .pa{color:var(--ink)}
+.nav-logo .pe{color:var(--gold)}
 .nav-right{display:flex;align-items:center;gap:24px}
 .lang-toggle{display:flex;background:var(--cream2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
 .lang-btn{padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--slate);border:none;background:transparent;letter-spacing:0.05em}
@@ -236,7 +237,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">NEX<span>US</span></div>
+  <div class="nav-logo" onclick="goHome()"><span class="pa">PA</span><span class="pe">PE</span></div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
@@ -254,13 +255,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,
 <div class="page active" id="page1">
   <div class="hero">
     <div class="hero-badge" data-es="El marketplace de empresas en España" data-en="The business marketplace in Spain">El marketplace de empresas en España</div>
-    <h1 data-es="Compra tu primer negocio.<br><em>Sin ser experto.</em>" data-en="Buy your first business.<br><em>Without being an expert.</em>">Compra tu primer negocio.<br><em>Sin ser experto.</em></h1>
-    <p data-es="Miles de pymes en venta, con valoraciones transparentes y análisis financiero real. Una alternativa mejor que el ladrillo." data-en="Thousands of SMEs for sale, with transparent valuations and real financial analysis. A better alternative than real estate.">Miles de pymes en venta, con valoraciones transparentes y análisis financiero real. Una alternativa mejor que el ladrillo.</p>
+    <h1 data-es="Encuentra tu SME target.<br><em>Como inversión alternativa.</em>" data-en="Find your SME target.<br><em>As an alternative investment.</em>">Encuentra tu SME target.<br><em>Como inversión alternativa.</em></h1>
+    <p data-es="Accede a empresas privadas con análisis financiero y de riesgo estructurado. El mercado privado de pymes, al alcance del inversor minorista." data-en="Access private businesses with structured financial and risk analysis. The private SME market, within reach of the retail investor.">Accede a empresas privadas con análisis financiero y de riesgo estructurado. El mercado privado de pymes, al alcance del inversor minorista.</p>
     <div class="stats-row">
       <div class="stat"><span class="stat-n">847</span><div class="stat-l" data-es="Negocios activos" data-en="Active businesses">Negocios activos</div></div>
       <div class="stat"><span class="stat-n">€2.1M</span><div class="stat-l" data-es="Valoración media" data-en="Average valuation">Valoración media</div></div>
       <div class="stat"><span class="stat-n">18–28%</span><div class="stat-l" data-es="Rentabilidad típica" data-en="Typical return">Rentabilidad típica</div></div>
-      <div class="stat"><span class="stat-n">4.2x</span><div class="stat-l" data-es="vs. Real estate" data-en="vs. Real estate">vs. Real estate</div></div>
+      <div class="stat"><span class="stat-n">4.2x</span><div class="stat-l" data-es="vs. Inversión tradicional" data-en="vs. Traditional investment">vs. Inversión tradicional</div></div>
     </div>
   </div>
   <div class="sectors-title" data-es="EXPLORA POR SECTOR" data-en="EXPLORE BY SECTOR">EXPLORA POR SECTOR</div>
@@ -332,7 +333,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,
 </div>
 
 <script>
-// ===== DATA =====
 const t = {
   es: {
     sectorDrivers: 'Drivers del sector',
@@ -364,7 +364,6 @@ const t = {
     defaultProb: 'Prob. default 12m',
     creditRisk: 'Riesgo crediticio',
     miniMapTitle: 'Localización',
-    comparedRE: 'vs. piso equivalente: ~4.1% rentabilidad',
     selectSubsector: 'Selecciona un subsector para ver los negocios disponibles',
   },
   en: {
@@ -397,13 +396,12 @@ const t = {
     defaultProb: 'Default prob. 12m',
     creditRisk: 'Credit risk',
     miniMapTitle: 'Location',
-    comparedRE: 'vs. equivalent property: ~4.1% return',
     selectSubsector: 'Select a subsector to see available businesses',
   }
 };
 
 let lang = 'es';
-let history = ['page1'];
+let navHistory = ['page1'];
 let currentBusiness = null;
 let currentSector = null;
 let currentSubsector = null;
@@ -413,7 +411,7 @@ const sectors = [
     id:'hospitality', icon:'🍽️',
     es:{name:'Hostelería & Restauración',tags:['Restaurantes','Hoteles','Cafeterías'],drivers:'Turismo, consumo local, teletrabajo post-covid',intro:'El sector de hostelería en España representa el 6.2% del PIB, con alta densidad de negocios familiares sin sucesión clara. Los múltiplos son estables en 3-5x EBITDA para establecimientos consolidados.'},
     en:{name:'Hospitality & Restaurants',tags:['Restaurants','Hotels','Cafés'],drivers:'Tourism, local consumption, post-covid remote work',intro:'The hospitality sector in Spain represents 6.2% of GDP, with high density of family businesses without clear succession. Multiples are stable at 3-5x EBITDA for established venues.'},
-    yield:'18-26%', payback:'4-6 años', multiple:'3-5x',count:124,
+    yield:'18-26%', payback:'4-6 años', multiple:'3-5x', count:124,
     subsectors:[
       {id:'restaurants', icon:'🍴', es:{name:'Restaurantes',desc:'Restauración con servicio completo, cocinas especializadas, franquicias gastronómicas'},en:{name:'Restaurants',desc:'Full-service dining, specialized kitchens, gastronomy franchises'}, yield:'20-28%', payback:'4-5 yrs', multiple:'3-4x'},
       {id:'hotels', icon:'🏨', es:{name:'Hoteles & Apartamentos',desc:'Establecimientos hoteleros, apartamentos turísticos, casas rurales'},en:{name:'Hotels & Apartments',desc:'Hotel establishments, tourist apartments, rural houses'}, yield:'15-22%', payback:'5-7 yrs', multiple:'4-6x'},
@@ -424,7 +422,7 @@ const sectors = [
     id:'services', icon:'⚙️',
     es:{name:'Servicios Profesionales',tags:['Clínicas','Asesorías','Academias'],drivers:'Digitalización, envejecimiento poblacional, outsourcing',intro:'Los servicios profesionales ofrecen los múltiplos más atractivos por su alto margen y baja intensidad de capital. Clínicas dentales, despachos de abogados y academias presentan alta recurrencia de ingresos.'},
     en:{name:'Professional Services',tags:['Clinics','Consulting','Academies'],drivers:'Digitalization, aging population, outsourcing',intro:'Professional services offer the most attractive multiples due to high margins and low capital intensity. Dental clinics, law firms and academies show high revenue recurrence.'},
-    yield:'22-35%', payback:'3-5 años', multiple:'4-7x',count:89,
+    yield:'22-35%', payback:'3-5 años', multiple:'4-7x', count:89,
     subsectors:[
       {id:'clinics', icon:'🦷', es:{name:'Clínicas & Salud',desc:'Clínicas dentales, centros de estética, fisioterapia, psicología'},en:{name:'Clinics & Health',desc:'Dental clinics, aesthetics centers, physiotherapy, psychology'}, yield:'25-38%', payback:'3-4 yrs', multiple:'5-7x'},
       {id:'consulting', icon:'📊', es:{name:'Asesorías & Consultoría',desc:'Gestorías, despachos fiscales, consultoras de empresa'},en:{name:'Consulting & Advisory',desc:'Tax advisors, accounting firms, business consultants'}, yield:'28-40%', payback:'2-4 yrs', multiple:'4-6x'},
@@ -435,7 +433,7 @@ const sectors = [
     id:'retail', icon:'🛍️',
     es:{name:'Comercio & Retail',tags:['Tiendas','Supermercados','Franquicias'],drivers:'E-commerce, experiencia de cliente, nichos especializados',intro:'El retail físico ha pasado por una transformación profunda. Los negocios que sobreviven son aquellos con propuesta de valor diferenciada o ubicación premium. Múltiplos más bajos pero activos tangibles de valor.'},
     en:{name:'Commerce & Retail',tags:['Shops','Supermarkets','Franchises'],drivers:'E-commerce, customer experience, specialized niches',intro:'Physical retail has gone through a deep transformation. Surviving businesses are those with differentiated value proposition or premium location. Lower multiples but valuable tangible assets.'},
-    yield:'14-22%', payback:'5-7 años', multiple:'2-4x',count:156,
+    yield:'14-22%', payback:'5-7 años', multiple:'2-4x', count:156,
     subsectors:[
       {id:'food', icon:'🛒', es:{name:'Alimentación & Supermercados',desc:'Supermercados independientes, tiendas especializadas, mercados'},en:{name:'Food & Supermarkets',desc:'Independent supermarkets, specialty shops, markets'}, yield:'16-24%', payback:'5-6 yrs', multiple:'2-4x'},
       {id:'fashion', icon:'👗', es:{name:'Moda & Complementos',desc:'Boutiques, tiendas multimarca, accesorios, joyerías'},en:{name:'Fashion & Accessories',desc:'Boutiques, multi-brand stores, accessories, jewelers'}, yield:'14-20%', payback:'5-7 yrs', multiple:'2-3x'},
@@ -446,7 +444,7 @@ const sectors = [
     id:'industry', icon:'🏭',
     es:{name:'Industria & Manufactura',tags:['Talleres','Fabricación','Logística'],drivers:'Nearshoring, automatización, supply chain diversification',intro:'La industria española se beneficia del nearshoring europeo y la relocalización de cadenas de suministro. Activos físicos de valor, contratos industriales de largo plazo y alta barrera de entrada.'},
     en:{name:'Industry & Manufacturing',tags:['Workshops','Manufacturing','Logistics'],drivers:'Nearshoring, automation, supply chain diversification',intro:'Spanish industry benefits from European nearshoring and supply chain relocation. Valuable physical assets, long-term industrial contracts and high barriers to entry.'},
-    yield:'16-24%', payback:'5-8 años', multiple:'3-5x',count:73,
+    yield:'16-24%', payback:'5-8 años', multiple:'3-5x', count:73,
     subsectors:[
       {id:'workshops', icon:'🔧', es:{name:'Talleres & Reparación',desc:'Talleres mecánicos, chapa y pintura, electrónica industrial'},en:{name:'Workshops & Repair',desc:'Mechanical workshops, bodywork, industrial electronics'}, yield:'18-26%', payback:'4-6 yrs', multiple:'3-4x'},
       {id:'manufacturing', icon:'⚙️', es:{name:'Fabricación',desc:'Pequeñas fábricas, moldes, componentes, producción especializada'},en:{name:'Manufacturing',desc:'Small factories, molds, components, specialized production'}, yield:'16-22%', payback:'5-7 yrs', multiple:'3-5x'},
@@ -457,9 +455,9 @@ const sectors = [
     id:'realestate', icon:'🏢',
     es:{name:'Real Estate Comercial',tags:['Oficinas','Locales','Naves'],drivers:'Teletrabajo, logística urbana, tourism retail',intro:'El real estate comercial como negocio — no solo inmueble — incluye gestoras de patrimonio, agencias inmobiliarias y operadores de espacios. Combina activo físico con flujo de caja operativo.'},
     en:{name:'Commercial Real Estate',tags:['Offices','Retail','Warehouses'],drivers:'Remote work, urban logistics, tourism retail',intro:'Commercial real estate as a business — not just the property — includes property managers, real estate agencies and space operators. Combines physical asset with operating cash flow.'},
-    yield:'12-18%', payback:'6-10 años', multiple:'4-8x',count:45,
+    yield:'12-18%', payback:'6-10 años', multiple:'4-8x', count:45,
     subsectors:[
-      {id:'agencies', icon:'🏠', es:{name:'Agencias Inmobiliarias',desc:'Agencias independientes, franquiciadas, especialistas en mercado local'},en:{name:'Real Estate Agencies',desc:'Independent agencies, franchises, local market specialists'}, yield:'20-30%', payback:'3-5 yrs', multiple:'4-6x'},
+      {id:'re-agencies', icon:'🏠', es:{name:'Agencias Inmobiliarias',desc:'Agencias independientes, franquiciadas, especialistas en mercado local'},en:{name:'Real Estate Agencies',desc:'Independent agencies, franchises, local market specialists'}, yield:'20-30%', payback:'3-5 yrs', multiple:'4-6x'},
       {id:'coworking', icon:'💻', es:{name:'Coworking & Espacios',desc:'Centros de coworking, salas de reuniones, flex offices'},en:{name:'Coworking & Spaces',desc:'Coworking centers, meeting rooms, flex offices'}, yield:'14-22%', payback:'5-7 yrs', multiple:'4-6x'},
       {id:'parking', icon:'🅿️', es:{name:'Parkings & Garajes',desc:'Parkings urbanos, garajes comunitarios, gestión de aparcamiento'},en:{name:'Parking & Garages',desc:'Urban parking, community garages, parking management'}, yield:'12-18%', payback:'6-9 yrs', multiple:'5-8x'},
     ]
@@ -468,18 +466,18 @@ const sectors = [
     id:'tech', icon:'💡',
     es:{name:'Tech & Digital',tags:['SaaS','Ecommerce','Agencias'],drivers:'IA, automatización, digitalización pyme',intro:'El segmento digital tiene los múltiplos más altos del mercado pero también la mayor variabilidad. Negocios con MRR recurrente y churn bajo pueden alcanzar valoraciones de 6-10x ingresos.'},
     en:{name:'Tech & Digital',tags:['SaaS','Ecommerce','Agencies'],drivers:'AI, automation, SME digitalization',intro:'The digital segment has the highest multiples in the market but also the greatest variability. Businesses with recurring MRR and low churn can reach valuations of 6-10x revenue.'},
-    yield:'25-50%', payback:'2-5 años', multiple:'5-10x',count:62,
+    yield:'25-50%', payback:'2-5 años', multiple:'5-10x', count:62,
     subsectors:[
       {id:'saas', icon:'☁️', es:{name:'SaaS & Software',desc:'Software con suscripción, herramientas B2B, plataformas verticales'},en:{name:'SaaS & Software',desc:'Subscription software, B2B tools, vertical platforms'}, yield:'30-60%', payback:'2-4 yrs', multiple:'6-10x'},
       {id:'ecommerce', icon:'🛒', es:{name:'Ecommerce',desc:'Tiendas online con marca propia, marketplaces nicho, DTC brands'},en:{name:'Ecommerce',desc:'Own-brand online stores, niche marketplaces, DTC brands'}, yield:'20-35%', payback:'3-5 yrs', multiple:'3-6x'},
-      {id:'agencies', icon:'📱', es:{name:'Agencias Digitales',desc:'Agencias de marketing, SEO, desarrollo web, diseño'},en:{name:'Digital Agencies',desc:'Marketing agencies, SEO, web development, design'}, yield:'25-40%', payback:'2-4 yrs', multiple:'4-7x'},
+      {id:'digital-agencies', icon:'📱', es:{name:'Agencias Digitales',desc:'Agencias de marketing, SEO, desarrollo web, diseño'},en:{name:'Digital Agencies',desc:'Marketing agencies, SEO, web development, design'}, yield:'25-40%', payback:'2-4 yrs', multiple:'4-7x'},
     ]
   },
   {
     id:'health', icon:'❤️',
     es:{name:'Salud & Bienestar',tags:['Farmacias','Gimnasios','Spa'],drivers:'Envejecimiento, salud preventiva, bienestar mental',intro:'El sector salud en España tiene la mayor demanda estructural de largo plazo por el envejecimiento poblacional. Farmacias y centros de salud presentan ingresos muy estables y regulados.'},
     en:{name:'Health & Wellness',tags:['Pharmacies','Gyms','Spas'],drivers:'Aging, preventive health, mental wellness',intro:'The health sector in Spain has the greatest long-term structural demand due to population aging. Pharmacies and health centers present very stable and regulated revenues.'},
-    yield:'18-30%', payback:'4-6 años', multiple:'4-7x',count:91,
+    yield:'18-30%', payback:'4-6 años', multiple:'4-7x', count:91,
     subsectors:[
       {id:'pharmacy', icon:'💊', es:{name:'Farmacias',desc:'Oficinas de farmacia con licencia, parafarmacia, ópticas'},en:{name:'Pharmacies',desc:'Licensed pharmacy offices, parapharmacy, opticians'}, yield:'18-25%', payback:'5-7 yrs', multiple:'5-8x'},
       {id:'gyms', icon:'🏋️', es:{name:'Gimnasios & Fitness',desc:'Centros deportivos, boxes de CrossFit, pilates, yoga studios'},en:{name:'Gyms & Fitness',desc:'Sports centers, CrossFit boxes, pilates, yoga studios'}, yield:'22-32%', payback:'3-5 yrs', multiple:'3-5x'},
@@ -490,7 +488,7 @@ const sectors = [
     id:'energy', icon:'⚡',
     es:{name:'Energía & Medio Ambiente',tags:['Solar','Eficiencia','Reciclaje'],drivers:'Transición energética, subvenciones UE, descarbonización',intro:'El sector energético es el de mayor crecimiento estructural en España. Instaladoras fotovoltaicas y empresas de eficiencia energética se benefician de subvenciones europeas y demanda creciente.'},
     en:{name:'Energy & Environment',tags:['Solar','Efficiency','Recycling'],drivers:'Energy transition, EU subsidies, decarbonization',intro:'The energy sector has the greatest structural growth in Spain. Photovoltaic installers and energy efficiency companies benefit from European subsidies and growing demand.'},
-    yield:'20-35%', payback:'3-6 años', multiple:'4-7x',count:38,
+    yield:'20-35%', payback:'3-6 años', multiple:'4-7x', count:38,
     subsectors:[
       {id:'solar', icon:'☀️', es:{name:'Solar & Renovables',desc:'Instaladoras fotovoltaicas, gestoras de parques solares, ESCO'},en:{name:'Solar & Renewables',desc:'Photovoltaic installers, solar park managers, ESCO'}, yield:'25-40%', payback:'3-5 yrs', multiple:'5-8x'},
       {id:'efficiency', icon:'🌡️', es:{name:'Eficiencia Energética',desc:'Auditorías energéticas, climatización, certificaciones'},en:{name:'Energy Efficiency',desc:'Energy audits, HVAC, certifications'}, yield:'20-30%', payback:'3-5 yrs', multiple:'4-6x'},
@@ -500,139 +498,575 @@ const sectors = [
 ];
 
 const businesses = [
-  {
-    id:1, sectorId:'hospitality', subsectorId:'restaurants',
-    icon:'🍷', ref:'NXS-2847',
-    saleType:'full',
-    es:{name:'Restaurante Casa Merino',loc:'Madrid, Chamberí',desc:'Restaurante de cocina tradicional española con 22 años de trayectoria. Local propio de 180m², capacidad para 65 comensales. Alta fidelización de clientela local. Chef propietario busca jubilarse.'},
-    en:{name:'Casa Merino Restaurant',loc:'Madrid, Chamberí',desc:'Traditional Spanish cuisine restaurant with 22 years of history. Own premises 180m², capacity for 65 diners. High local customer loyalty. Chef-owner looking to retire.'},
-    revenue:680000, ebitda:142000, margin:20.9, employees:8, yearsActive:22,
-    valuation:{low:420000,high:580000}, urgent:false,
-    duns:{paydex:78,defaultProb:'2.1%',creditRisk:'Bajo',rating:'BB+'},
-    sectorMultiple:'3-4x EBITDA',
-    lat:40.43, lng:-3.70,
-    details:{
-      es:{chars:['Local propio (no alquiler) — activo diferencial','Cocina mediterránea con clientela recurrente mayor 40','Dos turnos completos viernes y sábado','Sin dependencia de plataformas de delivery','Carta de vinos con 180 referencias propias']},
-      en:{chars:['Own premises (no rent) — key differentiator','Mediterranean kitchen with recurring 40+ customer base','Two full sittings Friday and Saturday','No delivery platform dependency','Wine list with 180 proprietary references']}
-    }
-  },
-  {
-    id:2, sectorId:'services', subsectorId:'clinics',
-    icon:'🦷', ref:'NXS-1923',
-    saleType:'partial',
-    es:{name:'Clínica Dental Sonría',loc:'Barcelona, Gràcia',desc:'Clínica dental con 4 unidades operativas, 3 dentistas en plantilla. Software de gestión propio, más de 2.800 pacientes activos en base de datos. Propietaria busca desinvertir el 60% manteniendo rol clínico.'},
-    en:{name:'Sonría Dental Clinic',loc:'Barcelona, Gràcia',desc:'Dental clinic with 4 operating units, 3 dentists on staff. Own management software, over 2,800 active patients in database. Owner looking to divest 60% while maintaining clinical role.'},
-    revenue:890000, ebitda:267000, margin:30.0, employees:7, yearsActive:14,
-    valuation:{low:1100000,high:1400000}, urgent:false,
-    duns:{paydex:84,defaultProb:'0.8%',creditRisk:'Muy bajo',rating:'A-'},
-    sectorMultiple:'4-6x EBITDA',
-    lat:41.40, lng:2.16,
-    details:{
-      es:{chars:['2.841 pacientes activos con historial completo','Equipamiento de última generación (2022)','3 higienistas + 3 dentistas en plantilla','Implantología y ortodoncia como principales ingresos','Sistema de citas online propio con 94% de tasa de retención']},
-      en:{chars:['2,841 active patients with complete records','State-of-the-art equipment (2022)','3 hygienists + 3 dentists on staff','Implantology and orthodontics as main revenue','Own online booking system with 94% retention rate']}
-    }
-  },
-  {
-    id:3, sectorId:'industry', subsectorId:'workshops',
-    icon:'🔧', ref:'NXS-3341',
-    saleType:'full',
-    es:{name:'Talleres García e Hijos',loc:'Valencia, Zona Industrial',desc:'Taller mecánico y de carrocería con concesión de ITV privada. Nave propia de 850m², 6 elevadores, equipos de diagnosis modernos. Tercera generación, propietario sin sucesor.'},
-    en:{name:'García & Sons Workshop',loc:'Valencia, Industrial Zone',desc:'Mechanical and bodywork workshop with private ITV concession. Own 850m² warehouse, 6 lifts, modern diagnostic equipment. Third generation, owner without successor.'},
-    revenue:1240000, ebitda:186000, margin:15.0, employees:12, yearsActive:38,
-    valuation:{low:580000,high:780000}, urgent:true,
-    duns:{paydex:71,defaultProb:'3.4%',creditRisk:'Moderado',rating:'BB'},
-    sectorMultiple:'3-4x EBITDA',
-    lat:39.47, lng:-0.38,
-    details:{
-      es:{chars:['Nave industrial propia — activo inmobiliario incluido','Concesión ITV privada renovada hasta 2031','Contratos de mantenimiento con 3 flotas empresariales','Marca consolidada en zona con 38 años de reputación','Equipamiento valorado en €280.000 incluido en precio']},
-      en:{chars:['Own industrial warehouse — real estate asset included','Private ITV concession renewed until 2031','Maintenance contracts with 3 corporate fleets','38-year consolidated brand reputation in area','Equipment valued at €280,000 included in price']}
-    }
-  },
-  {
-    id:4, sectorId:'tech', subsectorId:'saas',
-    icon:'☁️', ref:'NXS-0891',
-    saleType:'full',
-    es:{name:'GestiónPro Software',loc:'Sevilla / Remoto',desc:'SaaS vertical de gestión para clínicas veterinarias. 340 clínicas suscriptoras en España y LATAM. MRR de €28.400. Fundador busca salida total tras 6 años de desarrollo.'},
-    en:{name:'GestiónPro Software',loc:'Sevilla / Remote',desc:'Vertical SaaS for veterinary clinic management. 340 subscriber clinics in Spain and LATAM. MRR of €28,400. Founder seeking full exit after 6 years of development.'},
-    revenue:340800, ebitda:136320, margin:40.0, employees:4, yearsActive:6,
-    valuation:{low:950000,high:1300000}, urgent:false,
-    duns:{paydex:82,defaultProb:'1.2%',creditRisk:'Bajo',rating:'BBB'},
-    sectorMultiple:'7-9x ARR',
-    lat:37.39, lng:-5.99,
-    details:{
-      es:{chars:['340 clínicas activas, churn anual <5%','MRR €28.400 — ARR €340.800','Stack técnico moderno (React + Node + AWS)','Contratos anuales prepago con 92% de renovación','Oportunidad clara de expansión a LATAM']},
-      en:{chars:['340 active clinics, annual churn <5%','MRR €28,400 — ARR €340,800','Modern tech stack (React + Node + AWS)','Annual prepaid contracts with 92% renewal','Clear LATAM expansion opportunity']}
-    }
-  },
-  {
-    id:5, sectorId:'health', subsectorId:'gyms',
-    icon:'🏋️', ref:'NXS-2105',
-    saleType:'transfer',
-    es:{name:'Centro Deportivo Altafit Zaragoza',loc:'Zaragoza, Centro',desc:'Gimnasio de 1.200m² con 1.847 socios activos. Equipamiento de alto rendimiento renovado en 2023. Contrato de arrendamiento ventajoso hasta 2031. Propietario emigra al extranjero.'},
-    en:{name:'Altafit Sports Center Zaragoza',loc:'Zaragoza, City Centre',desc:'1,200m² gym with 1,847 active members. High-performance equipment renewed in 2023. Advantageous lease until 2031. Owner emigrating abroad.'},
-    revenue:520000, ebitda:104000, margin:20.0, employees:9, yearsActive:11,
-    valuation:{low:310000,high:420000}, urgent:true,
-    duns:{paydex:75,defaultProb:'2.8%',creditRisk:'Bajo',rating:'BB+'},
-    sectorMultiple:'3-4x EBITDA',
-    lat:41.65, lng:-0.89,
-    details:{
-      es:{chars:['1.847 socios con cuota media €28/mes','Alquiler €4.200/mes — muy por debajo de mercado','Clases grupales con lista de espera consistente','App propia de reservas con 78% de adopción','Upsells: nutrición, entrenamiento personal, fisio']},
-      en:{chars:['1,847 members at average €28/month fee','Rent €4,200/month — well below market','Group classes with consistent waiting lists','Own booking app with 78% adoption','Upsells: nutrition, personal training, physio']}
-    }
-  },
-  {
-    id:6, sectorId:'hospitality', subsectorId:'hotels',
-    icon:'🏨', ref:'NXS-1567',
-    saleType:'partial',
-    es:{name:'Hotel Rural La Encina',loc:'Extremadura, Cáceres',desc:'Hotel rural de 18 habitaciones, restaurante con 40 plazas, piscina y zona de eventos. Certificado sostenible. Facturación creciente +18% anual últimos 3 años. Sociedad familiar busca entrada de capital.'},
-    en:{name:'La Encina Rural Hotel',loc:'Extremadura, Cáceres',desc:'18-room rural hotel, restaurant with 40 seats, pool and events area. Sustainability certified. Revenue growing +18% annually over last 3 years. Family company seeking capital entry.'},
-    revenue:420000, ebitda:105000, margin:25.0, employees:6, yearsActive:16,
-    valuation:{low:480000,high:650000}, urgent:false,
-    duns:{paydex:80,defaultProb:'1.9%',creditRisk:'Bajo',rating:'BB+'},
-    sectorMultiple:'4-5x EBITDA',
-    lat:39.47, lng:-6.37,
-    details:{
-      es:{chars:['Inmueble propio valorado en €380.000 independientemente','RevPAR de €87 con ocupación media del 72%','Bodas y eventos: 30% de los ingresos con alta predictibilidad','Certificado Biosphere Hotel — premium de precio demostrado','Acuerdo de distribución con 4 OTAs premium']},
-      en:{chars:['Own property independently valued at €380,000','RevPAR of €87 with average 72% occupancy','Weddings and events: 30% of revenue, highly predictable','Biosphere Hotel certified — demonstrated price premium','Distribution agreement with 4 premium OTAs']}
-    }
-  },
+  // HOSPITALITY - restaurants
+  {id:1,sectorId:'hospitality',subsectorId:'restaurants',icon:'🍷',ref:'NXS-2847',saleType:'full',
+   es:{name:'Restaurante Casa Merino',loc:'Madrid, Chamberí',desc:'Restaurante de cocina tradicional española con 22 años de trayectoria. Local propio de 180m², capacidad para 65 comensales. Alta fidelización de clientela local. Chef propietario busca jubilarse.'},
+   en:{name:'Casa Merino Restaurant',loc:'Madrid, Chamberí',desc:'Traditional Spanish cuisine restaurant with 22 years of history. Own premises 180m², capacity for 65 diners. High local customer loyalty. Chef-owner looking to retire.'},
+   revenue:680000,ebitda:142000,margin:20.9,employees:8,yearsActive:22,valuation:{low:420000,high:580000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.1%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:40.43,lng:-3.70,
+   details:{es:{chars:['Local propio (no alquiler) — activo diferencial','Cocina mediterránea con clientela recurrente mayor 40','Dos turnos completos viernes y sábado','Sin dependencia de plataformas de delivery','Carta de vinos con 180 referencias propias']},
+            en:{chars:['Own premises (no rent) — key differentiator','Mediterranean kitchen with recurring 40+ customer base','Two full sittings Friday and Saturday','No delivery platform dependency','Wine list with 180 proprietary references']}}},
+  {id:2,sectorId:'hospitality',subsectorId:'restaurants',icon:'🍣',ref:'NXS-2901',saleType:'full',
+   es:{name:'Grupo Gastronómico Solera',loc:'Sevilla, Centro',desc:'Grupo con 2 restaurantes de cocina andaluza de autor. 18 años en el mercado, 3 premios de gastronomía regional. Capacidad total 120 comensales. Propietarios buscan partner financiero para expansión o salida total.'},
+   en:{name:'Solera Gastronomic Group',loc:'Seville, Centre',desc:'Group with 2 Andalusian cuisine restaurants. 18 years in the market, 3 regional gastronomy awards. Total capacity 120 diners. Owners seeking financial partner for expansion or full exit.'},
+   revenue:1120000,ebitda:202000,margin:18.0,employees:18,yearsActive:18,valuation:{low:600000,high:820000},urgent:false,
+   duns:{paydex:81,defaultProb:'1.8%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:37.38,lng:-5.99,
+   details:{es:{chars:['Dos locales con marca consolidada','Acuerdos con hoteles boutique de la zona','Menú degustación con 78% de margen','Equipo de cocina estable, chef con 12 años en la casa','Catering para eventos privados: 20% de ingresos']},
+            en:{chars:['Two venues with consolidated brand','Agreements with local boutique hotels','Tasting menu with 78% margin','Stable kitchen team, chef with 12 years in the house','Private event catering: 20% of revenue']}}},
+  {id:3,sectorId:'hospitality',subsectorId:'restaurants',icon:'🍕',ref:'NXS-2955',saleType:'transfer',
+   es:{name:'Pizzería Napoli Express',loc:'Valencia, Ruzafa',desc:'Cadena de 3 locales de pizza artesanal napolitana en el barrio más trendy de Valencia. Horno de leña importado. Facturación creciente +22% anual. Fundador se traslada a Italia.'},
+   en:{name:'Napoli Express Pizzeria',loc:'Valencia, Ruzafa',desc:'Chain of 3 artisan Neapolitan pizza venues in Valencia\'s trendiest neighbourhood. Imported wood-fired oven. Revenue growing +22% annually. Founder relocating to Italy.'},
+   revenue:890000,ebitda:187000,margin:21.0,employees:14,yearsActive:7,valuation:{low:550000,high:750000},urgent:true,
+   duns:{paydex:74,defaultProb:'2.9%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:39.46,lng:-0.37,
+   details:{es:{chars:['3 locales en zonas prime de Ruzafa','Masa madre con fermentación 72h — diferenciador producto','Delivery propio con app: 35% de ingresos','Contrato de arrendamiento favorable en los 3 locales','Instagram con 48.000 seguidores activos']},
+            en:{chars:['3 venues in prime Ruzafa locations','72h fermented sourdough — product differentiator','Own delivery app: 35% of revenue','Favourable lease contracts on all 3 venues','Instagram with 48,000 active followers']}}},
+  // HOSPITALITY - hotels
+  {id:4,sectorId:'hospitality',subsectorId:'hotels',icon:'🏨',ref:'NXS-1567',saleType:'partial',
+   es:{name:'Hotel Rural La Encina',loc:'Extremadura, Cáceres',desc:'Hotel rural de 18 habitaciones, restaurante con 40 plazas, piscina y zona de eventos. Certificado sostenible. Facturación creciente +18% anual últimos 3 años. Sociedad familiar busca entrada de capital.'},
+   en:{name:'La Encina Rural Hotel',loc:'Extremadura, Cáceres',desc:'18-room rural hotel, restaurant with 40 seats, pool and events area. Sustainability certified. Revenue growing +18% annually over last 3 years. Family company seeking capital entry.'},
+   revenue:420000,ebitda:105000,margin:25.0,employees:6,yearsActive:16,valuation:{low:480000,high:650000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.9%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:39.47,lng:-6.37,
+   details:{es:{chars:['Inmueble propio valorado en €380.000 independientemente','RevPAR de €87 con ocupación media del 72%','Bodas y eventos: 30% de los ingresos con alta predictibilidad','Certificado Biosphere Hotel — premium de precio demostrado','Acuerdo de distribución con 4 OTAs premium']},
+            en:{chars:['Own property independently valued at €380,000','RevPAR of €87 with average 72% occupancy','Weddings and events: 30% of revenue, highly predictable','Biosphere Hotel certified — demonstrated price premium','Distribution agreement with 4 premium OTAs']}}},
+  {id:5,sectorId:'hospitality',subsectorId:'hotels',icon:'🏩',ref:'NXS-1601',saleType:'full',
+   es:{name:'Apartamentos Turísticos Sol & Mar',loc:'Málaga, Costa del Sol',desc:'Complejo de 24 apartamentos turísticos en primera línea de playa. Licencia turística consolidada. Gestión profesionalizada con revenue manager externo. Propietario mayor de 70 años sin herederos interesados.'},
+   en:{name:'Sol & Mar Tourist Apartments',loc:'Málaga, Costa del Sol',desc:'Complex of 24 beachfront tourist apartments. Consolidated tourist licence. Professionally managed with external revenue manager. Owner over 70 with no interested heirs.'},
+   revenue:780000,ebitda:202800,margin:26.0,employees:5,yearsActive:21,valuation:{low:950000,high:1250000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.4%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-6x EBITDA',lat:36.72,lng:-4.42,
+   details:{es:{chars:['Licencia turística irrepetible en zona saturada','24 unidades con vista al mar — diferenciador prime','Ocupación media anual del 81%','Canal directo: 42% de reservas sin OTA','Inmueble propio incluido en la valoración']},
+            en:{chars:['Unrepeatable tourist licence in saturated zone','24 sea-view units — prime differentiator','Annual average occupancy 81%','Direct channel: 42% of bookings without OTA','Own property included in valuation']}}},
+  {id:6,sectorId:'hospitality',subsectorId:'hotels',icon:'🏰',ref:'NXS-1634',saleType:'partial',
+   es:{name:'Hostal Boutique El Camino',loc:'Burgos, Camino de Santiago',desc:'Hostal boutique con 22 habitaciones en pleno Camino Francés. Premio al mejor alojamiento del Camino 2022. Restaurante con menú del peregrino. Desinversión parcial 40% para financiar renovación.'},
+   en:{name:'El Camino Boutique Hostal',loc:'Burgos, Camino de Santiago',desc:'22-room boutique hostal on the French Way of St James. Award for best Camino accommodation 2022. Restaurant with pilgrim menu. 40% partial divestment to finance renovation.'},
+   revenue:340000,ebitda:85000,margin:25.0,employees:7,yearsActive:12,valuation:{low:320000,high:430000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.2%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-5x EBITDA',lat:42.34,lng:-3.70,
+   details:{es:{chars:['Demanda garantizada por flujo anual del Camino','Inmueble histórico propio — valor patrimonial','Temporada alta 8 meses al año','Colaboración con asociaciones de peregrinos internacionales','Plan de renovación con licencia concedida']},
+            en:{chars:['Guaranteed demand from annual Camino flow','Own historic property — heritage value','High season 8 months per year','Partnership with international pilgrim associations','Renovation plan with granted licence']}}},
+  // HOSPITALITY - bars
+  {id:7,sectorId:'hospitality',subsectorId:'bars',icon:'🍺',ref:'NXS-3101',saleType:'transfer',
+   es:{name:'Bar Deportivo El Marcador',loc:'Bilbao, Indautxu',desc:'Bar deportivo consolidado con 15 años de actividad. 3 pantallas gigantes, licencia de música en directo. Base de clientes fija de 400 personas. Propietario se jubila.'},
+   en:{name:'El Marcador Sports Bar',loc:'Bilbao, Indautxu',desc:'Consolidated sports bar with 15 years of activity. 3 giant screens, live music licence. Fixed customer base of 400 people. Owner retiring.'},
+   revenue:420000,ebitda:109200,margin:26.0,employees:6,yearsActive:15,valuation:{low:210000,high:310000},urgent:false,
+   duns:{paydex:72,defaultProb:'3.1%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'2-3x EBITDA',lat:43.26,lng:-2.93,
+   details:{es:{chars:['Contrato derechos televisivos deportivos renovado hasta 2027','Local de 180m² en zona prime de Indautxu','Licencia de música en directo diferenciadora','Clientela fija con eventos deportivos recurrentes','Sin deuda — traspaso limpio']},
+            en:{chars:['Sports TV rights contract renewed until 2027','180m² venue in prime Indautxu area','Live music licence differentiator','Regular clientele with recurring sports events','No debt — clean transfer']}}},
+  {id:8,sectorId:'hospitality',subsectorId:'bars',icon:'☕',ref:'NXS-3155',saleType:'full',
+   es:{name:'Cafetería & Obrador La Mañanera',loc:'Zaragoza, Gran Vía',desc:'Cafetería con obrador propio de bollería artesanal. 8 años en ubicación prime de Gran Vía. 60% ingresos de desayunos y brunch. Propietaria busca salida por cambio de vida.'},
+   en:{name:'La Mañanera Café & Bakery',loc:'Zaragoza, Gran Vía',desc:'Café with own artisan pastry workshop. 8 years in prime Gran Vía location. 60% revenue from breakfast and brunch. Owner seeking exit for lifestyle change.'},
+   revenue:310000,ebitda:77500,margin:25.0,employees:5,yearsActive:8,valuation:{low:180000,high:260000},urgent:false,
+   duns:{paydex:79,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'2-3x EBITDA',lat:41.65,lng:-0.88,
+   details:{es:{chars:['Obrador propio — control total de producto','Ubicación prime en Gran Vía con alto tráfico peatonal','Clientela fidelizada de oficinas del entorno','Proveedores locales con contratos estables','Redes sociales con 12.000 seguidores activos']},
+            en:{chars:['Own bakery — full product control','Prime Gran Vía location with high footfall','Loyal office clientele in the area','Local suppliers with stable contracts','Social media with 12,000 active followers']}}},
+  {id:9,sectorId:'hospitality',subsectorId:'bars',icon:'🍸',ref:'NXS-3199',saleType:'full',
+   es:{name:'Coctelería Botánica',loc:'Barcelona, Born',desc:'Coctelería premium en el barrio del Born con 6 años de trayectoria. Reconocida en guías de ocio barcelonesas. Capacidad 45 personas, lista de espera habitual en fin de semana.'},
+   en:{name:'Botánica Cocktail Bar',loc:'Barcelona, Born',desc:'Premium cocktail bar in the Born neighbourhood with 6 years of history. Featured in Barcelona leisure guides. Capacity 45 people, regular weekend waiting list.'},
+   revenue:280000,ebitda:78400,margin:28.0,employees:4,yearsActive:6,valuation:{low:190000,high:270000},urgent:false,
+   duns:{paydex:75,defaultProb:'2.6%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'2-4x EBITDA',lat:41.38,lng:2.18,
+   details:{es:{chars:['Carta de autor con 40 cócteles propios','Colaboraciones con destilerías premium nacionales','Ubicación Born — zona de alta demanda turística y local','Ticket medio €18 — posicionamiento premium claro','Posibilidad de expansión a segunda ubicación']},
+            en:{chars:['Signature menu with 40 proprietary cocktails','Collaborations with premium national distilleries','Born location — high tourist and local demand area','Average ticket €18 — clear premium positioning','Expansion possibility to second location']}}},
+  // SERVICES - clinics
+  {id:10,sectorId:'services',subsectorId:'clinics',icon:'🦷',ref:'NXS-1923',saleType:'partial',
+   es:{name:'Clínica Dental Sonría',loc:'Barcelona, Gràcia',desc:'Clínica dental con 4 unidades operativas, 3 dentistas en plantilla. Software de gestión propio, más de 2.800 pacientes activos en base de datos. Propietaria busca desinvertir el 60% manteniendo rol clínico.'},
+   en:{name:'Sonría Dental Clinic',loc:'Barcelona, Gràcia',desc:'Dental clinic with 4 operating units, 3 dentists on staff. Own management software, over 2,800 active patients in database. Owner looking to divest 60% while maintaining clinical role.'},
+   revenue:890000,ebitda:267000,margin:30.0,employees:7,yearsActive:14,valuation:{low:1100000,high:1400000},urgent:false,
+   duns:{paydex:84,defaultProb:'0.8%',creditRisk:'Muy bajo',rating:'A-'},sectorMultiple:'4-6x EBITDA',lat:41.40,lng:2.16,
+   details:{es:{chars:['2.841 pacientes activos con historial completo','Equipamiento de última generación (2022)','3 higienistas + 3 dentistas en plantilla','Implantología y ortodoncia como principales ingresos','Sistema de citas online propio con 94% de tasa de retención']},
+            en:{chars:['2,841 active patients with complete records','State-of-the-art equipment (2022)','3 hygienists + 3 dentists on staff','Implantology and orthodontics as main revenue','Own online booking system with 94% retention rate']}}},
+  {id:11,sectorId:'services',subsectorId:'clinics',icon:'🩺',ref:'NXS-1960',saleType:'full',
+   es:{name:'Centro Médico Integral Salanova',loc:'Madrid, Pozuelo',desc:'Centro médico con 6 especialidades: medicina general, fisioterapia, psicología, nutrición, dermatología y pediatría. 4.200 pacientes activos. Propietario fundador se jubila tras 20 años.'},
+   en:{name:'Salanova Integral Medical Centre',loc:'Madrid, Pozuelo',desc:'Medical centre with 6 specialties: general medicine, physiotherapy, psychology, nutrition, dermatology and paediatrics. 4,200 active patients. Founding owner retiring after 20 years.'},
+   revenue:1340000,ebitda:348000,margin:26.0,employees:14,yearsActive:20,valuation:{low:1600000,high:2100000},urgent:false,
+   duns:{paydex:86,defaultProb:'0.6%',creditRisk:'Muy bajo',rating:'A'},sectorMultiple:'5-6x EBITDA',lat:40.43,lng:-3.79,
+   details:{es:{chars:['4.200 pacientes activos con alta recurrencia','6 especialidades bajo un mismo techo — propuesta única en zona','Convenios con 4 mutuas de seguros privados','Inmueble propio de 600m² en Pozuelo','Software de gestión integrado con historial clínico digital']},
+            en:{chars:['4,200 active patients with high recurrence','6 specialties under one roof — unique proposition in area','Agreements with 4 private insurance companies','Own 600m² property in Pozuelo','Integrated management software with digital clinical records']}}},
+  {id:12,sectorId:'services',subsectorId:'clinics',icon:'💪',ref:'NXS-1998',saleType:'transfer',
+   es:{name:'Clínica Fisioterapia SportCure',loc:'Valencia, Benimaclet',desc:'Clínica de fisioterapia y osteopatía especializada en deportistas. Convenio con 3 clubes deportivos locales. 8 años de actividad. Fisioterapeuta fundadora cambia de ciudad.'},
+   en:{name:'SportCure Physiotherapy Clinic',loc:'Valencia, Benimaclet',desc:'Physiotherapy and osteopathy clinic specialised in athletes. Agreement with 3 local sports clubs. 8 years of activity. Founding physiotherapist relocating.'},
+   revenue:380000,ebitda:114000,margin:30.0,employees:5,yearsActive:8,valuation:{low:450000,high:620000},urgent:true,
+   duns:{paydex:78,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:39.48,lng:-0.36,
+   details:{es:{chars:['Convenios con 3 clubes de fútbol y baloncesto','Especialización en deporte — nicho premium de alto margen','Agenda llena con 3 semanas de espera','Equipamiento diagnóstico valorado en €85.000','Posibilidad de ampliar a 2ª sala ya disponible en el local']},
+            en:{chars:['Agreements with 3 football and basketball clubs','Sports specialisation — high-margin premium niche','Full agenda with 3-week waiting list','Diagnostic equipment valued at €85,000','Possibility to expand to 2nd room already available in premises']}}},
+  // SERVICES - consulting
+  {id:13,sectorId:'services',subsectorId:'consulting',icon:'📊',ref:'NXS-2201',saleType:'full',
+   es:{name:'Asesoría Fiscal & Laboral Montoya',loc:'Bilbao, Centro',desc:'Despacho de asesoría fiscal y laboral con 28 años de historia. 340 empresas clientes activas, mayoritariamente pymes industriales del País Vasco. Socio fundador se retira. Sin plan de sucesión interno.'},
+   en:{name:'Montoya Tax & Labour Advisory',loc:'Bilbao, Centre',desc:'Tax and labour advisory firm with 28 years of history. 340 active corporate clients, mainly Basque Country industrial SMEs. Founding partner retiring. No internal succession plan.'},
+   revenue:680000,ebitda:238000,margin:35.0,employees:9,yearsActive:28,valuation:{low:950000,high:1300000},urgent:false,
+   duns:{paydex:88,defaultProb:'0.5%',creditRisk:'Muy bajo',rating:'A'},sectorMultiple:'4-5x EBITDA',lat:43.26,lng:-2.93,
+   details:{es:{chars:['340 empresas clientes con contratos anuales renovables','Churn histórico inferior al 3% anual','Equipo de 6 asesores senior con media 8 años en la firma','Especialización en industria vasca — ventaja competitiva local','Software de gestión propietario con 28 años de datos']},
+            en:{chars:['340 corporate clients with renewable annual contracts','Historical churn below 3% annually','Team of 6 senior advisors with average 8 years in the firm','Basque industry specialisation — local competitive advantage','Proprietary management software with 28 years of data']}}},
+  {id:14,sectorId:'services',subsectorId:'consulting',icon:'💼',ref:'NXS-2244',saleType:'partial',
+   es:{name:'Consultoría de RRHH PeopleFirst',loc:'Madrid, Las Tablas',desc:'Consultoría de recursos humanos especializada en selección tech y transformación digital. 6 años de actividad. 80 clientes corporativos activos. Fundadores buscan capital para escalar.'},
+   en:{name:'PeopleFirst HR Consulting',loc:'Madrid, Las Tablas',desc:'HR consultancy specialised in tech recruitment and digital transformation. 6 years of activity. 80 active corporate clients. Founders seeking capital to scale.'},
+   revenue:920000,ebitda:230000,margin:25.0,employees:12,yearsActive:6,valuation:{low:800000,high:1100000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.7%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-5x EBITDA',lat:40.49,lng:-3.67,
+   details:{es:{chars:['80 clientes corporativos con retainers mensuales','Especialización tech — sector con alta demanda estructural','NPS de clientes del 72 — referencial del sector','Pipeline de proyectos de €340.000 para próximos 6 meses','Posibilidad de expansión a Portugal y LATAM']},
+            en:{chars:['80 corporate clients with monthly retainers','Tech specialisation — sector with high structural demand','Client NPS of 72 — sector benchmark','Project pipeline of €340,000 for next 6 months','Expansion possibility to Portugal and LATAM']}}},
+  {id:15,sectorId:'services',subsectorId:'consulting',icon:'⚖️',ref:'NXS-2288',saleType:'full',
+   es:{name:'Gestoría Integral Suárez & Asociados',loc:'Sevilla, Triana',desc:'Gestoría generalista con 35 años de historia en Triana. 520 clientes entre autónomos y sociedades. Los dos socios fundadores se jubilan simultáneamente. Equipo técnico dispuesto a continuar.'},
+   en:{name:'Suárez & Associates Integral Management',loc:'Seville, Triana',desc:'General management firm with 35 years of history in Triana. 520 clients among self-employed and companies. Both founding partners retiring simultaneously. Technical team willing to continue.'},
+   revenue:540000,ebitda:162000,margin:30.0,employees:7,yearsActive:35,valuation:{low:600000,high:820000},urgent:true,
+   duns:{paydex:82,defaultProb:'1.4%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'4-5x EBITDA',lat:37.38,lng:-6.00,
+   details:{es:{chars:['520 clientes con contratos de servicios continuados','Equipo técnico de 5 personas dispuesto a continuar','Oficina céntrica de 220m² con renta por debajo de mercado','Software actualizado compatible con Administración Electrónica','Reputación consolidada en Triana — referencias intergeneracionales']},
+            en:{chars:['520 clients with ongoing service contracts','Technical team of 5 people willing to continue','Central 220m² office with below-market rent','Software updated and compatible with Electronic Administration','Consolidated reputation in Triana — intergenerational referrals']}}},
+  // SERVICES - education
+  {id:16,sectorId:'services',subsectorId:'education',icon:'📚',ref:'NXS-2401',saleType:'full',
+   es:{name:'Academia de Idiomas Cambridge Plus',loc:'Madrid, Chamartín',desc:'Academia de inglés con metodología Cambridge. 380 alumnos activos, profesores nativos. 12 años en el mismo local. Directora fundadora se jubila. Certificación oficial Cambridge preparatoria.'},
+   en:{name:'Cambridge Plus Language Academy',loc:'Madrid, Chamartín',desc:'English academy with Cambridge methodology. 380 active students, native teachers. 12 years in same location. Founding director retiring. Official Cambridge preparatory certification.'},
+   revenue:480000,ebitda:144000,margin:30.0,employees:8,yearsActive:12,valuation:{low:520000,high:720000},urgent:false,
+   duns:{paydex:83,defaultProb:'1.1%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'4-5x EBITDA',lat:40.46,lng:-3.68,
+   details:{es:{chars:['Centro preparador oficial Cambridge — acreditación diferenciadora','380 alumnos activos con renovación de matrícula del 88%','8 profesores nativos con contratos estables','Clases presenciales + online (60/40) desde 2021','Lista de espera de 45 alumnos para septiembre']},
+            en:{chars:['Official Cambridge preparatory centre — differentiating accreditation','380 active students with 88% enrollment renewal','8 native teachers with stable contracts','In-person + online classes (60/40) since 2021','Waiting list of 45 students for September']}}},
+  {id:17,sectorId:'services',subsectorId:'education',icon:'🚗',ref:'NXS-2444',saleType:'full',
+   es:{name:'Autoescuela Drive&Go',loc:'Zaragoza, Delicias',desc:'Autoescuela con 18 años en el barrio de Delicias. 2 vehículos propios, simulador de conducción. Alta tasa de aprobados en primera convocatoria (78%). Propietario sin herederos.'},
+   en:{name:'Drive&Go Driving School',loc:'Zaragoza, Delicias',desc:'Driving school with 18 years in the Delicias neighbourhood. 2 own vehicles, driving simulator. High first-attempt pass rate (78%). Owner without heirs.'},
+   revenue:220000,ebitda:66000,margin:30.0,employees:4,yearsActive:18,valuation:{low:220000,high:310000},urgent:false,
+   duns:{paydex:74,defaultProb:'2.7%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:41.64,lng:-0.91,
+   details:{es:{chars:['Tasa de aprobados 78% — referencia del barrio','Reputación sólida con referencias intergeneracionales','Permiso B y A — doble licencia diferenciadora','Contrato de arrendamiento favorable hasta 2030','Posibilidad de incorporar permiso de camión (C) como extensión']},
+            en:{chars:['78% pass rate — neighbourhood reference','Solid reputation with intergenerational referrals','Licence B and A — dual licence differentiator','Favourable lease until 2030','Possibility of adding truck licence (C) as extension']}}},
+  {id:18,sectorId:'services',subsectorId:'education',icon:'🎨',ref:'NXS-2488',saleType:'transfer',
+   es:{name:'Centro de Formación Profesional ArteSkill',loc:'Barcelona, Gracia',desc:'Centro privado de FP en diseño gráfico, fotografía y marketing digital. Convenio con la Generalitat. 220 alumnos. Directora se traslada al extranjero por motivos familiares.'},
+   en:{name:'ArteSkill Vocational Training Centre',loc:'Barcelona, Gracia',desc:'Private vocational training centre in graphic design, photography and digital marketing. Agreement with the Generalitat. 220 students. Director relocating abroad for family reasons.'},
+   revenue:560000,ebitda:140000,margin:25.0,employees:9,yearsActive:9,valuation:{low:500000,high:700000},urgent:true,
+   duns:{paydex:77,defaultProb:'2.3%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-5x EBITDA',lat:41.40,lng:2.15,
+   details:{es:{chars:['Convenio con Generalitat — subvención parcial garantizada','220 alumnos con tasa de inserción laboral del 84%','Equipamiento de diseño valorado en €120.000','Acuerdos de prácticas con 30 empresas del sector','Plataforma e-learning propia con 800 contenidos activos']},
+            en:{chars:['Agreement with Generalitat — guaranteed partial subsidy','220 students with 84% job placement rate','Design equipment valued at €120,000','Internship agreements with 30 industry companies','Own e-learning platform with 800 active content pieces']}}},
+  // INDUSTRY - workshops
+  {id:19,sectorId:'industry',subsectorId:'workshops',icon:'🔧',ref:'NXS-3341',saleType:'full',
+   es:{name:'Talleres García e Hijos',loc:'Valencia, Zona Industrial',desc:'Taller mecánico y de carrocería con concesión de ITV privada. Nave propia de 850m², 6 elevadores, equipos de diagnosis modernos. Tercera generación, propietario sin sucesor.'},
+   en:{name:'García & Sons Workshop',loc:'Valencia, Industrial Zone',desc:'Mechanical and bodywork workshop with private ITV concession. Own 850m² warehouse, 6 lifts, modern diagnostic equipment. Third generation, owner without successor.'},
+   revenue:1240000,ebitda:186000,margin:15.0,employees:12,yearsActive:38,valuation:{low:580000,high:780000},urgent:true,
+   duns:{paydex:71,defaultProb:'3.4%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:39.47,lng:-0.38,
+   details:{es:{chars:['Nave industrial propia — activo inmobiliario incluido','Concesión ITV privada renovada hasta 2031','Contratos de mantenimiento con 3 flotas empresariales','Marca consolidada en zona con 38 años de reputación','Equipamiento valorado en €280.000 incluido en precio']},
+            en:{chars:['Own industrial warehouse — real estate asset included','Private ITV concession renewed until 2031','Maintenance contracts with 3 corporate fleets','38-year consolidated brand reputation in area','Equipment valued at €280,000 included in price']}}},
+  {id:20,sectorId:'industry',subsectorId:'workshops',icon:'🔌',ref:'NXS-3390',saleType:'full',
+   es:{name:'Electrotécnica Hermanos Ruiz',loc:'Murcia, Polígono Industrial',desc:'Empresa de instalaciones eléctricas industriales y mantenimiento. 24 años en el sector. Cartera de 60 clientes industriales con contratos de mantenimiento anual. Propietarios se jubilan.'},
+   en:{name:'Ruiz Brothers Electrotechnical',loc:'Murcia, Industrial Estate',desc:'Industrial electrical installations and maintenance company. 24 years in the sector. Portfolio of 60 industrial clients with annual maintenance contracts. Owners retiring.'},
+   revenue:980000,ebitda:176400,margin:18.0,employees:11,yearsActive:24,valuation:{low:520000,high:700000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.5%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:37.98,lng:-1.13,
+   details:{es:{chars:['60 clientes industriales con contratos anuales de mantenimiento','Homologaciones BT y AT — barrera de entrada significativa','Flota de 4 vehículos taller incluida','Almacén de materiales valorado en €95.000','Pipeline de obra nueva €450.000 para próximos 12 meses']},
+            en:{chars:['60 industrial clients with annual maintenance contracts','LV and HV approvals — significant barrier to entry','Fleet of 4 workshop vehicles included','Materials warehouse valued at €95,000','New construction pipeline €450,000 for next 12 months']}}},
+  {id:21,sectorId:'industry',subsectorId:'workshops',icon:'🔩',ref:'NXS-3440',saleType:'partial',
+   es:{name:'Taller de Mecanizado Precisión CNC',loc:'Barcelona, Sant Andreu',desc:'Taller de mecanizado de precisión con 5 centros CNC de última generación. Clientes en aeronáutica, automoción y médico. Facturación estable con alta barrera técnica de entrada.'},
+   en:{name:'CNC Precision Machining Workshop',loc:'Barcelona, Sant Andreu',desc:'Precision machining workshop with 5 state-of-the-art CNC centres. Clients in aerospace, automotive and medical. Stable revenue with high technical barrier to entry.'},
+   revenue:1480000,ebitda:266400,margin:18.0,employees:15,yearsActive:16,valuation:{low:800000,high:1100000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.8%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:41.43,lng:2.19,
+   details:{es:{chars:['5 centros de mecanizado CNC de 5 ejes — inversión €1.2M','Clientes en aeronáutica, automoción y medtech','Certificación ISO 9001 y AS9100 aeronáutica','Margen bruto 52% — ingresos de alto valor añadido','Propietario mantiene 20% y rol técnico — continuidad asegurada']},
+            en:{chars:['5 x 5-axis CNC machining centres — €1.2M investment','Clients in aerospace, automotive and medtech','ISO 9001 and aeronautical AS9100 certification','52% gross margin — high value-added revenue','Owner retains 20% and technical role — continuity assured']}}},
+  // INDUSTRY - manufacturing
+  {id:22,sectorId:'industry',subsectorId:'manufacturing',icon:'⚙️',ref:'NXS-3501',saleType:'full',
+   es:{name:'Fábrica de Envases Plásticos Ibermold',loc:'Guadalajara, Polígono',desc:'Fabricante de envases plásticos técnicos para alimentación y cosmética. 19 años. 3 líneas de inyección propias. Contratos con 4 grupos de distribución alimentaria. Fundador sin plan de sucesión.'},
+   en:{name:'Ibermold Plastic Containers Factory',loc:'Guadalajara, Industrial Park',desc:'Technical plastic container manufacturer for food and cosmetics. 19 years. 3 own injection lines. Contracts with 4 food distribution groups. Founder without succession plan.'},
+   revenue:2100000,ebitda:315000,margin:15.0,employees:22,yearsActive:19,valuation:{low:950000,high:1280000},urgent:false,
+   duns:{paydex:74,defaultProb:'2.8%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-5x EBITDA',lat:40.63,lng:-3.16,
+   details:{es:{chars:['3 líneas de inyección propias — activo técnico diferenciador','Contratos marco con 4 grupos alimentarios nacionales','Nave industrial de 2.400m² en propiedad','Certificación ISO 22000 alimentaria','Posibilidad de ampliar a envases sostenibles — tendencia estructural']},
+            en:{chars:['3 own injection lines — differentiating technical asset','Framework contracts with 4 national food groups','Own 2,400m² industrial warehouse','ISO 22000 food safety certification','Possibility to expand to sustainable packaging — structural trend']}}},
+  {id:23,sectorId:'industry',subsectorId:'manufacturing',icon:'🪑',ref:'NXS-3545',saleType:'full',
+   es:{name:'Ebanistería & Mobiliario Artesano Lerma',loc:'Salamanca, Polígono',desc:'Fabricante artesanal de mobiliario de alto standing para contract y particular. 31 años. Referencia en Castilla para interioristas premium. Propietario mayor de 65 sin sucesor claro.'},
+   en:{name:'Lerma Artisan Furniture & Joinery',loc:'Salamanca, Industrial Park',desc:'Artisan manufacturer of high-end furniture for contract and private clients. 31 years. Reference in Castilla for premium interior designers. Owner over 65 without clear successor.'},
+   revenue:680000,ebitda:136000,margin:20.0,employees:8,yearsActive:31,valuation:{low:420000,high:570000},urgent:false,
+   duns:{paydex:73,defaultProb:'3.0%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:40.96,lng:-5.66,
+   details:{es:{chars:['Reputación premium en Castilla y León — 31 años de referencias','Cartera de 45 interioristas y arquitectos colaboradores','Taller de 800m² propio con maquinaria especializada','Ticket medio por proyecto €15.000 — nicho premium','Lista de espera de 6 meses en temporada alta']},
+            en:{chars:['Premium reputation in Castilla y León — 31 years of referrals','Portfolio of 45 collaborating interior designers and architects','Own 800m² workshop with specialised machinery','Average project ticket €15,000 — premium niche','6-month waiting list in high season']}}},
+  {id:24,sectorId:'industry',subsectorId:'manufacturing',icon:'🧴',ref:'NXS-3589',saleType:'partial',
+   es:{name:'Laboratorio Cosmético NaturalLab',loc:'Madrid, Leganés',desc:'Laboratorio de cosmética natural certificada. Fabricación para marcas blancas y marca propia. 11 años. Certificación orgánica COSMOS. Búsqueda de socio industrial para escalar producción.'},
+   en:{name:'NaturalLab Cosmetic Laboratory',loc:'Madrid, Leganés',desc:'Certified natural cosmetics laboratory. Manufacturing for white labels and own brand. 11 years. COSMOS organic certification. Seeking industrial partner to scale production.'},
+   revenue:1100000,ebitda:220000,margin:20.0,employees:13,yearsActive:11,valuation:{low:750000,high:1050000},urgent:false,
+   duns:{paydex:79,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-5x EBITDA',lat:40.33,lng:-3.76,
+   details:{es:{chars:['Certificación COSMOS orgánica — barrera de entrada significativa','Marca blanca para 8 clientes con contratos anuales','Marca propia en Amazon con 4.2 estrellas y 1.200 reseñas','GMP cosmético certificado — prerequisito exigente','Pipeline de 3 nuevos clientes de marca blanca en negociación']},
+            en:{chars:['COSMOS organic certification — significant barrier to entry','White label for 8 clients with annual contracts','Own brand on Amazon with 4.2 stars and 1,200 reviews','GMP cosmetics certified — demanding prerequisite','Pipeline of 3 new white label clients under negotiation']}}},
+  // INDUSTRY - logistics
+  {id:25,sectorId:'industry',subsectorId:'logistics',icon:'🚛',ref:'NXS-3601',saleType:'full',
+   es:{name:'Transportes Frigoríficos Penedés',loc:'Tarragona, Zona Portuaria',desc:'Empresa de transporte frigorífico especializado en productos frescos y congelados. 16 años. 8 camiones propios, flota homologada ATP. Contratos con 3 cadenas de supermercados regionales.'},
+   en:{name:'Penedés Refrigerated Transport',loc:'Tarragona, Port Zone',desc:'Refrigerated transport company specialised in fresh and frozen products. 16 years. 8 own trucks, ATP-approved fleet. Contracts with 3 regional supermarket chains.'},
+   revenue:1680000,ebitda:235000,margin:14.0,employees:14,yearsActive:16,valuation:{low:700000,high:950000},urgent:false,
+   duns:{paydex:75,defaultProb:'2.6%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:41.12,lng:1.24,
+   details:{es:{chars:['8 camiones propios con homologación ATP frigorífica','Contratos anuales con 3 cadenas regionales de supermercados','Autorización operador de transporte internacional (ECMT)','Nave logística de 1.200m² en zona portuaria','Posicionamiento nearshoring — demanda creciente post-pandemia']},
+            en:{chars:['8 own trucks with ATP refrigeration approval','Annual contracts with 3 regional supermarket chains','International transport operator authorisation (ECMT)','1,200m² logistics warehouse in port area','Nearshoring positioning — growing post-pandemic demand']}}},
+  {id:26,sectorId:'industry',subsectorId:'logistics',icon:'📦',ref:'NXS-3645',saleType:'full',
+   es:{name:'Almacenaje & Fulfillment LogiBox',loc:'Madrid, Coslada',desc:'Operador de fulfillment para ecommerce con nave de 3.000m² en Coslada. 7 años. 45 clientes ecommerce activos. Sistema WMS propio. Propietarios buscan salida estratégica.'},
+   en:{name:'LogiBox Storage & Fulfillment',loc:'Madrid, Coslada',desc:'Fulfillment operator for ecommerce with 3,000m² warehouse in Coslada. 7 years. 45 active ecommerce clients. Own WMS system. Owners seeking strategic exit.'},
+   revenue:2200000,ebitda:308000,margin:14.0,employees:28,yearsActive:7,valuation:{low:900000,high:1250000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.2%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:40.42,lng:-3.56,
+   details:{es:{chars:['45 clientes ecommerce con contratos de servicio continuado','WMS propio integrable con Shopify, WooCommerce, Amazon','Nave estratégica en Coslada — hub logístico de Madrid','Capacidad de almacenaje 12.000 SKUs activos','Posibilidad de expansión a 2ª nave adyacente disponible']},
+            en:{chars:['45 ecommerce clients with ongoing service contracts','Own WMS integrable with Shopify, WooCommerce, Amazon','Strategic warehouse in Coslada — Madrid logistics hub','Storage capacity 12,000 active SKUs','Expansion possibility to available adjacent 2nd warehouse']}}},
+  {id:27,sectorId:'industry',subsectorId:'logistics',icon:'🏍️',ref:'NXS-3689',saleType:'partial',
+   es:{name:'Mensajería Urbana FlashRider',loc:'Barcelona, Poblenou',desc:'Empresa de mensajería urgente y última milla en Barcelona. Flota de 22 mensajeros en bicicleta eléctrica. Contratos con farmacéuticas y restaurantes premium. Búsqueda de inversión para expansión.'},
+   en:{name:'FlashRider Urban Courier',loc:'Barcelona, Poblenou',desc:'Urgent and last-mile courier company in Barcelona. Fleet of 22 electric bike couriers. Contracts with pharmaceuticals and premium restaurants. Seeking investment for expansion.'},
+   revenue:780000,ebitda:124800,margin:16.0,employees:24,yearsActive:5,valuation:{low:370000,high:520000},urgent:false,
+   duns:{paydex:72,defaultProb:'3.2%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:41.40,lng:2.20,
+   details:{es:{chars:['22 mensajeros en bicicleta eléctrica — flota sostenible','Contratos B2B con 4 farmacéuticas y 12 restaurantes premium','SLA de entrega en 45 minutos — diferenciador clave','App de tracking propio con 98% de tasa de satisfacción','Modelo replicable — expansión a Madrid y Valencia en roadmap']},
+            en:{chars:['22 electric bike couriers — sustainable fleet','B2B contracts with 4 pharmaceuticals and 12 premium restaurants','45-minute delivery SLA — key differentiator','Own tracking app with 98% satisfaction rate','Replicable model — Madrid and Valencia expansion in roadmap']}}},
+  // TECH - saas
+  {id:28,sectorId:'tech',subsectorId:'saas',icon:'☁️',ref:'NXS-0891',saleType:'full',
+   es:{name:'GestiónPro Software',loc:'Sevilla / Remoto',desc:'SaaS vertical de gestión para clínicas veterinarias. 340 clínicas suscriptoras en España y LATAM. MRR de €28.400. Fundador busca salida total tras 6 años de desarrollo.'},
+   en:{name:'GestiónPro Software',loc:'Sevilla / Remote',desc:'Vertical SaaS for veterinary clinic management. 340 subscriber clinics in Spain and LATAM. MRR of €28,400. Founder seeking full exit after 6 years of development.'},
+   revenue:340800,ebitda:136320,margin:40.0,employees:4,yearsActive:6,valuation:{low:950000,high:1300000},urgent:false,
+   duns:{paydex:82,defaultProb:'1.2%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'7-9x ARR',lat:37.39,lng:-5.99,
+   details:{es:{chars:['340 clínicas activas, churn anual <5%','MRR €28.400 — ARR €340.800','Stack técnico moderno (React + Node + AWS)','Contratos anuales prepago con 92% de renovación','Oportunidad clara de expansión a LATAM']},
+            en:{chars:['340 active clinics, annual churn <5%','MRR €28,400 — ARR €340,800','Modern tech stack (React + Node + AWS)','Annual prepaid contracts with 92% renewal','Clear LATAM expansion opportunity']}}},
+  {id:29,sectorId:'tech',subsectorId:'saas',icon:'🏗️',ref:'NXS-0935',saleType:'full',
+   es:{name:'ConstructFlow SaaS',loc:'Madrid / Remoto',desc:'Software de gestión de obras y proyectos de construcción. 180 constructoras suscriptoras. MRR €19.800. Fundadores buscan salida tras captación fallida de Serie A.'},
+   en:{name:'ConstructFlow SaaS',loc:'Madrid / Remote',desc:'Construction project and site management software. 180 subscriber construction companies. MRR €19,800. Founders seeking exit after failed Series A raise.'},
+   revenue:237600,ebitda:95040,margin:40.0,employees:5,yearsActive:4,valuation:{low:680000,high:950000},urgent:true,
+   duns:{paydex:76,defaultProb:'2.4%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'6-9x ARR',lat:40.42,lng:-3.70,
+   details:{es:{chars:['180 constructoras activas, churn <7% anual','Integración con software de contabilidad (SAP, Sage, Holded)','MRR creciente +4% mensual últimos 8 meses','Stack en AWS — escalable sin inversión en infraestructura','Documentación técnica completa para onboarding de nuevo equipo']},
+            en:{chars:['180 active construction companies, churn <7% annually','Integration with accounting software (SAP, Sage, Holded)','MRR growing +4% monthly over last 8 months','AWS stack — scalable without infrastructure investment','Complete technical documentation for new team onboarding']}}},
+  {id:30,sectorId:'tech',subsectorId:'saas',icon:'🏨',ref:'NXS-0979',saleType:'partial',
+   es:{name:'HotelOps Platform',loc:'Barcelona / Remoto',desc:'SaaS de operaciones para hoteles independientes. 95 hoteles activos en España y Portugal. MRR €14.200. Co-fundadores buscan entrada de capital para acelerar expansión europea.'},
+   en:{name:'HotelOps Platform',loc:'Barcelona / Remote',desc:'Operations SaaS for independent hotels. 95 active hotels in Spain and Portugal. MRR €14,200. Co-founders seeking capital entry to accelerate European expansion.'},
+   revenue:170400,ebitda:68160,margin:40.0,employees:6,yearsActive:3,valuation:{low:480000,high:700000},urgent:false,
+   duns:{paydex:71,defaultProb:'3.3%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'6-8x ARR',lat:41.39,lng:2.15,
+   details:{es:{chars:['95 hoteles activos, NPS de 74 — referencial B2B','Integración nativa con los 5 principales PMS del mercado','MRR creciendo +6% mensual','Francia e Italia identificados como próximos mercados','Fundadores mantienen 60% y gestión operativa']},
+            en:{chars:['95 active hotels, NPS of 74 — B2B benchmark','Native integration with top 5 PMS in the market','MRR growing +6% monthly','France and Italy identified as next markets','Founders retain 60% and operational management']}}},
+  // TECH - ecommerce
+  {id:31,sectorId:'tech',subsectorId:'ecommerce',icon:'🌿',ref:'NXS-1101',saleType:'full',
+   es:{name:'NutriBio Tienda Online',loc:'Valencia / Remoto',desc:'Ecommerce de suplementos deportivos y nutrición natural. Marca propia con 5 años en el mercado. 18.000 clientes activos. Facturación creciente +35% anual. Fundador busca salida.'},
+   en:{name:'NutriBio Online Store',loc:'Valencia / Remote',desc:'Sports supplements and natural nutrition ecommerce. Own brand with 5 years in the market. 18,000 active customers. Revenue growing +35% annually. Founder seeking exit.'},
+   revenue:980000,ebitda:215600,margin:22.0,employees:6,yearsActive:5,valuation:{low:750000,high:1100000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.1%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-6x EBITDA',lat:39.47,lng:-0.37,
+   details:{es:{chars:['18.000 clientes activos con programa de fidelización','LTV medio por cliente €187 — retención alta','Marca propia registrada en España y UE','Canal Amazon: 30% ventas — 70% canal directo','Stock propio gestionado con ERP — sin dependencia 3PL']},
+            en:{chars:['18,000 active customers with loyalty programme','Average customer LTV €187 — high retention','Own brand registered in Spain and EU','Amazon channel: 30% sales — 70% direct channel','Own stock managed with ERP — no 3PL dependency']}}},
+  {id:32,sectorId:'tech',subsectorId:'ecommerce',icon:'👶',ref:'NXS-1145',saleType:'full',
+   es:{name:'PequesMundo Kids Online',loc:'Madrid / Remoto',desc:'Tienda online de juguetes y material educativo para 0-10 años. Selección curada de producto europeo sostenible. 9.500 clientes activos. Propietaria busca salida por maternidad.'},
+   en:{name:'PequesMundo Kids Online',loc:'Madrid / Remote',desc:'Online toy and educational materials store for ages 0-10. Curated selection of sustainable European products. 9,500 active customers. Owner seeking exit for maternity reasons.'},
+   revenue:640000,ebitda:115200,margin:18.0,employees:4,yearsActive:6,valuation:{low:420000,high:600000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.7%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:40.41,lng:-3.70,
+   details:{es:{chars:['9.500 clientes activos, tasa de recompra 62%','Catálogo de 800 referencias — selección curada sostenible','90% proveedores europeos — posicionamiento premium','Newsletter con 24.000 suscriptores activos y tasa apertura 38%','Acuerdo con 3 colegios para material escolar — B2B en crecimiento']},
+            en:{chars:['9,500 active customers, 62% repurchase rate','Catalogue of 800 references — curated sustainable selection','90% European suppliers — premium positioning','Newsletter with 24,000 active subscribers and 38% open rate','Agreement with 3 schools for school materials — growing B2B']}}},
+  {id:33,sectorId:'tech',subsectorId:'ecommerce',icon:'🛠️',ref:'NXS-1189',saleType:'partial',
+   es:{name:'HerramientasPro Industrial Shop',loc:'Bilbao / Remoto',desc:'Ecommerce B2B de herramienta industrial y EPI. 1.200 clientes empresa. Ticket medio €380. Fundadores buscan socio para desarrollar canal de ventas directo con fabricantes europeos.'},
+   en:{name:'HerramientasPro Industrial Shop',loc:'Bilbao / Remote',desc:'B2B industrial tools and PPE ecommerce. 1,200 business clients. Average ticket €380. Founders seeking partner to develop direct sales channel with European manufacturers.'},
+   revenue:2200000,ebitda:308000,margin:14.0,employees:8,yearsActive:8,valuation:{low:950000,high:1300000},urgent:false,
+   duns:{paydex:81,defaultProb:'1.5%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'3-5x EBITDA',lat:43.26,lng:-2.93,
+   details:{es:{chars:['1.200 clientes B2B con pedido recurrente mensual','Acuerdos de distribución con 18 fabricantes europeos','Plataforma propia con integración ERP del cliente','Ticket medio €380 — compra profesional de alto valor','Catálogo de 12.000 referencias activas']},
+            en:{chars:['1,200 B2B clients with monthly recurring orders','Distribution agreements with 18 European manufacturers','Own platform with client ERP integration','Average ticket €380 — high-value professional purchase','Catalogue of 12,000 active references']}}},
+  // TECH - digital-agencies
+  {id:34,sectorId:'tech',subsectorId:'digital-agencies',icon:'📱',ref:'NXS-1301',saleType:'full',
+   es:{name:'Agencia Digital Magnetik',loc:'Madrid, Salamanca',desc:'Agencia de marketing digital especializada en performance y paid media. 45 clientes activos con retainers mensuales. 8 años. Co-fundador sale por acuerdo societario.'},
+   en:{name:'Magnetik Digital Agency',loc:'Madrid, Salamanca',desc:'Digital marketing agency specialised in performance and paid media. 45 active clients with monthly retainers. 8 years. Co-founder exiting by shareholder agreement.'},
+   revenue:1100000,ebitda:275000,margin:25.0,employees:14,yearsActive:8,valuation:{low:950000,high:1350000},urgent:false,
+   duns:{paydex:83,defaultProb:'1.2%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'4-5x EBITDA',lat:40.43,lng:-3.68,
+   details:{es:{chars:['45 clientes con retainers mensuales de €1.500-€8.000','Especialización en Performance & Paid Media — nicho premium','Google Partner Premier y Meta Business Partner certificado','NPS de 68 — referencial del sector agencia','Churn de clientes inferior al 8% anual']},
+            en:{chars:['45 clients with monthly retainers of €1,500-€8,000','Performance & Paid Media specialisation — premium niche','Google Premier Partner and certified Meta Business Partner','Client NPS of 68 — agency sector benchmark','Client churn below 8% annually']}}},
+  {id:35,sectorId:'tech',subsectorId:'digital-agencies',icon:'🎬',ref:'NXS-1345',saleType:'full',
+   es:{name:'Contenidos & Creatividad VideoPro',loc:'Barcelona, 22@',desc:'Agencia de producción de contenido audiovisual para marcas. Especializada en social media y branded content. 38 clientes activos. 6 años. Fundadora busca project life balance.'},
+   en:{name:'VideoPro Content & Creativity',loc:'Barcelona, 22@',desc:'Audiovisual content production agency for brands. Specialised in social media and branded content. 38 active clients. 6 years. Founder seeking project life balance.'},
+   revenue:820000,ebitda:180400,margin:22.0,employees:11,yearsActive:6,valuation:{low:650000,high:920000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.3%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:41.40,lng:2.19,
+   details:{es:{chars:['38 clientes con contratos de producción continuada','Estudio propio en 22@ de 350m² — activo diferenciador','Portfolio con marcas del Ibex35 y startups scale-up','Equipo creativo estable — media 4.2 años de antigüedad','Revenue recurrente 68% del total — base sólida']},
+            en:{chars:['38 clients with ongoing production contracts','Own 350m² studio in 22@ — differentiating asset','Portfolio with Ibex35 brands and scale-up startups','Stable creative team — average 4.2 years tenure','Recurring revenue 68% of total — solid base']}}},
+  {id:36,sectorId:'tech',subsectorId:'digital-agencies',icon:'🔍',ref:'NXS-1389',saleType:'partial',
+   es:{name:'SEO & Contenidos Rankup',loc:'Sevilla / Remoto',desc:'Agencia especializada en SEO técnico y estrategia de contenidos para ecommerce. 52 clientes activos. 5 años. Fundadores buscan entrada de capital para internacionalización.'},
+   en:{name:'Rankup SEO & Content',loc:'Seville / Remote',desc:'Agency specialised in technical SEO and content strategy for ecommerce. 52 active clients. 5 years. Founders seeking capital entry for internationalisation.'},
+   revenue:680000,ebitda:190400,margin:28.0,employees:9,yearsActive:5,valuation:{low:680000,high:960000},urgent:false,
+   duns:{paydex:79,defaultProb:'1.9%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-6x EBITDA',lat:37.39,lng:-5.98,
+   details:{es:{chars:['52 clientes activos — 80% en ecommerce y retail digital','Metodología SEO propia con resultados demostrables','Herramientas y procesos documentados — escalable','MRR €56.700 — base de facturación recurrente','Pipeline UK y LATAM con 3 prospectos avanzados']},
+            en:{chars:['52 active clients — 80% in ecommerce and digital retail','Own SEO methodology with demonstrable results','Documented tools and processes — scalable','MRR €56,700 — recurring billing base','UK and LATAM pipeline with 3 advanced prospects']}}},
+  // HEALTH - pharmacy
+  {id:37,sectorId:'health',subsectorId:'pharmacy',icon:'💊',ref:'NXS-4101',saleType:'full',
+   es:{name:'Farmacia Barrio Nuevo',loc:'Madrid, Vallecas',desc:'Farmacia de barrio con 24 años de actividad. 1.200 clientes habituales. Servicio de cartera de crónicos consolidado. Farmacéutica titular jubilación próxima. Licencia intransferible — se vende la sociedad.'},
+   en:{name:'Barrio Nuevo Pharmacy',loc:'Madrid, Vallecas',desc:'Neighbourhood pharmacy with 24 years of activity. 1,200 regular customers. Consolidated chronic patient portfolio service. Titular pharmacist nearing retirement. Non-transferable licence — company sold.'},
+   revenue:1800000,ebitda:252000,margin:14.0,employees:5,yearsActive:24,valuation:{low:900000,high:1200000},urgent:false,
+   duns:{paydex:85,defaultProb:'0.7%',creditRisk:'Muy bajo',rating:'A-'},sectorMultiple:'3-5x EBITDA',lat:40.39,lng:-3.66,
+   details:{es:{chars:['Licencia de farmacia en zona sin competencia directa en 500m','1.200 clientes habituales con cartera de crónicos estable','Servicio de entrega a domicilio propio con 180 pedidos/mes','Robot dispensador incluido (valorado €85.000)','Facturación SNS 68% — base regulatoria estable']},
+            en:{chars:['Pharmacy licence with no direct competition within 500m','1,200 regular customers with stable chronic patient portfolio','Own home delivery service with 180 orders/month','Dispensing robot included (valued €85,000)','NHS billing 68% — stable regulatory base']}}},
+  {id:38,sectorId:'health',subsectorId:'pharmacy',icon:'👁️',ref:'NXS-4145',saleType:'full',
+   es:{name:'Óptica & Audiología VisionPlus',loc:'Zaragoza, Centro',desc:'Óptica con servicio de audiología integrado. 16 años. 3.400 expedientes activos. Propietario se jubila. Alta recurrencia de revisiones anuales y renovación de lentillas.'},
+   en:{name:'VisionPlus Optics & Audiology',loc:'Zaragoza, Centre',desc:'Optician with integrated audiology service. 16 years. 3,400 active files. Owner retiring. High recurrence of annual reviews and contact lens renewals.'},
+   revenue:720000,ebitda:144000,margin:20.0,employees:6,yearsActive:16,valuation:{low:580000,high:780000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.8%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:41.65,lng:-0.87,
+   details:{es:{chars:['3.400 expedientes activos con revisión media anual','Servicio de audiología — diferenciador escaso en la zona','Acuerdos con 5 mutuas de seguros privados','Equipamiento diagnóstico renovado en 2023 (€95.000)','Local propio de 180m² en calle peatonal comercial']},
+            en:{chars:['3,400 active files with average annual review','Audiology service — rare differentiator in the area','Agreements with 5 private insurance companies','Diagnostic equipment renewed in 2023 (€95,000)','Own 180m² premises on commercial pedestrian street']}}},
+  {id:39,sectorId:'health',subsectorId:'pharmacy',icon:'🌿',ref:'NXS-4189',saleType:'transfer',
+   es:{name:'Parafarmacia & Cosmética Natural BioCare',loc:'Bilbao, Casco Viejo',desc:'Parafarmacia especializada en cosmética natural y suplementos orgánicos. 9 años. Sin receta. Clientela premium fidelizada. Propietaria cambia de sector.'},
+   en:{name:'BioCare Natural Parapharmacy & Cosmetics',loc:'Bilbao, Old Town',desc:'Parapharmacy specialised in natural cosmetics and organic supplements. 9 years. No prescription. Loyal premium clientele. Owner changing sector.'},
+   revenue:380000,ebitda:95000,margin:25.0,employees:3,yearsActive:9,valuation:{low:280000,high:390000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.5%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:43.25,lng:-2.92,
+   details:{es:{chars:['Sin licencia de farmacia — traspaso sin restricciones','Clientela premium con ticket medio €65','Canal online propio: 25% de ventas con crecimiento +40% anual','Proveedor exclusivo de 3 marcas nórdicas en España','Ubicación prime en casco viejo con alto tráfico']},
+            en:{chars:['No pharmacy licence — unrestricted transfer','Premium clientele with average ticket €65','Own online channel: 25% of sales growing +40% annually','Exclusive supplier of 3 Nordic brands in Spain','Prime location in old town with high footfall']}}},
+  // HEALTH - gyms
+  {id:40,sectorId:'health',subsectorId:'gyms',icon:'🏋️',ref:'NXS-2105',saleType:'transfer',
+   es:{name:'Centro Deportivo FitZone Zaragoza',loc:'Zaragoza, Centro',desc:'Gimnasio de 1.200m² con 1.847 socios activos. Equipamiento de alto rendimiento renovado en 2023. Contrato de arrendamiento ventajoso hasta 2031. Propietario emigra al extranjero.'},
+   en:{name:'FitZone Sports Center Zaragoza',loc:'Zaragoza, City Centre',desc:'1,200m² gym with 1,847 active members. High-performance equipment renewed in 2023. Advantageous lease until 2031. Owner emigrating abroad.'},
+   revenue:520000,ebitda:104000,margin:20.0,employees:9,yearsActive:11,valuation:{low:310000,high:420000},urgent:true,
+   duns:{paydex:75,defaultProb:'2.8%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:41.65,lng:-0.89,
+   details:{es:{chars:['1.847 socios con cuota media €28/mes','Alquiler €4.200/mes — muy por debajo de mercado','Clases grupales con lista de espera consistente','App propia de reservas con 78% de adopción','Upsells: nutrición, entrenamiento personal, fisio']},
+            en:{chars:['1,847 members at average €28/month fee','Rent €4,200/month — well below market','Group classes with consistent waiting lists','Own booking app with 78% adoption','Upsells: nutrition, personal training, physio']}}},
+  {id:41,sectorId:'health',subsectorId:'gyms',icon:'🥊',ref:'NXS-2149',saleType:'full',
+   es:{name:'Box & Crossfit Guerreros Madrid',loc:'Madrid, Vallehermoso',desc:'Box de CrossFit y artes marciales con 420 socios. 7 años. Instalaciones de 800m² con ring de boxeo y zona functional. Fundador busca salida total por proyecto personal.'},
+   en:{name:'Guerreros Madrid Box & Crossfit',loc:'Madrid, Vallehermoso',desc:'CrossFit and martial arts box with 420 members. 7 years. 800m² facilities with boxing ring and functional zone. Founder seeking full exit for personal project.'},
+   revenue:380000,ebitda:99800,margin:26.0,employees:7,yearsActive:7,valuation:{low:300000,high:420000},urgent:false,
+   duns:{paydex:74,defaultProb:'2.9%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:40.44,lng:-3.71,
+   details:{es:{chars:['420 socios activos — comunidad muy fidelizada','Horario amplio 6:00-22:00 — máxima utilización','Certificación CrossFit Level 1 y 2 del equipo coach','Artes marciales: boxeo, BJJ, MMA — diferenciador único en zona','Membership anual: 35% de los socios — base recurrente']},
+            en:{chars:['420 active members — highly loyal community','Wide hours 6:00-22:00 — maximum utilisation','CrossFit Level 1 and 2 certification for coaching team','Martial arts: boxing, BJJ, MMA — unique differentiator in area','Annual membership: 35% of members — recurring base']}}},
+  {id:42,sectorId:'health',subsectorId:'gyms',icon:'🧘',ref:'NXS-2193',saleType:'partial',
+   es:{name:'Studio Pilates & Yoga Equilibrio',loc:'Barcelona, Eixample',desc:'Studio boutique de pilates reformer y yoga. 280 socios activos. Precio premium €120/mes. 5 años. Co-fundadoras buscan capital para abrir segundo estudio en Madrid.'},
+   en:{name:'Equilibrio Pilates & Yoga Studio',loc:'Barcelona, Eixample',desc:'Boutique pilates reformer and yoga studio. 280 active members. Premium price €120/month. 5 years. Co-founders seeking capital to open second studio in Madrid.'},
+   revenue:403200,ebitda:121000,margin:30.0,employees:6,yearsActive:5,valuation:{low:450000,high:630000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.2%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:41.39,lng:2.16,
+   details:{es:{chars:['280 socios a €120/mes — modelo premium con alta retención','14 reformers Balanced Body de gama alta','Lista de espera de 45 personas','Equipo de 4 instructoras con certificación internacional','Tienda de accesorios y ropa integrada: 12% de ingresos adicionales']},
+            en:{chars:['280 members at €120/month — premium model with high retention','14 Balanced Body high-end reformers','Waiting list of 45 people','Team of 4 instructors with international certification','Integrated accessories and clothing shop: 12% additional revenue']}}},
+  // HEALTH - beauty
+  {id:43,sectorId:'health',subsectorId:'beauty',icon:'💆',ref:'NXS-4301',saleType:'full',
+   es:{name:'Centro de Estética Premium Bellissima',loc:'Madrid, Salamanca',desc:'Centro de estética y tratamientos corporales en el barrio de Salamanca. 11 años. Clientela femenina de alto poder adquisitivo. Propietaria se jubila. 3 cabinas de tratamiento.'},
+   en:{name:'Bellissima Premium Beauty Centre',loc:'Madrid, Salamanca',desc:'Beauty and body treatment centre in the Salamanca neighbourhood. 11 years. High-income female clientele. Owner retiring. 3 treatment cabins.'},
+   revenue:480000,ebitda:134400,margin:28.0,employees:6,yearsActive:11,valuation:{low:450000,high:620000},urgent:false,
+   duns:{paydex:81,defaultProb:'1.6%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'3-5x EBITDA',lat:40.42,lng:-3.68,
+   details:{es:{chars:['Clientela premium Barrio Salamanca — ticket medio €95','3 cabinas con equipamiento médico-estético de última generación','Franquicia de cosmética de lujo integrada (ingresos adicionales)','Agenda llena con 3 semanas de antelación','Posibilidad de ampliación a 5ª y 6ª cabina en el local']},
+            en:{chars:['Premium Salamanca clientele — average ticket €95','3 cabins with latest generation medical-aesthetic equipment','Integrated luxury cosmetics franchise (additional revenue)','Full agenda with 3 weeks advance booking','Possibility of expansion to 5th and 6th cabin in premises']}}},
+  {id:44,sectorId:'health',subsectorId:'beauty',icon:'✂️',ref:'NXS-4345',saleType:'full',
+   es:{name:'Peluquería & Color Studio Crome',loc:'Valencia, Russafa',desc:'Salón de peluquería premium especializado en coloración. 8 años en Russafa. Premio al mejor colorista de la Comunitat Valenciana 2022. Fundador se traslada al extranjero.'},
+   en:{name:'Crome Hair & Color Studio',loc:'Valencia, Russafa',desc:'Premium hair salon specialised in colouring. 8 years in Russafa. Best colourist in Comunitat Valenciana award 2022. Founder relocating abroad.'},
+   revenue:320000,ebitda:83200,margin:26.0,employees:5,yearsActive:8,valuation:{low:250000,high:350000},urgent:true,
+   duns:{paydex:75,defaultProb:'2.7%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:39.46,lng:-0.37,
+   details:{es:{chars:['Premio mejor colorista CV 2022 — reputación premium','Instagram 28.000 seguidores con demanda orgánica constante','Clientela media de 34 años — perfil de alta recurrencia','Uso de técnicas exclusivas balayage y colorimetría avanzada','Venta de producto cosmético: 18% de ingresos adicionales']},
+            en:{chars:['Best CV colourist 2022 award — premium reputation','Instagram 28,000 followers with constant organic demand','Average client age 34 — high recurrence profile','Use of exclusive balayage and advanced colorimetry techniques','Cosmetic product sales: 18% additional revenue']}}},
+  {id:45,sectorId:'health',subsectorId:'beauty',icon:'♨️',ref:'NXS-4389',saleType:'partial',
+   es:{name:'Spa Urbano Serenity Wellness',loc:'Bilbao, Abando',desc:'Spa urbano de 450m² con 8 cabinas, hammam, sala flotación y zona relax. 7 años. Membresías mensuales + tratamientos. Co-fundadores buscan socio para segundo establecimiento.'},
+   en:{name:'Serenity Wellness Urban Spa',loc:'Bilbao, Abando',desc:'450m² urban spa with 8 cabins, hammam, flotation room and relaxation area. 7 years. Monthly memberships + treatments. Co-founders seeking partner for second venue.'},
+   revenue:560000,ebitda:140000,margin:25.0,employees:10,yearsActive:7,valuation:{low:520000,high:720000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.1%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:43.26,lng:-2.93,
+   details:{es:{chars:['180 membresías activas a €89/mes — base recurrente sólida','Sala de flotación — única en Bilbao y alrededores','Tasa de conversión primer tratamiento a membresía del 42%','Colaboración con 4 hoteles de 4 estrellas del entorno','App propia con gestión de citas y fidelización']},
+            en:{chars:['180 active memberships at €89/month — solid recurring base','Flotation room — unique in Bilbao and surroundings','First treatment to membership conversion rate 42%','Partnership with 4 surrounding 4-star hotels','Own app with appointment management and loyalty programme']}}},
+  // ENERGY - solar
+  {id:46,sectorId:'energy',subsectorId:'solar',icon:'☀️',ref:'NXS-5101',saleType:'full',
+   es:{name:'SolarTech Instalaciones Renovables',loc:'Murcia, Zona Industrial',desc:'Instaladora fotovoltaica para industrial y residencial. 8 años. Homologación de instalador en 6 CCAA. 140 proyectos ejecutados. Fundadores buscan salida estratégica.'},
+   en:{name:'SolarTech Renewable Installations',loc:'Murcia, Industrial Zone',desc:'Photovoltaic installer for industrial and residential. 8 years. Installer approval in 6 autonomous communities. 140 projects completed. Founders seeking strategic exit.'},
+   revenue:2800000,ebitda:392000,margin:14.0,employees:18,yearsActive:8,valuation:{low:1400000,high:1900000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.3%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-6x EBITDA',lat:37.98,lng:-1.13,
+   details:{es:{chars:['Homologación en 6 CCAA — barrera de entrada significativa','140 proyectos ejecutados con 98% de satisfacción','Pipeline firmado de €3.2M para próximos 18 meses','Equipo técnico de 12 instaladores certificados','Acuerdos con 3 distribuidores de paneles tier-1']},
+            en:{chars:['Approval in 6 autonomous communities — significant barrier to entry','140 completed projects with 98% satisfaction','Signed pipeline of €3.2M for next 18 months','Technical team of 12 certified installers','Agreements with 3 tier-1 panel distributors']}}},
+  {id:47,sectorId:'energy',subsectorId:'solar',icon:'⚡',ref:'NXS-5145',saleType:'partial',
+   es:{name:'GreenPower Comunidades Solares',loc:'Sevilla / Remoto',desc:'Gestora de comunidades de autoconsumo fotovoltaico compartido. 12 comunidades activas. Modelo de ingresos recurrentes por gestión. 4 años. Búsqueda de capital para escalar.'},
+   en:{name:'GreenPower Solar Communities',loc:'Seville / Remote',desc:'Shared photovoltaic self-consumption community manager. 12 active communities. Recurring revenue model through management. 4 years. Capital raising to scale.'},
+   revenue:480000,ebitda:144000,margin:30.0,employees:6,yearsActive:4,valuation:{low:580000,high:820000},urgent:false,
+   duns:{paydex:73,defaultProb:'3.1%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'5-7x EBITDA',lat:37.39,lng:-5.99,
+   details:{es:{chars:['12 comunidades activas — modelo SaaS energético recurrente','Contratos de gestión de 10 años con comunidades de propietarios','Marco regulatorio favorable (RDL 23/2020) — viento de cola','Tecnología propia de monitorización y reparto energético','Pipeline de 8 nuevas comunidades en negociación avanzada']},
+            en:{chars:['12 active communities — recurring energy SaaS model','10-year management contracts with owner communities','Favourable regulatory framework (RDL 23/2020) — tailwind','Own monitoring and energy distribution technology','Pipeline of 8 new communities in advanced negotiation']}}},
+  {id:48,sectorId:'energy',subsectorId:'solar',icon:'🔋',ref:'NXS-5189',saleType:'full',
+   es:{name:'Almacenamiento Energético StorageX',loc:'Madrid, Leganés',desc:'Empresa de sistemas de almacenamiento energético (baterías) para instalaciones industriales y agrícolas. 5 años. Distribuidor exclusivo de marca coreana tier-1 para España.'},
+   en:{name:'StorageX Energy Storage Systems',loc:'Madrid, Leganés',desc:'Energy storage systems company (batteries) for industrial and agricultural installations. 5 years. Exclusive distributor of Korean tier-1 brand for Spain.'},
+   revenue:1800000,ebitda:270000,margin:15.0,employees:9,yearsActive:5,valuation:{low:950000,high:1300000},urgent:false,
+   duns:{paydex:75,defaultProb:'2.6%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-6x EBITDA',lat:40.33,lng:-3.77,
+   details:{es:{chars:['Distribución exclusiva marca coreana tier-1 — ventaja estratégica','Cartera de 280 instalaciones activas con contratos mantenimiento','Sector con crecimiento estructural — obligatoriedad regulatoria emergente','Equipo técnico de 6 ingenieros energéticos certificados','Servicio de monitorización remota propio: ingresos recurrentes €180K/año']},
+            en:{chars:['Exclusive distribution of Korean tier-1 brand — strategic advantage','Portfolio of 280 active installations with maintenance contracts','Structurally growing sector — emerging regulatory obligation','Technical team of 6 certified energy engineers','Own remote monitoring service: recurring revenue €180K/year']}}},
+  // ENERGY - efficiency
+  {id:49,sectorId:'energy',subsectorId:'efficiency',icon:'🌡️',ref:'NXS-5301',saleType:'full',
+   es:{name:'EnergyAudit Consultoría Energética',loc:'Barcelona, Sant Cugat',desc:'Consultora de eficiencia energética y certificaciones para edificios corporativos y residenciales. 11 años. Marco de subvenciones Next Generation EU como catalizador.'},
+   en:{name:'EnergyAudit Energy Consulting',loc:'Barcelona, Sant Cugat',desc:'Energy efficiency and certification consultancy for corporate and residential buildings. 11 years. Next Generation EU subsidy framework as catalyst.'},
+   revenue:680000,ebitda:170000,margin:25.0,employees:8,yearsActive:11,valuation:{low:620000,high:870000},urgent:false,
+   duns:{paydex:82,defaultProb:'1.4%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'4-5x EBITDA',lat:41.47,lng:2.00,
+   details:{es:{chars:['Agente rehabilitador acreditado — acceso a subvenciones Next Gen EU','Cartera de 85 edificios en gestión continuada','Certificaciones energéticas: A, B y C — categorías de alta demanda','Convenio con 3 grandes promotoras inmobiliarias catalanas','Backlog firmado de €480.000 para próximos 9 meses']},
+            en:{chars:['Accredited rehabilitation agent — access to Next Gen EU subsidies','Portfolio of 85 buildings under ongoing management','Energy certificates: A, B and C — high-demand categories','Agreement with 3 major Catalan property developers','Signed backlog of €480,000 for next 9 months']}}},
+  {id:50,sectorId:'energy',subsectorId:'efficiency',icon:'❄️',ref:'NXS-5345',saleType:'full',
+   es:{name:'ClimaOptima HVAC Industrial',loc:'Valencia, Paterna',desc:'Empresa de climatización industrial y comercial con servicio de mantenimiento. 17 años. 95 contratos de mantenimiento anual. Propietario mayor de 65 sin sucesor.'},
+   en:{name:'ClimaOptima Industrial HVAC',loc:'Valencia, Paterna',desc:'Industrial and commercial air conditioning company with maintenance service. 17 years. 95 annual maintenance contracts. Owner over 65 without successor.'},
+   revenue:1100000,ebitda:198000,margin:18.0,employees:12,yearsActive:17,valuation:{low:700000,high:950000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.4%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-5x EBITDA',lat:39.50,lng:-0.44,
+   details:{es:{chars:['95 contratos de mantenimiento anual — base recurrente €420K','Homologación instalador frigorista F-Gas — barrera regulatoria','Flota de 6 vehículos taller propios incluida','Almacén de materiales valorado en €140.000','Acuerdos de distribución con Daikin y Mitsubishi Electric']},
+            en:{chars:['95 annual maintenance contracts — €420K recurring base','F-Gas refrigeration installer approval — regulatory barrier','Fleet of 6 own workshop vehicles included','Materials warehouse valued at €140,000','Distribution agreements with Daikin and Mitsubishi Electric']}}},
+  {id:51,sectorId:'energy',subsectorId:'efficiency',icon:'💡',ref:'NXS-5389',saleType:'partial',
+   es:{name:'LedPro Iluminación Eficiente',loc:'Madrid, Getafe',desc:'Empresa de retrofit de iluminación LED para industria, retail y oficinas. 9 años. Modelo de financiación propia sin inversión del cliente. Co-fundadores buscan socio financiero.'},
+   en:{name:'LedPro Efficient Lighting',loc:'Madrid, Getafe',desc:'LED lighting retrofit company for industry, retail and offices. 9 years. Own financing model with no client investment. Co-founders seeking financial partner.'},
+   revenue:1400000,ebitda:252000,margin:18.0,employees:11,yearsActive:9,valuation:{low:850000,high:1200000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:40.31,lng:-3.73,
+   details:{es:{chars:['Modelo de financiación propia — cliente sin inversión inicial','45 proyectos recurrentes en cartera activa','Ahorro medio garantizado por contrato del 68% en factura','Contratos de 7 años — visibilidad de ingresos a largo plazo','Pipeline de proyectos en negociación: €2.1M']},
+            en:{chars:['Own financing model — no initial client investment','45 recurring projects in active portfolio','Average savings guaranteed by contract of 68% on bill','7-year contracts — long-term revenue visibility','Projects under negotiation pipeline: €2.1M']}}},
+  // ENERGY - waste
+  {id:52,sectorId:'energy',subsectorId:'waste',icon:'♻️',ref:'NXS-5501',saleType:'full',
+   es:{name:'ReciclaPlus Gestión de Residuos',loc:'Bilbao, Zona Industrial',desc:'Gestora de residuos industriales no peligrosos. 14 años. Licencia ambiental con 6 flujos de residuo autorizados. Propietario se jubila. Contratos con 80 clientes industriales.'},
+   en:{name:'ReciclaPlus Waste Management',loc:'Bilbao, Industrial Zone',desc:'Non-hazardous industrial waste manager. 14 years. Environmental licence with 6 authorised waste streams. Owner retiring. Contracts with 80 industrial clients.'},
+   revenue:1600000,ebitda:240000,margin:15.0,employees:14,yearsActive:14,valuation:{low:850000,high:1150000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.1%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-5x EBITDA',lat:43.26,lng:-2.94,
+   details:{es:{chars:['Licencia ambiental — barrera de entrada casi insalvable','80 clientes industriales con contratos anuales','6 flujos de residuo autorizados: plástico, papel, metal, vidrio, orgánico, mixto','Flota propia de 5 camiones con compactador','Convenio de valorización con planta de reciclaje local']},
+            en:{chars:['Environmental licence — near-insurmountable barrier to entry','80 industrial clients with annual contracts','6 authorised waste streams: plastic, paper, metal, glass, organic, mixed','Own fleet of 5 trucks with compactor','Recovery agreement with local recycling plant']}}},
+  {id:53,sectorId:'energy',subsectorId:'waste',icon:'🌱',ref:'NXS-5545',saleType:'partial',
+   es:{name:'BioGreen Compostaje Industrial',loc:'Zaragoza, Polígono',desc:'Planta de compostaje de residuos orgánicos industriales. 7 años. Capacidad 4.800 toneladas/año. Contratos con 12 industrias alimentarias. Co-fundadores buscan capital para duplicar capacidad.'},
+   en:{name:'BioGreen Industrial Composting',loc:'Zaragoza, Industrial Park',desc:'Industrial organic waste composting plant. 7 years. Capacity 4,800 tonnes/year. Contracts with 12 food industries. Co-founders seeking capital to double capacity.'},
+   revenue:980000,ebitda:176400,margin:18.0,employees:9,yearsActive:7,valuation:{low:680000,high:950000},urgent:false,
+   duns:{paydex:74,defaultProb:'2.8%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-6x EBITDA',lat:41.65,lng:-0.88,
+   details:{es:{chars:['Capacidad 4.800 t/año — autorización ambiental vigente','Contratos con 12 industrias alimentarias de la zona','Compost producido con certificación de calidad agrícola','Tierra disponible para duplicar planta sin nueva licencia','Tendencia regulatoria favorable — economía circular obligatoria']},
+            en:{chars:['Capacity 4,800 t/year — valid environmental authorisation','Contracts with 12 local food industries','Produced compost with agricultural quality certification','Land available to double plant without new licence','Favourable regulatory trend — mandatory circular economy']}}},
+  {id:54,sectorId:'energy',subsectorId:'waste',icon:'🔩',ref:'NXS-5589',saleType:'full',
+   es:{name:'MetalRecicla Chatarra Industrial',loc:'Murcia, Polígono',desc:'Gestor y trader de chatarra industrial ferrosa y no ferrosa. 22 años. Contratos de suministro con 3 acerías nacionales. Propietario jubilación. Instalación propia con cizalla y prensa.'},
+   en:{name:'MetalRecicla Industrial Scrap',loc:'Murcia, Industrial Park',desc:'Industrial ferrous and non-ferrous scrap manager and trader. 22 years. Supply contracts with 3 national steelworks. Owner retiring. Own installation with shear and press.'},
+   revenue:3200000,ebitda:288000,margin:9.0,employees:11,yearsActive:22,valuation:{low:850000,high:1150000},urgent:true,
+   duns:{paydex:72,defaultProb:'3.2%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:37.98,lng:-1.14,
+   details:{es:{chars:['Contratos de suministro con 3 acerías nacionales','Instalación propia con cizalla y prensa — inversión €480.000','Licencia de gestor de residuos metálicos — barrera regulatoria','22 años de relaciones con proveedores y clientes industriales','Solar de 8.000m² propio incluido en la valoración']},
+            en:{chars:['Supply contracts with 3 national steelworks','Own installation with shear and press — €480,000 investment','Metallic waste manager licence — regulatory barrier','22 years of supplier and industrial client relationships','Own 8,000m² plot included in valuation']}}},
+  // RETAIL - food
+  {id:55,sectorId:'retail',subsectorId:'food',icon:'🛒',ref:'NXS-6101',saleType:'full',
+   es:{name:'Supermercado Frescos del Barrio',loc:'Madrid, Hortaleza',desc:'Supermercado independiente de 650m² especializado en producto fresco y ecológico. 13 años. Sin competencia directa en radio de 600m. Propietario fundador se jubila.'},
+   en:{name:'Frescos del Barrio Supermarket',loc:'Madrid, Hortaleza',desc:'650m² independent supermarket specialised in fresh and organic produce. 13 years. No direct competition within 600m radius. Founding owner retiring.'},
+   revenue:2400000,ebitda:192000,margin:8.0,employees:11,yearsActive:13,valuation:{low:550000,high:760000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.5%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'2-4x EBITDA',lat:40.47,lng:-3.63,
+   details:{es:{chars:['Sin competencia directa en radio de 600m','Sección ecológica: 28% de las ventas con margen superior','Acuerdo con 6 productores locales — diferenciador de producto','Clientela fidelizada de alto poder adquisitivo','Licencia de venta de alcohol y tabaco incluida']},
+            en:{chars:['No direct competition within 600m radius','Organic section: 28% of sales with higher margin','Agreement with 6 local producers — product differentiator','Loyal high-income clientele','Alcohol and tobacco sales licence included']}}},
+  {id:56,sectorId:'retail',subsectorId:'food',icon:'🧀',ref:'NXS-6145',saleType:'transfer',
+   es:{name:'Delicatessen & Quesería Artesana',loc:'San Sebastián, Centro',desc:'Tienda delicatessen especializada en quesos artesanos, embutidos ibéricos y conservas gourmet. 9 años. Clientela premium local y turística. Propietaria cambia de país.'},
+   en:{name:'Artisan Delicatessen & Cheesemonger',loc:'San Sebastián, Centre',desc:'Delicatessen shop specialised in artisan cheeses, Iberian cold cuts and gourmet preserves. 9 years. Premium local and tourist clientele. Owner moving country.'},
+   revenue:480000,ebitda:115200,margin:24.0,employees:4,yearsActive:9,valuation:{low:320000,high:440000},urgent:true,
+   duns:{paydex:78,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'2-4x EBITDA',lat:43.32,lng:-1.98,
+   details:{es:{chars:['Más de 120 referencias de queso artesano en stock','Clientela premium local + flujo turístico garantizado','Envío online a toda España: 22% de las ventas','Acuerdos directos con 18 productores artesanos','Ubicación céntrica prime de San Sebastián']},
+            en:{chars:['Over 120 artisan cheese references in stock','Premium local clientele + guaranteed tourist flow','Online shipping across Spain: 22% of sales','Direct agreements with 18 artisan producers','Prime central location in San Sebastián']}}},
+  {id:57,sectorId:'retail',subsectorId:'food',icon:'🥖',ref:'NXS-6189',saleType:'full',
+   es:{name:'Panadería Artesana El Obrador',loc:'Málaga, Pedregalejo',desc:'Panadería artesanal con horno de leña y obrador propio. 16 años. Distribución a 12 restaurantes del barrio. Turno de madrugada consolidado. Fundador se jubila.'},
+   en:{name:'El Obrador Artisan Bakery',loc:'Málaga, Pedregalejo',desc:'Artisan bakery with wood-fired oven and own workshop. 16 years. Distribution to 12 neighbourhood restaurants. Consolidated night shift. Founder retiring.'},
+   revenue:380000,ebitda:91200,margin:24.0,employees:6,yearsActive:16,valuation:{low:240000,high:340000},urgent:false,
+   duns:{paydex:74,defaultProb:'2.9%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'2-3x EBITDA',lat:36.72,lng:-4.38,
+   details:{es:{chars:['Horno de leña — diferenciador de producto único','Distribución B2B a 12 restaurantes: 40% de ingresos','Masa madre propia de 16 años — patrimonio inmaterial','Obrador de 200m² propio — activo incluido','Ticket de desayuno fidelizado en zona turística']},
+            en:{chars:['Wood-fired oven — unique product differentiator','B2B distribution to 12 restaurants: 40% of revenue','Own 16-year sourdough starter — intangible heritage','Own 200m² workshop — included asset','Loyal breakfast clientele in tourist area']}}},
+  // RETAIL - fashion
+  {id:58,sectorId:'retail',subsectorId:'fashion',icon:'👗',ref:'NXS-6301',saleType:'full',
+   es:{name:'Boutique Moda Contemporánea Elisa',loc:'Barcelona, Gràcia',desc:'Boutique multimarca de moda femenina contemporánea. 14 años en Gràcia. Clientela fidelizada 35-55 años. Propietaria se jubila. Mix de marcas internacionales y diseñadores locales.'},
+   en:{name:'Elisa Contemporary Fashion Boutique',loc:'Barcelona, Gràcia',desc:'Multi-brand contemporary womenswear boutique. 14 years in Gràcia. Loyal 35-55 year old clientele. Owner retiring. Mix of international brands and local designers.'},
+   revenue:480000,ebitda:86400,margin:18.0,employees:4,yearsActive:14,valuation:{low:230000,high:340000},urgent:false,
+   duns:{paydex:75,defaultProb:'2.6%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'2-3x EBITDA',lat:41.40,lng:2.16,
+   details:{es:{chars:['Clientela fiel con tasa de retorno del 72% anual','Mix de 28 marcas — acuerdos directos con diseñadores','Renta por debajo de mercado hasta 2030','Canal Instagram activo: 18.000 seguidores con ventas online','Personal shopper incluido — servicio premium diferenciador']},
+            en:{chars:['Loyal clientele with 72% annual return rate','Mix of 28 brands — direct designer agreements','Below-market rent until 2030','Active Instagram channel: 18,000 followers with online sales','Personal shopper included — premium differentiating service']}}},
+  {id:59,sectorId:'retail',subsectorId:'fashion',icon:'💎',ref:'NXS-6345',saleType:'full',
+   es:{name:'Joyería & Relojería Singular',loc:'Madrid, Serrano',desc:'Joyería de autor con taller propio en Serrano. 22 años. Diseños exclusivos y piezas de encargo. Ticket medio €450. Propietario jubilación.'},
+   en:{name:'Singular Jewellery & Watchmaker',loc:'Madrid, Serrano',desc:'Bespoke jewellery with own workshop on Serrano. 22 years. Exclusive designs and commissioned pieces. Average ticket €450. Owner retiring.'},
+   revenue:580000,ebitda:104400,margin:18.0,employees:5,yearsActive:22,valuation:{low:320000,high:450000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.8%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'2-4x EBITDA',lat:40.42,lng:-3.68,
+   details:{es:{chars:['Taller propio de joyería — control total de producción','Cartera de 380 clientes de alto poder adquisitivo','Especialidad en encargos y reformas de joyas heredadas','Ubicación Serrano — clientela premium garantizada','Activos materiales incluidos: maquinaria de taller €120.000']},
+            en:{chars:['Own jewellery workshop — full production control','Portfolio of 380 high-income clients','Speciality in commissions and inherited jewellery reworks','Serrano location — guaranteed premium clientele','Material assets included: workshop machinery €120,000']}}},
+  {id:60,sectorId:'retail',subsectorId:'fashion',icon:'👟',ref:'NXS-6389',saleType:'partial',
+   es:{name:'Tienda Multimarca Streetwear UrbanBox',loc:'Valencia, Centro',desc:'Tienda multimarca de streetwear y sneakers premium. 7 años. 3.200 clientes activos. Canal online 45% de ventas. Co-fundadores buscan socio para segunda tienda en Madrid.'},
+   en:{name:'UrbanBox Streetwear Multibrand Store',loc:'Valencia, Centre',desc:'Streetwear and premium sneakers multi-brand store. 7 years. 3,200 active customers. Online channel 45% of sales. Co-founders seeking partner for second store in Madrid.'},
+   revenue:680000,ebitda:122400,margin:18.0,employees:5,yearsActive:7,valuation:{low:360000,high:510000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.4%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:39.47,lng:-0.38,
+   details:{es:{chars:['Canal online 45% — tienda física + Shopify integrados','Acuerdos con Nike, Adidas, New Balance y 8 marcas indie','Instagram 42.000 seguidores con conversión directa a ventas','Sistema de reservas para drops limitados — diferenciador','Ticket medio online €180 vs €210 física']},
+            en:{chars:['Online channel 45% — physical store + integrated Shopify','Agreements with Nike, Adidas, New Balance and 8 indie brands','Instagram 42,000 followers with direct sales conversion','Reservation system for limited drops — differentiator','Average online ticket €180 vs €210 in-store']}}},
+  // RETAIL - franchise
+  {id:61,sectorId:'retail',subsectorId:'franchise',icon:'🏪',ref:'NXS-6501',saleType:'full',
+   es:{name:'Franquicia Suministros & Ferretería Bricomax',loc:'Bilbao, Basauri',desc:'Operador de franquicia Bricomax con 2 establecimientos en el Gran Bilbao. 11 años. Contrato de franquicia renovado hasta 2032. Propietario jubilación.'},
+   en:{name:'Bricomax Hardware Franchise',loc:'Bilbao, Basauri',desc:'Bricomax franchise operator with 2 establishments in Greater Bilbao. 11 years. Franchise contract renewed until 2032. Owner retiring.'},
+   revenue:2800000,ebitda:168000,margin:6.0,employees:16,yearsActive:11,valuation:{low:480000,high:680000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.2%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:43.23,lng:-2.89,
+   details:{es:{chars:['2 locales en el Gran Bilbao con zona de influencia exclusiva','Contrato franquicia renovado hasta 2032','Sistema de gestión y logística del franquiciador — sin riesgo operativo','Clientela profesional (albañiles, fontaneros) 55% de ventas','Tarjeta de fidelización con 4.200 clientes activos']},
+            en:{chars:['2 venues in Greater Bilbao with exclusive catchment area','Franchise contract renewed until 2032','Franchisor management and logistics system — no operational risk','Professional clientele (builders, plumbers) 55% of sales','Loyalty card with 4,200 active customers']}}},
+  {id:62,sectorId:'retail',subsectorId:'franchise',icon:'☕',ref:'NXS-6545',saleType:'full',
+   es:{name:'Franquicia Café & Co Operator',loc:'Madrid, IFEMA',desc:'Operador de 3 establecimientos de franquicia de cafetería premium en zona de negocios. 7 años. Contratos con IFEMA y 2 edificios corporativos. Ticket medio €9.'},
+   en:{name:'Café & Co Franchise Operator',loc:'Madrid, IFEMA',desc:'Operator of 3 premium café franchise establishments in business zone. 7 years. Contracts with IFEMA and 2 corporate buildings. Average ticket €9.'},
+   revenue:1100000,ebitda:154000,margin:14.0,employees:14,yearsActive:7,valuation:{low:430000,high:600000},urgent:false,
+   duns:{paydex:79,defaultProb:'1.9%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:40.47,lng:-3.61,
+   details:{es:{chars:['Contratos de exclusividad en IFEMA y 2 edificios corporativos','3 ubicaciones con alta densidad de tráfico cautivo','Marca franquiciadora con soporte operativo y de marketing','Horario reducido (L-V 7:00-19:00) — gestión simplificada','Pipeline de 4ª ubicación en nuevo edificio corporativo']},
+            en:{chars:['Exclusivity contracts in IFEMA and 2 corporate buildings','3 locations with high captive traffic density','Franchise brand with operational and marketing support','Reduced hours (M-F 7:00-19:00) — simplified management','4th location pipeline in new corporate building']}}},
+  {id:63,sectorId:'retail',subsectorId:'franchise',icon:'🏋️',ref:'NXS-6589',saleType:'transfer',
+   es:{name:'Franquicia Fitness Low Cost SportGym',loc:'Sevilla, Nervión',desc:'Franquiciado de gimnasio low cost SportGym con 2.400 socios. 5 años. Modelo de cuota baja con alta densidad de socios. Propietario emigra por trabajo.'},
+   en:{name:'SportGym Low Cost Fitness Franchise',loc:'Seville, Nervión',desc:'SportGym low-cost gym franchisee with 2,400 members. 5 years. Low-fee model with high member density. Owner relocating for work.'},
+   revenue:480000,ebitda:96000,margin:20.0,employees:5,yearsActive:5,valuation:{low:280000,high:400000},urgent:true,
+   duns:{paydex:73,defaultProb:'3.0%',creditRisk:'Moderado',rating:'BB'},sectorMultiple:'3-4x EBITDA',lat:37.37,lng:-5.99,
+   details:{es:{chars:['2.400 socios activos a €29/mes — modelo recurrente sólido','Instalaciones de 1.800m² con equipamiento reciente','Marca SportGym con soporte de marketing y sistema de gestión','Alquiler €6.500/mes — ratio razonable sobre facturación','Zona de alta densidad poblacional en Nervión']},
+            en:{chars:['2,400 active members at €29/month — solid recurring model','1,800m² facilities with recent equipment','SportGym brand with marketing support and management system','Rent €6,500/month — reasonable ratio on revenue','High population density area in Nervión']}}},
+  // REALESTATE - re-agencies
+  {id:64,sectorId:'realestate',subsectorId:'re-agencies',icon:'🏠',ref:'NXS-7101',saleType:'full',
+   es:{name:'Inmobiliaria Premium Residencial Altum',loc:'Madrid, Chamberí',desc:'Agencia inmobiliaria especializada en vivienda de lujo en Madrid. 12 años. 8 agentes senior. Ticket medio de operación €680.000. Socio fundador jubilación.'},
+   en:{name:'Altum Premium Residential Agency',loc:'Madrid, Chamberí',desc:'Real estate agency specialised in luxury housing in Madrid. 12 years. 8 senior agents. Average transaction ticket €680,000. Founding partner retiring.'},
+   revenue:1800000,ebitda:504000,margin:28.0,employees:10,yearsActive:12,valuation:{low:1800000,high:2500000},urgent:false,
+   duns:{paydex:83,defaultProb:'1.2%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'4-5x EBITDA',lat:40.43,lng:-3.70,
+   details:{es:{chars:['Especialización lujo — comisión media 3.5% sobre €680K','8 agentes senior con cartera propia de inversores internacionales','CRM propietario con 1.800 contactos cualificados','Marca posicionada en barrios Chamberí, Salamanca y Retiro','Colaboración con 6 promotoras de obra nueva premium']},
+            en:{chars:['Luxury specialisation — average commission 3.5% on €680K','8 senior agents with own international investor portfolio','Proprietary CRM with 1,800 qualified contacts','Brand positioned in Chamberí, Salamanca and Retiro neighbourhoods','Partnership with 6 premium new-build developers']}}},
+  {id:65,sectorId:'realestate',subsectorId:'re-agencies',icon:'🌊',ref:'NXS-7145',saleType:'partial',
+   es:{name:'Agencia Costa del Sol Sunprop',loc:'Marbella, Centro',desc:'Agencia inmobiliaria especializada en clientes internacionales en la Costa del Sol. 8 años. 60% clientes no residentes. Pipeline activo de €4.2M. Fundadores buscan socio para expandir a Portugal.'},
+   en:{name:'Sunprop Costa del Sol Agency',loc:'Marbella, Centre',desc:'Real estate agency specialised in international clients on the Costa del Sol. 8 years. 60% non-resident clients. Active pipeline of €4.2M. Founders seeking partner to expand to Portugal.'},
+   revenue:1200000,ebitda:336000,margin:28.0,employees:7,yearsActive:8,valuation:{low:1100000,high:1550000},urgent:false,
+   duns:{paydex:80,defaultProb:'1.7%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:36.51,lng:-4.89,
+   details:{es:{chars:['60% clientes internacionales — UK, Alemania, Países Bajos','Pipeline activo de €4.2M con compradores cualificados','Web en 4 idiomas con SEO internacional posicionado','Colaboración con 3 gestorías especializadas en extranjeros','Modelo escalable — misma metodología replicable en Portugal']},
+            en:{chars:['60% international clients — UK, Germany, Netherlands','Active pipeline of €4.2M with qualified buyers','Website in 4 languages with positioned international SEO','Partnership with 3 advisory firms specialised in foreigners','Scalable model — same methodology replicable in Portugal']}}},
+  {id:66,sectorId:'realestate',subsectorId:'re-agencies',icon:'🏢',ref:'NXS-7189',saleType:'full',
+   es:{name:'Coldwell Banker Franquicia Valencia Norte',loc:'Valencia, Benimaclet',desc:'Operador de franquicia Coldwell Banker para Valencia Norte. 6 agentes. 9 años. Especialización en residencial de obra nueva y segunda mano segmento medio-alto.'},
+   en:{name:'Coldwell Banker Valencia Norte Franchise',loc:'Valencia, Benimaclet',desc:'Coldwell Banker franchise operator for Northern Valencia. 6 agents. 9 years. Specialisation in new-build and second-hand residential mid-to-high segment.'},
+   revenue:780000,ebitda:187200,margin:24.0,employees:7,yearsActive:9,valuation:{low:620000,high:870000},urgent:false,
+   duns:{paydex:78,defaultProb:'2.0%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'3-4x EBITDA',lat:39.48,lng:-0.36,
+   details:{es:{chars:['Marca Coldwell Banker — reconocimiento internacional','Zona Valencia Norte en fuerte apreciación — demanda estructural','6 agentes con media 5 años de antigüedad','CRM Coldwell Banker con herramientas de marketing integradas','Acuerdos con 4 promotoras de obra nueva en la zona']},
+            en:{chars:['Coldwell Banker brand — international recognition','Northern Valencia area in strong appreciation — structural demand','6 agents with average 5 years tenure','Coldwell Banker CRM with integrated marketing tools','Agreements with 4 new-build developers in the area']}}},
+  // REALESTATE - coworking
+  {id:67,sectorId:'realestate',subsectorId:'coworking',icon:'💻',ref:'NXS-7301',saleType:'full',
+   es:{name:'Hub Coworking & Oficinas Flexibles WorkNow',loc:'Madrid, Chueca',desc:'Centro de coworking de 800m² con 120 puestos, 8 salas de reuniones y zona events. 6 años. 85% de ocupación media. Fundadores buscan salida tras rechazar oferta de adquisición por parte de cadena.'},
+   en:{name:'WorkNow Coworking & Flex Offices Hub',loc:'Madrid, Chueca',desc:'800m² coworking centre with 120 desks, 8 meeting rooms and events area. 6 years. 85% average occupancy. Founders seeking exit after declining acquisition offer from chain.'},
+   revenue:780000,ebitda:195000,margin:25.0,employees:6,yearsActive:6,valuation:{low:720000,high:1000000},urgent:false,
+   duns:{paydex:79,defaultProb:'1.9%',creditRisk:'Bajo',rating:'BB+'},sectorMultiple:'4-5x EBITDA',lat:40.42,lng:-3.70,
+   details:{es:{chars:['85% ocupación media — por encima del sector (68%)','Contrato de arrendamiento a 10 años con renta fija hasta 2029','Mix de membresías: 40% fijas, 60% flex y hot desk','Comunidad activa con 200 empresas y freelances','Sala de eventos con capacidad 60 personas — ingresos extra']},
+            en:{chars:['85% average occupancy — above sector average (68%)','10-year lease with fixed rent until 2029','Membership mix: 40% fixed, 60% flex and hot desk','Active community with 200 companies and freelancers','Events room with 60-person capacity — extra revenue']}}},
+  {id:68,sectorId:'realestate',subsectorId:'coworking',icon:'🏛️',ref:'NXS-7345',saleType:'partial',
+   es:{name:'Oficinas Premium FlexSpace Salamanca',loc:'Madrid, Barrio Salamanca',desc:'Espacios de trabajo premium en el Barrio Salamanca. 450m², 60 puestos, despachos privados y salas ejecutivas. 4 años. Inversores buscan socios para replicar el modelo.'},
+   en:{name:'FlexSpace Salamanca Premium Offices',loc:'Madrid, Barrio Salamanca',desc:'Premium workspaces in the Salamanca neighbourhood. 450m², 60 desks, private offices and executive rooms. 4 years. Investors seeking partners to replicate the model.'},
+   revenue:580000,ebitda:156600,margin:27.0,employees:4,yearsActive:4,valuation:{low:580000,high:820000},urgent:false,
+   duns:{paydex:77,defaultProb:'2.2%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-5x EBITDA',lat:40.42,lng:-3.68,
+   details:{es:{chars:['Posicionamiento premium — ticket medio 2.8x vs coworking estándar','Despachos privados con acceso 24/7 — diferenciador clave','Clientela de despachos profesionales, consultoras y directivos','NPS de 82 — referencial del sector','Modelo replicable probado — documentación operativa completa']},
+            en:{chars:['Premium positioning — average ticket 2.8x vs standard coworking','Private offices with 24/7 access — key differentiator','Clientele of professional firms, consultancies and executives','NPS of 82 — sector benchmark','Proven replicable model — complete operational documentation']}}},
+  {id:69,sectorId:'realestate',subsectorId:'coworking',icon:'🎓',ref:'NXS-7389',saleType:'full',
+   es:{name:'Campus Universitario Privado CoLearn',loc:'Barcelona, Poblenou',desc:'Centro de formación y coworking para startups universitarias. 7 años. Convenio con 3 universidades. 180 puestos. Propietario vende por cambio de foco empresarial.'},
+   en:{name:'CoLearn Private University Campus',loc:'Barcelona, Poblenou',desc:'Training and coworking centre for university startups. 7 years. Agreement with 3 universities. 180 desks. Owner selling due to change of business focus.'},
+   revenue:640000,ebitda:153600,margin:24.0,employees:8,yearsActive:7,valuation:{low:580000,high:820000},urgent:false,
+   duns:{paydex:76,defaultProb:'2.4%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-5x EBITDA',lat:41.40,lng:2.20,
+   details:{es:{chars:['Convenio con 3 universidades — flujo estable de clientes institucionales','180 puestos en 1.100m² con aulas, labs y zona eventos','Programa de mentoring propio con 45 mentores activos','Comunidad de 320 startups y alumni — ecosistema activo','Potencial de expansión con el modelo university tech hub']},
+            en:{chars:['Agreement with 3 universities — stable institutional client flow','180 desks in 1,100m² with classrooms, labs and events area','Own mentoring programme with 45 active mentors','Community of 320 startups and alumni — active ecosystem','Expansion potential with university tech hub model']}}},
+  // REALESTATE - parking
+  {id:70,sectorId:'realestate',subsectorId:'parking',icon:'🅿️',ref:'NXS-7501',saleType:'full',
+   es:{name:'Parking Urbano Centro Histórico',loc:'Toledo, Casco Histórico',desc:'Parking cubierto de 180 plazas en el casco histórico de Toledo. 18 años. Único parking cubierto en radio de 400m. Propietario mayor de 70 sin herederos.'},
+   en:{name:'Historic Centre Urban Parking',loc:'Toledo, Historic Centre',desc:'180-space covered car park in Toledo\'s historic centre. 18 years. Only covered parking within 400m radius. Owner over 70 without heirs.'},
+   revenue:680000,ebitda:238000,margin:35.0,employees:4,yearsActive:18,valuation:{low:1100000,high:1500000},urgent:false,
+   duns:{paydex:82,defaultProb:'1.4%',creditRisk:'Bajo',rating:'BBB'},sectorMultiple:'5-6x EBITDA',lat:39.86,lng:-4.02,
+   details:{es:{chars:['Único parking cubierto en radio de 400m — monopolio de facto','180 plazas con alta rotación turística y residencial','Inmueble de 3.500m² propio incluido en valoración','Convenio con 3 hoteles del entorno — clientela cautiva','Posibilidad de electrificación (cargadores EV) — upside claro']},
+            en:{chars:['Only covered parking within 400m radius — de facto monopoly','180 spaces with high tourist and residential turnover','Own 3,500m² property included in valuation','Agreement with 3 surrounding hotels — captive clientele','EV charger installation possibility — clear upside']}}},
+  {id:71,sectorId:'realestate',subsectorId:'parking',icon:'🚗',ref:'NXS-7545',saleType:'partial',
+   es:{name:'Garajes & Trasteros Almanzora',loc:'Almería, Centro',desc:'Operador de 3 garajes y 120 trasteros en Almería centro. 14 años. Ingresos recurrentes por contratos mensuales. Sociedad familiar busca desinvertir parcialmente.'},
+   en:{name:'Almanzora Garages & Storage',loc:'Almería, Centre',desc:'Operator of 3 garages and 120 storage units in central Almería. 14 years. Recurring revenue through monthly contracts. Family company seeking partial divestment.'},
+   revenue:320000,ebitda:140800,margin:44.0,employees:2,yearsActive:14,valuation:{low:780000,high:1050000},urgent:false,
+   duns:{paydex:84,defaultProb:'0.9%',creditRisk:'Muy bajo',rating:'A-'},sectorMultiple:'5-7x EBITDA',lat:36.84,lng:-2.46,
+   details:{es:{chars:['3 inmuebles propios — activos reales incluidos en valoración','280 contratos activos (160 plazas + 120 trasteros)','Tasa de ocupación media 94% — máxima estabilidad','Gestión con solo 2 empleados — modelo eficiente','Potencial de instalación de cargadores EV en los 3 garajes']},
+            en:{chars:['3 own properties — real assets included in valuation','280 active contracts (160 parking + 120 storage)','Average occupancy rate 94% — maximum stability','Management with only 2 employees — efficient model','EV charger installation potential in all 3 garages']}}},
+  {id:72,sectorId:'realestate',subsectorId:'parking',icon:'🏍️',ref:'NXS-7589',saleType:'full',
+   es:{name:'Parkmotos & Bicicletas UrbanPark',loc:'Valencia, Ruzafa',desc:'Operador de parking para motos y bicicletas en Ruzafa con servicio de mantenimiento básico. 7 años. 380 contratos activos. Propietario cambia de ciudad.'},
+   en:{name:'UrbanPark Motorbike & Bike Parking',loc:'Valencia, Ruzafa',desc:'Motorbike and bicycle parking operator in Ruzafa with basic maintenance service. 7 years. 380 active contracts. Owner relocating.'},
+   revenue:195000,ebitda:78000,margin:40.0,employees:3,yearsActive:7,valuation:{low:320000,high:450000},urgent:true,
+   duns:{paydex:74,defaultProb:'2.8%',creditRisk:'Bajo',rating:'BB'},sectorMultiple:'4-6x EBITDA',lat:39.46,lng:-0.37,
+   details:{es:{chars:['380 contratos activos — 280 motos y 100 bicicletas','Servicio de lavado y mantenimiento básico: 22% de ingresos','Ubicación Ruzafa — zona de alta densidad y crecimiento','Local de 800m² con renta favorable hasta 2030','Potencial de expansión a segundo local ya identificado']},
+            en:{chars:['380 active contracts — 280 motorbikes and 100 bicycles','Washing and basic maintenance service: 22% of revenue','Ruzafa location — high density and growth area','800m² premises with favourable rent until 2030','Expansion potential to already identified second premises']}}}
 ];
 
-// ===== STATE =====
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active');
   applyLang();
-  if(history[history.length-1]==='page3') renderListings();
+  if(navHistory[navHistory.length-1]==='page3') renderListings();
 }
+
 function applyLang() {
   document.querySelectorAll('[data-es]').forEach(el => {
     el.innerHTML = el.getAttribute(`data-${lang}`);
   });
 }
 
-// ===== NAVIGATION =====
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  if(id!=='page1') {
-    document.getElementById('backBtn').style.display='flex';
-  } else {
-    document.getElementById('backBtn').style.display='none';
-  }
+  document.getElementById('backBtn').style.display = id !== 'page1' ? 'flex' : 'none';
   window.scrollTo(0,0);
 }
+
+function goHome() {
+  navHistory = ['page1'];
+  currentSector = null;
+  currentSubsector = null;
+  currentBusiness = null;
+  renderHome();
+  showPage('page1');
+}
+
 function goBack() {
-  history.pop();
-  const prev = history[history.length-1];
+  navHistory.pop();
+  const prev = navHistory[navHistory.length-1];
   showPage(prev);
   if(prev==='page1') renderHome();
   if(prev==='page2') renderSubsectors();
   if(prev==='page3') renderListings();
 }
 
-// ===== RENDER HOME =====
 function renderHome() {
   const grid = document.getElementById('sectorsGrid');
   grid.innerHTML = sectors.map(s => `
@@ -646,15 +1080,13 @@ function renderHome() {
   `).join('');
 }
 
-// ===== SELECT SECTOR =====
 function selectSector(sectorId) {
-  currentSector = sectors.find(s=>s.id===sectorId);
-  history.push('page2');
+  currentSector = sectors.find(s => s.id === sectorId);
+  navHistory.push('page2');
   renderSubsectors();
   showPage('page2');
 }
 
-// ===== RENDER SUBSECTORS =====
 function renderSubsectors() {
   const s = currentSector;
   document.getElementById('subsectorHeader').innerHTML = `
@@ -669,7 +1101,7 @@ function renderSubsectors() {
     </div>
   `;
   document.getElementById('subsectorIntro').innerHTML = `<strong>${t[lang].sectorDrivers}:</strong> ${s[lang].drivers}`;
-  document.getElementById('subsectorsGrid').innerHTML = s.subsectors.map(sub=>`
+  document.getElementById('subsectorsGrid').innerHTML = s.subsectors.map(sub => `
     <div class="subsector-card" onclick="selectSubsector('${sub.id}')">
       <div class="subsector-card-icon">${sub.icon}</div>
       <div class="subsector-card-name">${sub[lang].name}</div>
@@ -682,27 +1114,66 @@ function renderSubsectors() {
   `).join('');
 }
 
-// ===== SELECT SUBSECTOR =====
 function selectSubsector(subsectorId) {
   currentSubsector = subsectorId;
-  history.push('page3');
+  navHistory.push('page3');
   renderListings();
   showPage('page3');
 }
 
-// ===== RENDER LISTINGS =====
 function renderListings() {
-  // Tabs
-  const tabs = document.getElementById('sectorTabs');
-  const allSectorNames = {es:['Todos','Hostelería','Servicios','Retail','Industria','Real Estate','Tech','Salud','Energía'],en:['All','Hospitality','Services','Retail','Industry','Real Estate','Tech','Health','Energy']};
-  tabs.innerHTML = allSectorNames[lang].map((n,i)=>`<button class="tab ${i===0?'active':''}" onclick="filterTab(this)">${n}</button>`).join('');
+  const sectorNames = {
+    es:['Todos','Hostelería','Servicios','Retail','Industria','Real Estate','Tech','Salud','Energía'],
+    en:['All','Hospitality','Services','Retail','Industry','Real Estate','Tech','Health','Energy']
+  };
+  const sectorIds = ['all','hospitality','services','retail','industry','realestate','tech','health','energy'];
 
-  // Filter businesses from current sector
-  const filtered = businesses.filter(b=>b.sectorId===currentSector.id);
-  document.getElementById('listingsCount').innerHTML = `${t[lang].showing} <span>${filtered.length}</span> ${t[lang].of} ${currentSector.count} ${t[lang].results}`;
+  const tabs = document.getElementById('sectorTabs');
+  tabs.innerHTML = sectorNames[lang].map((n,i) => `
+    <button class="tab ${sectorIds[i] === (i===0 ? 'all' : currentSector.id) || (i===0 && true) ? '' : ''} ${i===0 ? 'active' : ''}"
+      data-sector="${sectorIds[i]}"
+      onclick="filterBySector(this, '${sectorIds[i]}')">
+      ${n}
+    </button>
+  `).join('');
+
+  // Mark active tab matching current sector
+  const allTabBtns = tabs.querySelectorAll('.tab');
+  allTabBtns.forEach(btn => {
+    btn.classList.remove('active');
+    if(btn.getAttribute('data-sector') === currentSector.id) {
+      btn.classList.add('active');
+    }
+  });
+
+  renderBusinessList(currentSector.id, currentSubsector);
+}
+
+function filterBySector(el, sectorId) {
+  document.querySelectorAll('#sectorTabs .tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+
+  if(sectorId === 'all') {
+    renderBusinessList(currentSector.id, currentSubsector);
+    return;
+  }
+
+  const newSector = sectors.find(s => s.id === sectorId);
+  if(newSector) {
+    currentSector = newSector;
+    currentSubsector = newSector.subsectors[0].id;
+    renderBusinessList(sectorId, currentSubsector);
+  }
+}
+
+function renderBusinessList(sectorId, subsectorId) {
+  const filtered = businesses.filter(b => b.sectorId === sectorId && b.subsectorId === subsectorId);
+  const sectorObj = sectors.find(s => s.id === sectorId);
+  document.getElementById('listingsCount').innerHTML =
+    `${t[lang].showing} <span>${filtered.length}</span> ${t[lang].of} ${sectorObj ? sectorObj.count : filtered.length} ${t[lang].results}`;
 
   const list = document.getElementById('listingsList');
-  list.innerHTML = filtered.map((b,i)=>`
+  list.innerHTML = filtered.map((b,i) => `
     <div class="business-card" style="animation-delay:${i*0.08}s" onclick="selectBusiness(${b.id})">
       <div class="bcard-img">${b.icon}</div>
       <div class="bcard-body">
@@ -732,33 +1203,25 @@ function renderListings() {
     </div>
   `).join('');
 
-  // Map dots
   const mapDots = document.getElementById('mapDots');
-  mapDots.innerHTML = filtered.map((_,i)=>{
+  mapDots.innerHTML = filtered.map((_,i) => {
     const top = 20+Math.random()*60;
     const left = 10+Math.random()*80;
     return `<div class="map-dot" style="top:${top}%;left:${left}%;animation-delay:${i*0.3}s"></div>`;
   }).join('');
 }
 
-function filterTab(el){
-  document.querySelectorAll('#sectorTabs .tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// ===== SELECT BUSINESS =====
 function selectBusiness(id) {
-  currentBusiness = businesses.find(b=>b.id===id);
-  history.push('page4');
+  currentBusiness = businesses.find(b => b.id === id);
+  navHistory.push('page4');
   renderDetail();
   showPage('page4');
 }
 
-// ===== RENDER DETAIL =====
 function renderDetail() {
   const b = currentBusiness;
   const payback = (b.valuation.low/b.ebitda).toFixed(1);
-  
+
   document.getElementById('detailMain').innerHTML = `
     <div class="detail-header">
       <div class="detail-badges">
@@ -803,7 +1266,6 @@ function renderDetail() {
       <div class="sv-row"><div class="sv-key">${t[lang].ebitda}</div><div class="sv-val">€${(b.ebitda/1000).toFixed(0)}K</div></div>
       <div class="sv-row"><div class="sv-key">${lang==='es'?'Múltiplo implícito':'Implied multiple'}</div><div class="sv-val">${(b.valuation.low/b.ebitda).toFixed(1)}x – ${(b.valuation.high/b.ebitda).toFixed(1)}x</div></div>
       <div class="sv-row"><div class="sv-key">${t[lang].paybackCalc}</div><div class="sv-val">${payback} ${lang==='es'?'años':'years'}</div></div>
-      <div class="sv-row"><div class="sv-key" style="font-size:10px;color:rgba(255,255,255,0.35)">${t[lang].comparedRE}</div></div>
     </div>
     <div class="mini-map">
       <div class="mini-map-grid"></div>
@@ -821,7 +1283,7 @@ function renderDetail() {
       <div class="duns-bar-wrap"><div class="duns-bar" style="width:${b.duns.paydex}%"></div></div>
       <br>
       <div class="duns-row"><div class="duns-key">${t[lang].defaultProb}</div><div class="duns-val ${parseFloat(b.duns.defaultProb)<2?'good':parseFloat(b.duns.defaultProb)<4?'medium':'bad'}">${b.duns.defaultProb}</div></div>
-      <div class="duns-row"><div class="duns-key">${t[lang].creditRisk}</div><div class="duns-val ${b.duns.creditRisk==='Muy bajo'||b.duns.creditRisk==='Very low'?'good':b.duns.creditRisk==='Bajo'||b.duns.creditRisk==='Low'?'good':b.duns.creditRisk==='Moderado'||b.duns.creditRisk==='Moderate'?'medium':'bad'}">${b.duns.creditRisk}</div></div>
+      <div class="duns-row"><div class="duns-key">${t[lang].creditRisk}</div><div class="duns-val ${b.duns.creditRisk==='Muy bajo'?'good':b.duns.creditRisk==='Bajo'?'good':b.duns.creditRisk==='Moderado'?'medium':'bad'}">${b.duns.creditRisk}</div></div>
       <div class="duns-row"><div class="duns-key">${lang==='es'?'Calificación':'Rating'}</div><div class="duns-val medium">${b.duns.rating}</div></div>
     </div>
     <button class="pdf-btn" onclick="openPdfModal()">
@@ -832,9 +1294,8 @@ function renderDetail() {
   `;
 }
 
-// ===== PDF =====
-function openPdfModal(){ document.getElementById('pdfModal').classList.add('open'); }
-function closePdfModal(){ document.getElementById('pdfModal').classList.remove('open'); }
+function openPdfModal() { document.getElementById('pdfModal').classList.add('open'); }
+function closePdfModal() { document.getElementById('pdfModal').classList.remove('open'); }
 
 function generatePDF() {
   closePdfModal();
@@ -846,11 +1307,12 @@ function generatePDF() {
 
   const gold=[201,168,76], ink=[10,10,15], slate=[107,114,128], white=[255,255,255], emerald=[26,122,94], cream=[250,250,247];
 
-  // COVER
+  // ---- PAGE 1 ----
+  // COVER HEADER
   doc.setFillColor(...ink); doc.rect(0,0,W,80,'F');
   doc.setFillColor(...gold); doc.rect(0,77,W,3,'F');
   doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.setTextColor(...gold);
-  doc.text('NEXUS BUSINESS MARKETPLACE', M, 20);
+  doc.text('PAPE BUSINESS MARKETPLACE', M, 20);
   doc.setFontSize(22); doc.setFont('helvetica','bold'); doc.setTextColor(...white);
   const lines = doc.splitTextToSize(b[lang].name, W-M*2);
   doc.text(lines, M, 35);
@@ -859,7 +1321,7 @@ function generatePDF() {
   const saleLabel = b.saleType==='full'?(lang==='es'?'VENTA TOTAL':'FULL SALE'):b.saleType==='partial'?(lang==='es'?'DESINVERSIÓN PARCIAL':'PARTIAL DIVESTMENT'):(lang==='es'?'TRASPASO':'TRANSFER');
   doc.setFontSize(8); doc.setTextColor(...gold);
   doc.text(saleLabel, M, 68);
-  doc.setFontSize(8); doc.setTextColor(150,150,150);
+  doc.setTextColor(150,150,150);
   doc.text(new Date().toLocaleDateString(lang==='es'?'es-ES':'en-GB',{year:'numeric',month:'long',day:'numeric'}), W-M, 68, {align:'right'});
   y = 90;
 
@@ -867,29 +1329,47 @@ function generatePDF() {
   doc.setFillColor(245,245,240); doc.roundedRect(M,y,W-M*2,12,2,2,'F');
   doc.setFontSize(7); doc.setFont('helvetica','italic'); doc.setTextColor(...slate);
   const disc = lang==='es'?'Este informe es orientativo y no constituye asesoramiento de inversión. Los datos financieros se basan en información registral y declaraciones del vendedor.':'This report is indicative and does not constitute investment advice. Financial data is based on registry information and seller declarations.';
-  const discLines = doc.splitTextToSize(disc, W-M*2-8);
-  doc.text(discLines, M+4, y+5);
+  doc.text(doc.splitTextToSize(disc, W-M*2-8), M+4, y+5);
   y += 18;
 
+  const secTitle = (title, yy) => {
+    if(yy > 260) { doc.addPage(); yy = 20; }
+    doc.setFillColor(...gold); doc.rect(M,yy,4,6,'F');
+    doc.setFontSize(11); doc.setFont('helvetica','bold'); doc.setTextColor(...ink);
+    doc.text(title.toUpperCase(), M+8, yy+5);
+    return yy+12;
+  };
+
+  const checkPageBreak = (currentY, neededSpace) => {
+    if(currentY + neededSpace > 275) { doc.addPage(); return 20; }
+    return currentY;
+  };
+
   // SECTION: DESCRIPCION
-  const secTitle = (title, yy) => { doc.setFillColor(...gold); doc.rect(M,yy,4,6,'F'); doc.setFontSize(11); doc.setFont('helvetica','bold'); doc.setTextColor(...ink); doc.text(title.toUpperCase(), M+8, yy+5); return yy+12; };
-  
   y = secTitle(lang==='es'?'Descripción del negocio':'Business description', y);
   doc.setFontSize(10); doc.setFont('helvetica','normal'); doc.setTextColor(...ink);
   const descLines = doc.splitTextToSize(b[lang].desc, W-M*2);
+  y = checkPageBreak(y, descLines.length*5+4);
   doc.text(descLines, M, y); y += descLines.length*5+4;
 
-  // Chars
   b.details[lang].chars.forEach(c => {
+    y = checkPageBreak(y, 6);
     doc.setFontSize(9); doc.setTextColor(...emerald); doc.text('✓', M, y);
     doc.setTextColor(...ink); doc.text(c, M+6, y); y+=5;
   });
   y += 6;
 
   // SECTION: SECTOR
+  y = checkPageBreak(y, 60);
   y = secTitle(lang==='es'?'Análisis del sector':'Sector analysis', y);
-  const sData = [[lang==='es'?'Rentabilidad típica':'Typical return', currentSector.yield],[lang==='es'?'Múltiplo sectorial':'Sector multiple', currentSector.multiple],[lang==='es'?'Payback medio':'Average payback', currentSector.payback],[lang==='es'?'Drivers principales':'Main drivers', currentSector[lang].drivers]];
+  const sData = [
+    [lang==='es'?'Rentabilidad típica':'Typical return', currentSector.yield],
+    [lang==='es'?'Múltiplo sectorial':'Sector multiple', currentSector.multiple],
+    [lang==='es'?'Payback medio':'Average payback', currentSector.payback],
+    [lang==='es'?'Drivers principales':'Main drivers', currentSector[lang].drivers]
+  ];
   sData.forEach(([k,v]) => {
+    y = checkPageBreak(y, 12);
     doc.setFillColor(...cream); doc.rect(M,y-4,W-M*2,8,'F');
     doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(...slate); doc.text(k, M+2, y);
     doc.setFont('helvetica','normal'); doc.setTextColor(...ink);
@@ -899,14 +1379,14 @@ function generatePDF() {
   y += 4;
 
   // SECTION: D&B
+  y = checkPageBreak(y, 50);
   y = secTitle('D&B Credit Rating', y);
   doc.setFillColor(...ink); doc.roundedRect(M,y,W-M*2,30,3,3,'F');
   doc.setFontSize(24); doc.setFont('helvetica','bold'); doc.setTextColor(...gold);
   doc.text(String(b.duns.paydex), M+10, y+20);
   doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(200,200,200);
   doc.text(t[lang].paydex+' / 100', M+10, y+27);
-  const dItems = [[t[lang].defaultProb, b.duns.defaultProb],[t[lang].creditRisk, b.duns.creditRisk],[lang==='es'?'Calificación':'Rating', b.duns.rating]];
-  dItems.forEach(([k,v],i) => {
+  [[t[lang].defaultProb, b.duns.defaultProb],[t[lang].creditRisk, b.duns.creditRisk],[lang==='es'?'Calificación':'Rating', b.duns.rating]].forEach(([k,v],i) => {
     doc.setFontSize(8); doc.setTextColor(180,180,180); doc.text(k, M+50, y+8+i*9);
     doc.setTextColor(...gold); doc.setFont('helvetica','bold'); doc.text(String(v), W-M-2, y+8+i*9, {align:'right'});
     doc.setFont('helvetica','normal');
@@ -914,11 +1394,19 @@ function generatePDF() {
   y += 38;
 
   // SECTION: FINANCIERO
+  y = checkPageBreak(y, 60);
   y = secTitle(t[lang].financialData, y);
-  const fData = [[t[lang].annualRevenue,`€${(b.revenue/1000).toFixed(0)}K`],[t[lang].ebitda,`€${(b.ebitda/1000).toFixed(0)}K`],[t[lang].margin,`${b.margin}%`],[t[lang].employees,String(b.employees)],[t[lang].years,`${b.yearsActive}`]];
+  const fData = [
+    [t[lang].annualRevenue, `€${(b.revenue/1000).toFixed(0)}K`],
+    [t[lang].ebitda, `€${(b.ebitda/1000).toFixed(0)}K`],
+    [t[lang].margin, `${b.margin}%`],
+    [t[lang].employees, String(b.employees)],
+    [t[lang].years, `${b.yearsActive}`]
+  ];
   const cols = 3; const colW = (W-M*2)/cols;
   fData.forEach(([k,v],i) => {
-    const cx = M+(i%cols)*colW; const cy = y+Math.floor(i/cols)*22;
+    const cx = M+(i%cols)*colW;
+    const cy = y+Math.floor(i/cols)*22;
     doc.setFillColor(245,245,240); doc.roundedRect(cx+1,cy-4,colW-3,18,2,2,'F');
     doc.setFontSize(14); doc.setFont('helvetica','bold'); doc.setTextColor(...ink); doc.text(v, cx+colW/2, cy+6, {align:'center'});
     doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.setTextColor(...slate); doc.text(k.toUpperCase(), cx+colW/2, cy+12, {align:'center'});
@@ -926,16 +1414,18 @@ function generatePDF() {
   y += Math.ceil(fData.length/cols)*22+8;
 
   // SECTION: COMENTARIO FINANCIERO
+  y = checkPageBreak(y, 40);
   y = secTitle(lang==='es'?'Análisis financiero':'Financial analysis', y);
   const payback2 = (b.valuation.low/b.ebitda).toFixed(1);
   const commentary = lang==='es'
-    ? `El negocio presenta un margen EBITDA del ${b.margin}%, ${b.margin>25?'por encima de la media sectorial, lo que indica una gestión operativa eficiente y potencial de optimización de costes para un nuevo propietario.':'en línea con el sector, con margen de mejora operativa bajo nueva dirección.'} Con ${b.yearsActive} años de actividad, el negocio ha demostrado resiliencia y capacidad de generar caja de forma consistente. La facturación de €${(b.revenue/1000).toFixed(0)}K con ${b.employees} empleados implica una productividad por empleado de €${(b.revenue/b.employees/1000).toFixed(0)}K, métrica relevante para valorar la eficiencia del equipo.`
-    : `The business shows an EBITDA margin of ${b.margin}%, ${b.margin>25?'above the sector average, indicating efficient operational management and cost optimization potential for a new owner.':'in line with the sector, with room for operational improvement under new management.'} With ${b.yearsActive} years of activity, the business has demonstrated resilience and consistent cash generation. Revenue of €${(b.revenue/1000).toFixed(0)}K with ${b.employees} employees implies revenue per employee of €${(b.revenue/b.employees/1000).toFixed(0)}K, a key metric for assessing team efficiency.`;
+    ? `El negocio presenta un margen EBITDA del ${b.margin}%, ${b.margin>25?'por encima de la media sectorial, lo que indica una gestión operativa eficiente y potencial de optimización de costes para un nuevo propietario.':'en línea con el sector, con margen de mejora operativa bajo nueva dirección.'} Con ${b.yearsActive} años de actividad, el negocio ha demostrado resiliencia y capacidad de generar caja de forma consistente. La facturación de €${(b.revenue/1000).toFixed(0)}K con ${b.employees} empleados implica una productividad por empleado de €${(b.revenue/b.employees/1000).toFixed(0)}K.`
+    : `The business shows an EBITDA margin of ${b.margin}%, ${b.margin>25?'above the sector average, indicating efficient operational management and cost optimization potential for a new owner.':'in line with the sector, with room for operational improvement under new management.'} With ${b.yearsActive} years of activity, the business has demonstrated resilience and consistent cash generation. Revenue of €${(b.revenue/1000).toFixed(0)}K with ${b.employees} employees implies revenue per employee of €${(b.revenue/b.employees/1000).toFixed(0)}K.`;
   const commentLines = doc.splitTextToSize(commentary, W-M*2);
   doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(...ink);
   doc.text(commentLines, M, y); y += commentLines.length*5+8;
 
   // SECTION: VALORACION
+  y = checkPageBreak(y, 80);
   y = secTitle(lang==='es'?'Metodología de valoración':'Valuation methodology', y);
   doc.setFillColor(...gold); doc.roundedRect(M,y,W-M*2,36,3,3,'F');
   doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(...ink);
@@ -943,15 +1433,20 @@ function generatePDF() {
   doc.setFontSize(22); doc.setFont('helvetica','bold'); doc.setTextColor(...ink);
   doc.text(`€${(b.valuation.low/1000).toFixed(0)}K – €${(b.valuation.high/1000).toFixed(0)}K`, M+4, y+24);
   doc.setFontSize(8); doc.setFont('helvetica','normal'); doc.setTextColor(60,60,60);
-  doc.text(`${lang==='es'?'Múltiplo implícito':'Implied multiple'}: ${(b.valuation.low/b.ebitda).toFixed(1)}x – ${(b.valuation.high/b.ebitda).toFixed(1)}x EBITDA  •  Payback: ~${payback2} ${lang==='es'?'años':'years'}  •  vs Real Estate: ${lang==='es'?'rentabilidad':'return'} ~4x ${lang==='es'?'superior':'higher'}`, M+4, y+32);
+  doc.text(`${lang==='es'?'Múltiplo implícito':'Implied multiple'}: ${(b.valuation.low/b.ebitda).toFixed(1)}x – ${(b.valuation.high/b.ebitda).toFixed(1)}x EBITDA  •  Payback: ~${payback2} ${lang==='es'?'años':'years'}`, M+4, y+32);
   y += 44;
 
+  const multipleStr = b.sectorMultiple.match(/[\d.]+/g);
+  const multLow = multipleStr ? parseFloat(multipleStr[0]) : 3;
+  const multHigh = multipleStr && multipleStr[1] ? parseFloat(multipleStr[1]) : multLow+1;
+
   const methods = [
-    {m:lang==='es'?'Múltiplo EBITDA':'EBITDA Multiple',v:`${(b.ebitda*(parseFloat(b.sectorMultiple.split('-')[0])/1000)).toFixed(0)}K – ${(b.ebitda*(parseFloat(b.sectorMultiple.split('-')[1]))).toFixed(0)}K`,w:'45%'},
-    {m:lang==='es'?'Transacciones comparables':'Comparable transactions',v:`€${(b.valuation.low*1.05/1000).toFixed(0)}K – €${(b.valuation.high*0.95/1000).toFixed(0)}K`,w:'35%'},
-    {m:lang==='es'?'Valor activos netos':'Net asset value',v:`€${(b.valuation.low*0.8/1000).toFixed(0)}K – €${(b.valuation.high*1.1/1000).toFixed(0)}K`,w:'20%'},
+    {m:lang==='es'?'Múltiplo EBITDA':'EBITDA Multiple', v:`€${(b.ebitda*multLow/1000).toFixed(0)}K – €${(b.ebitda*multHigh/1000).toFixed(0)}K`, w:'45%'},
+    {m:lang==='es'?'Transacciones comparables':'Comparable transactions', v:`€${(b.valuation.low*1.05/1000).toFixed(0)}K – €${(b.valuation.high*0.95/1000).toFixed(0)}K`, w:'35%'},
+    {m:lang==='es'?'Valor activos netos':'Net asset value', v:`€${(b.valuation.low*0.8/1000).toFixed(0)}K – €${(b.valuation.high*1.1/1000).toFixed(0)}K`, w:'20%'},
   ];
   methods.forEach(({m,v,w}) => {
+    y = checkPageBreak(y, 16);
     doc.setFillColor(245,245,240); doc.rect(M,y-4,W-M*2,10,'F');
     doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(...slate); doc.text(m, M+2, y+2);
     doc.setFont('helvetica','normal'); doc.setTextColor(...ink); doc.text(v, W-M-2, y+2, {align:'right'});
@@ -959,16 +1454,20 @@ function generatePDF() {
     y+=12;
   });
 
-  // FOOTER
-  doc.setFillColor(...ink); doc.rect(0,282,W,15,'F');
-  doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.setTextColor(120,120,120);
-  doc.text('NEXUS Business Marketplace  •  nexus.es  •  '+new Date().getFullYear(), M, 291);
-  doc.setTextColor(...gold); doc.text(b.ref, W-M, 291, {align:'right'});
+  // FOOTER on every page
+  const totalPages = doc.internal.getNumberOfPages();
+  for(let p=1; p<=totalPages; p++) {
+    doc.setPage(p);
+    doc.setFillColor(...ink); doc.rect(0,282,W,15,'F');
+    doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.setTextColor(120,120,120);
+    doc.text(`PAPE Business Marketplace  •  pape.es  •  ${new Date().getFullYear()}  •  Pág. ${p}/${totalPages}`, M, 291);
+    doc.setTextColor(...gold); doc.text(b.ref, W-M, 291, {align:'right'});
+  }
 
-  doc.save(`NEXUS_Valuation_${b.ref}_${b[lang].name.replace(/\s+/g,'_')}.pdf`);
+  doc.save(`PAPE_Valuation_${b.ref}_${b[lang].name.replace(/\s+/g,'_')}.pdf`);
 }
 
-// ===== INIT =====
+// INIT
 renderHome();
 applyLang();
 </script>
