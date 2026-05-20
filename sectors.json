@@ -1,0 +1,82 @@
+[
+  {
+    "id": "hospitality", "icon": "🍽️", "yield": "18-26%", "payback": "4-6 años", "multiple": "3-5x", "count": 124,
+    "es": { "name": "Hostelería & Restauración", "tags": ["Restaurantes","Hoteles","Cafeterías"], "drivers": "Turismo, consumo local, teletrabajo post-covid", "intro": "El sector de hostelería en España representa el 6.2% del PIB, con alta densidad de negocios familiares sin sucesión clara. Los múltiplos son estables en 3-5x EBITDA para establecimientos consolidados." },
+    "en": { "name": "Hospitality & Restaurants", "tags": ["Restaurants","Hotels","Cafés"], "drivers": "Tourism, local consumption, post-covid remote work", "intro": "The hospitality sector in Spain represents 6.2% of GDP, with high density of family businesses without clear succession. Multiples are stable at 3-5x EBITDA for established venues." },
+    "subsectors": [
+      { "id": "restaurants", "icon": "🍴", "yield": "20-28%", "payback": "4-5 yrs", "multiple": "3-4x", "es": { "name": "Restaurantes", "desc": "Restauración con servicio completo, cocinas especializadas, franquicias gastronómicas" }, "en": { "name": "Restaurants", "desc": "Full-service dining, specialized kitchens, gastronomy franchises" } },
+      { "id": "hotels", "icon": "🏨", "yield": "15-22%", "payback": "5-7 yrs", "multiple": "4-6x", "es": { "name": "Hoteles & Apartamentos", "desc": "Establecimientos hoteleros, apartamentos turísticos, casas rurales" }, "en": { "name": "Hotels & Apartments", "desc": "Hotel establishments, tourist apartments, rural houses" } },
+      { "id": "bars", "icon": "☕", "yield": "22-32%", "payback": "3-4 yrs", "multiple": "2-4x", "es": { "name": "Bares & Cafeterías", "desc": "Bares de barrio, cafeterías, locales de copas con licencia" }, "en": { "name": "Bars & Cafés", "desc": "Neighborhood bars, cafés, licensed venues" } }
+    ]
+  },
+  {
+    "id": "services", "icon": "⚙️", "yield": "22-35%", "payback": "3-5 años", "multiple": "4-7x", "count": 89,
+    "es": { "name": "Servicios Profesionales", "tags": ["Clínicas","Asesorías","Academias"], "drivers": "Digitalización, envejecimiento poblacional, outsourcing", "intro": "Los servicios profesionales ofrecen los múltiplos más atractivos por su alto margen y baja intensidad de capital. Clínicas dentales, despachos de abogados y academias presentan alta recurrencia de ingresos." },
+    "en": { "name": "Professional Services", "tags": ["Clinics","Consulting","Academies"], "drivers": "Digitalization, aging population, outsourcing", "intro": "Professional services offer the most attractive multiples due to high margins and low capital intensity. Dental clinics, law firms and academies show high revenue recurrence." },
+    "subsectors": [
+      { "id": "clinics", "icon": "🦷", "yield": "25-38%", "payback": "3-4 yrs", "multiple": "5-7x", "es": { "name": "Clínicas & Salud", "desc": "Clínicas dentales, centros de estética, fisioterapia, psicología" }, "en": { "name": "Clinics & Health", "desc": "Dental clinics, aesthetics centers, physiotherapy, psychology" } },
+      { "id": "consulting", "icon": "📊", "yield": "28-40%", "payback": "2-4 yrs", "multiple": "4-6x", "es": { "name": "Asesorías & Consultoría", "desc": "Gestorías, despachos fiscales, consultoras de empresa" }, "en": { "name": "Consulting & Advisory", "desc": "Tax advisors, accounting firms, business consultants" } },
+      { "id": "education", "icon": "📚", "yield": "20-30%", "payback": "3-5 yrs", "multiple": "4-5x", "es": { "name": "Academias & Formación", "desc": "Academias de idiomas, autoescuelas, centros de formación" }, "en": { "name": "Academies & Training", "desc": "Language schools, driving schools, training centers" } }
+    ]
+  },
+  {
+    "id": "retail", "icon": "🛍️", "yield": "14-22%", "payback": "5-7 años", "multiple": "2-4x", "count": 156,
+    "es": { "name": "Comercio & Retail", "tags": ["Tiendas","Supermercados","Franquicias"], "drivers": "E-commerce, experiencia de cliente, nichos especializados", "intro": "El retail físico ha pasado por una transformación profunda. Los negocios que sobreviven son aquellos con propuesta de valor diferenciada o ubicación premium. Múltiplos más bajos pero activos tangibles de valor." },
+    "en": { "name": "Commerce & Retail", "tags": ["Shops","Supermarkets","Franchises"], "drivers": "E-commerce, customer experience, specialized niches", "intro": "Physical retail has gone through a deep transformation. Surviving businesses are those with differentiated value proposition or premium location. Lower multiples but valuable tangible assets." },
+    "subsectors": [
+      { "id": "food", "icon": "🛒", "yield": "16-24%", "payback": "5-6 yrs", "multiple": "2-4x", "es": { "name": "Alimentación & Supermercados", "desc": "Supermercados independientes, tiendas especializadas, mercados" }, "en": { "name": "Food & Supermarkets", "desc": "Independent supermarkets, specialty shops, markets" } },
+      { "id": "fashion", "icon": "👗", "yield": "14-20%", "payback": "5-7 yrs", "multiple": "2-3x", "es": { "name": "Moda & Complementos", "desc": "Boutiques, tiendas multimarca, accesorios, joyerías" }, "en": { "name": "Fashion & Accessories", "desc": "Boutiques, multi-brand stores, accessories, jewelers" } },
+      { "id": "franchise", "icon": "🏪", "yield": "18-26%", "payback": "4-6 yrs", "multiple": "3-5x", "es": { "name": "Franquicias", "desc": "Operadores de franquicias establecidas con contratos vigentes" }, "en": { "name": "Franchises", "desc": "Established franchise operators with active contracts" } }
+    ]
+  },
+  {
+    "id": "industry", "icon": "🏭", "yield": "16-24%", "payback": "5-8 años", "multiple": "3-5x", "count": 73,
+    "es": { "name": "Industria & Manufactura", "tags": ["Talleres","Fabricación","Logística"], "drivers": "Nearshoring, automatización, supply chain diversification", "intro": "La industria española se beneficia del nearshoring europeo y la relocalización de cadenas de suministro. Activos físicos de valor, contratos industriales de largo plazo y alta barrera de entrada." },
+    "en": { "name": "Industry & Manufacturing", "tags": ["Workshops","Manufacturing","Logistics"], "drivers": "Nearshoring, automation, supply chain diversification", "intro": "Spanish industry benefits from European nearshoring and supply chain relocation. Valuable physical assets, long-term industrial contracts and high barriers to entry." },
+    "subsectors": [
+      { "id": "workshops", "icon": "🔧", "yield": "18-26%", "payback": "4-6 yrs", "multiple": "3-4x", "es": { "name": "Talleres & Reparación", "desc": "Talleres mecánicos, chapa y pintura, electrónica industrial" }, "en": { "name": "Workshops & Repair", "desc": "Mechanical workshops, bodywork, industrial electronics" } },
+      { "id": "manufacturing", "icon": "⚙️", "yield": "16-22%", "payback": "5-7 yrs", "multiple": "3-5x", "es": { "name": "Fabricación", "desc": "Pequeñas fábricas, moldes, componentes, producción especializada" }, "en": { "name": "Manufacturing", "desc": "Small factories, molds, components, specialized production" } },
+      { "id": "logistics", "icon": "🚛", "yield": "14-20%", "payback": "6-8 yrs", "multiple": "3-4x", "es": { "name": "Logística & Transporte", "desc": "Empresas de transporte, almacenamiento, última milla" }, "en": { "name": "Logistics & Transport", "desc": "Transport companies, warehousing, last-mile delivery" } }
+    ]
+  },
+  {
+    "id": "realestate", "icon": "🏢", "yield": "12-18%", "payback": "6-10 años", "multiple": "4-8x", "count": 45,
+    "es": { "name": "Real Estate Comercial", "tags": ["Oficinas","Locales","Naves"], "drivers": "Teletrabajo, logística urbana, tourism retail", "intro": "El real estate comercial como negocio incluye gestoras de patrimonio, agencias inmobiliarias y operadores de espacios. Combina activo físico con flujo de caja operativo." },
+    "en": { "name": "Commercial Real Estate", "tags": ["Offices","Retail","Warehouses"], "drivers": "Remote work, urban logistics, tourism retail", "intro": "Commercial real estate as a business includes property managers, real estate agencies and space operators. Combines physical asset with operating cash flow." },
+    "subsectors": [
+      { "id": "re-agencies", "icon": "🏠", "yield": "20-30%", "payback": "3-5 yrs", "multiple": "4-6x", "es": { "name": "Agencias Inmobiliarias", "desc": "Agencias independientes, franquiciadas, especialistas en mercado local" }, "en": { "name": "Real Estate Agencies", "desc": "Independent agencies, franchises, local market specialists" } },
+      { "id": "coworking", "icon": "💻", "yield": "14-22%", "payback": "5-7 yrs", "multiple": "4-6x", "es": { "name": "Coworking & Espacios", "desc": "Centros de coworking, salas de reuniones, flex offices" }, "en": { "name": "Coworking & Spaces", "desc": "Coworking centers, meeting rooms, flex offices" } },
+      { "id": "parking", "icon": "🅿️", "yield": "12-18%", "payback": "6-9 yrs", "multiple": "5-8x", "es": { "name": "Parkings & Garajes", "desc": "Parkings urbanos, garajes comunitarios, gestión de aparcamiento" }, "en": { "name": "Parking & Garages", "desc": "Urban parking, community garages, parking management" } }
+    ]
+  },
+  {
+    "id": "tech", "icon": "💡", "yield": "25-50%", "payback": "2-5 años", "multiple": "5-10x", "count": 62,
+    "es": { "name": "Tech & Digital", "tags": ["SaaS","Ecommerce","Agencias"], "drivers": "IA, automatización, digitalización pyme", "intro": "El segmento digital tiene los múltiplos más altos del mercado pero también la mayor variabilidad. Negocios con MRR recurrente y churn bajo pueden alcanzar valoraciones de 6-10x ingresos." },
+    "en": { "name": "Tech & Digital", "tags": ["SaaS","Ecommerce","Agencies"], "drivers": "AI, automation, SME digitalization", "intro": "The digital segment has the highest multiples in the market but also the greatest variability. Businesses with recurring MRR and low churn can reach valuations of 6-10x revenue." },
+    "subsectors": [
+      { "id": "saas", "icon": "☁️", "yield": "30-60%", "payback": "2-4 yrs", "multiple": "6-10x", "es": { "name": "SaaS & Software", "desc": "Software con suscripción, herramientas B2B, plataformas verticales" }, "en": { "name": "SaaS & Software", "desc": "Subscription software, B2B tools, vertical platforms" } },
+      { "id": "ecommerce", "icon": "🛒", "yield": "20-35%", "payback": "3-5 yrs", "multiple": "3-6x", "es": { "name": "Ecommerce", "desc": "Tiendas online con marca propia, marketplaces nicho, DTC brands" }, "en": { "name": "Ecommerce", "desc": "Own-brand online stores, niche marketplaces, DTC brands" } },
+      { "id": "digital-agencies", "icon": "📱", "yield": "25-40%", "payback": "2-4 yrs", "multiple": "4-7x", "es": { "name": "Agencias Digitales", "desc": "Agencias de marketing, SEO, desarrollo web, diseño" }, "en": { "name": "Digital Agencies", "desc": "Marketing agencies, SEO, web development, design" } }
+    ]
+  },
+  {
+    "id": "health", "icon": "❤️", "yield": "18-30%", "payback": "4-6 años", "multiple": "4-7x", "count": 91,
+    "es": { "name": "Salud & Bienestar", "tags": ["Farmacias","Gimnasios","Spa"], "drivers": "Envejecimiento, salud preventiva, bienestar mental", "intro": "El sector salud en España tiene la mayor demanda estructural de largo plazo por el envejecimiento poblacional. Farmacias y centros de salud presentan ingresos muy estables y regulados." },
+    "en": { "name": "Health & Wellness", "tags": ["Pharmacies","Gyms","Spas"], "drivers": "Aging, preventive health, mental wellness", "intro": "The health sector in Spain has the greatest long-term structural demand due to population aging. Pharmacies and health centers present very stable and regulated revenues." },
+    "subsectors": [
+      { "id": "pharmacy", "icon": "💊", "yield": "18-25%", "payback": "5-7 yrs", "multiple": "5-8x", "es": { "name": "Farmacias", "desc": "Oficinas de farmacia con licencia, parafarmacia, ópticas" }, "en": { "name": "Pharmacies", "desc": "Licensed pharmacy offices, parapharmacy, opticians" } },
+      { "id": "gyms", "icon": "🏋️", "yield": "22-32%", "payback": "3-5 yrs", "multiple": "3-5x", "es": { "name": "Gimnasios & Fitness", "desc": "Centros deportivos, boxes de CrossFit, pilates, yoga studios" }, "en": { "name": "Gyms & Fitness", "desc": "Sports centers, CrossFit boxes, pilates, yoga studios" } },
+      { "id": "beauty", "icon": "💆", "yield": "20-30%", "payback": "3-5 yrs", "multiple": "3-5x", "es": { "name": "Estética & Spa", "desc": "Centros de belleza, spas urbanos, peluquerías premium" }, "en": { "name": "Beauty & Spa", "desc": "Beauty centers, urban spas, premium hairdressers" } }
+    ]
+  },
+  {
+    "id": "energy", "icon": "⚡", "yield": "20-35%", "payback": "3-6 años", "multiple": "4-7x", "count": 38,
+    "es": { "name": "Energía & Medio Ambiente", "tags": ["Solar","Eficiencia","Reciclaje"], "drivers": "Transición energética, subvenciones UE, descarbonización", "intro": "El sector energético es el de mayor crecimiento estructural en España. Instaladoras fotovoltaicas y empresas de eficiencia energética se benefician de subvenciones europeas y demanda creciente." },
+    "en": { "name": "Energy & Environment", "tags": ["Solar","Efficiency","Recycling"], "drivers": "Energy transition, EU subsidies, decarbonization", "intro": "The energy sector has the greatest structural growth in Spain. Photovoltaic installers and energy efficiency companies benefit from European subsidies and growing demand." },
+    "subsectors": [
+      { "id": "solar", "icon": "☀️", "yield": "25-40%", "payback": "3-5 yrs", "multiple": "5-8x", "es": { "name": "Solar & Renovables", "desc": "Instaladoras fotovoltaicas, gestoras de parques solares, ESCO" }, "en": { "name": "Solar & Renewables", "desc": "Photovoltaic installers, solar park managers, ESCO" } },
+      { "id": "efficiency", "icon": "🌡️", "yield": "20-30%", "payback": "3-5 yrs", "multiple": "4-6x", "es": { "name": "Eficiencia Energética", "desc": "Auditorías energéticas, climatización, certificaciones" }, "en": { "name": "Energy Efficiency", "desc": "Energy audits, HVAC, certifications" } },
+      { "id": "waste", "icon": "♻️", "yield": "16-24%", "payback": "5-7 yrs", "multiple": "3-5x", "es": { "name": "Gestión de Residuos", "desc": "Reciclaje industrial, gestión ambiental, tratamiento de residuos" }, "en": { "name": "Waste Management", "desc": "Industrial recycling, environmental management, waste treatment" } }
+    ]
+  }
+]
