@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-3601",
+  "sectorId": "industry",
+  "subsectorId": "logistics",
+  "icon": "🚛",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Transportes Frigoríficos Penedés",
+    "loc": "Tarragona, Zona Portuaria",
+    "desc": "Empresa de transporte frigorífico especializado en productos frescos y congelados. 16 años. 8 camiones propios, flota homologada ATP. Contratos con 3 cadenas de supermercados regionales."
+  },
+  "en": {
+    "name": "Penedés Refrigerated Transport",
+    "loc": "Tarragona, Port Zone",
+    "desc": "Refrigerated transport company specialised in fresh and frozen products. 16 years. 8 own trucks, ATP-approved fleet. Contracts with 3 regional supermarket chains."
+  },
+  "financials": {
+    "revenue": 1680000,
+    "ebitda": 235000,
+    "margin": 14,
+    "employees": 14,
+    "yearsActive": 16
+  },
+  "valuation": {
+    "low": 700000,
+    "high": 950000
+  },
+  "duns": {
+    "paydex": 75,
+    "defaultProb": "2.6%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "8 camiones propios con homologación ATP frigorífica",
+      "Contratos anuales con 3 cadenas regionales de supermercados",
+      "Autorización operador de transporte internacional (ECMT)",
+      "Nave logística de 1.200m² en zona portuaria",
+      "Posicionamiento nearshoring — demanda creciente post-pandemia"
+    ],
+    "en": [
+      "8 own trucks with ATP refrigeration approval",
+      "Annual contracts with 3 regional supermarket chains",
+      "International transport operator authorisation (ECMT)",
+      "1,200m² logistics warehouse in port area",
+      "Nearshoring positioning — growing post-pandemic demand"
+    ]
+  }
+}

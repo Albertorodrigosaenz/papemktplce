@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-0979",
+  "sectorId": "tech",
+  "subsectorId": "saas",
+  "icon": "🏨",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "HotelOps Platform",
+    "loc": "Barcelona / Remoto",
+    "desc": "SaaS de operaciones para hoteles independientes. 95 hoteles activos en España y Portugal. MRR €14.200. Co-fundadores buscan entrada de capital para acelerar expansión europea."
+  },
+  "en": {
+    "name": "HotelOps Platform",
+    "loc": "Barcelona / Remote",
+    "desc": "Operations SaaS for independent hotels. 95 active hotels in Spain and Portugal. MRR €14,200. Co-founders seeking capital entry to accelerate European expansion."
+  },
+  "financials": {
+    "revenue": 170400,
+    "ebitda": 68160,
+    "margin": 40,
+    "employees": 6,
+    "yearsActive": 3
+  },
+  "valuation": {
+    "low": 480000,
+    "high": 700000
+  },
+  "duns": {
+    "paydex": 71,
+    "defaultProb": "3.3%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "6-8x ARR",
+  "details": {
+    "es": [
+      "95 hoteles activos, NPS de 74 — referencial B2B",
+      "Integración nativa con los 5 principales PMS del mercado",
+      "MRR creciendo +6% mensual",
+      "Francia e Italia identificados como próximos mercados",
+      "Fundadores mantienen 60% y gestión operativa"
+    ],
+    "en": [
+      "95 active hotels, NPS of 74 — B2B benchmark",
+      "Native integration with top 5 PMS in the market",
+      "MRR growing +6% monthly",
+      "France and Italy identified as next markets",
+      "Founders retain 60% and operational management"
+    ]
+  }
+}

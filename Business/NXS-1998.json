@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-1998",
+  "sectorId": "services",
+  "subsectorId": "clinics",
+  "icon": "💪",
+  "saleType": "transfer",
+  "urgent": true,
+  "es": {
+    "name": "Clínica Fisioterapia SportCure",
+    "loc": "Valencia, Benimaclet",
+    "desc": "Clínica de fisioterapia y osteopatía especializada en deportistas. Convenio con 3 clubes deportivos locales. 8 años de actividad. Fisioterapeuta fundadora cambia de ciudad."
+  },
+  "en": {
+    "name": "SportCure Physiotherapy Clinic",
+    "loc": "Valencia, Benimaclet",
+    "desc": "Physiotherapy and osteopathy clinic specialised in athletes. Agreement with 3 local sports clubs. 8 years of activity. Founding physiotherapist relocating."
+  },
+  "financials": {
+    "revenue": 380000,
+    "ebitda": 114000,
+    "margin": 30,
+    "employees": 5,
+    "yearsActive": 8
+  },
+  "valuation": {
+    "low": 450000,
+    "high": 620000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Convenios con 3 clubes de fútbol y baloncesto",
+      "Especialización en deporte — nicho premium de alto margen",
+      "Agenda llena con 3 semanas de espera",
+      "Equipamiento diagnóstico valorado en €85.000",
+      "Posibilidad de ampliar a 2ª sala ya disponible en el local"
+    ],
+    "en": [
+      "Agreements with 3 football and basketball clubs",
+      "Sports specialisation — high-margin premium niche",
+      "Full agenda with 3-week waiting list",
+      "Diagnostic equipment valued at €85,000",
+      "Possibility to expand to 2nd room already available in premises"
+    ]
+  }
+}

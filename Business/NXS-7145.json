@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-7145",
+  "sectorId": "realestate",
+  "subsectorId": "re-agencies",
+  "icon": "🌊",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Agencia Costa del Sol Sunprop",
+    "loc": "Marbella, Centro",
+    "desc": "Agencia inmobiliaria especializada en clientes internacionales en la Costa del Sol. 8 años. 60% clientes no residentes. Pipeline activo de €4.2M."
+  },
+  "en": {
+    "name": "Sunprop Costa del Sol Agency",
+    "loc": "Marbella, Centre",
+    "desc": "Real estate agency specialised in international clients on the Costa del Sol. 8 years. 60% non-resident clients. Active pipeline of €4.2M."
+  },
+  "financials": {
+    "revenue": 1200000,
+    "ebitda": 336000,
+    "margin": 28,
+    "employees": 7,
+    "yearsActive": 8
+  },
+  "valuation": {
+    "low": 1100000,
+    "high": 1550000
+  },
+  "duns": {
+    "paydex": 80,
+    "defaultProb": "1.7%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "60% clientes internacionales — UK, Alemania, Países Bajos",
+      "Pipeline activo de €4.2M con compradores cualificados",
+      "Web en 4 idiomas con SEO internacional posicionado",
+      "Colaboración con 3 gestorías especializadas en extranjeros",
+      "Modelo escalable — misma metodología replicable en Portugal"
+    ],
+    "en": [
+      "60% international clients — UK, Germany, Netherlands",
+      "Active pipeline of €4.2M with qualified buyers",
+      "Website in 4 languages with positioned international SEO",
+      "Partnership with 3 advisory firms specialised in foreigners",
+      "Scalable model — same methodology replicable in Portugal"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-6545",
+  "sectorId": "retail",
+  "subsectorId": "franchise",
+  "icon": "☕",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Café & Co Operator Madrid IFEMA",
+    "loc": "Madrid, IFEMA",
+    "desc": "Operador de 3 establecimientos de franquicia de cafetería premium en zona de negocios. 7 años. Contratos con IFEMA y 2 edificios corporativos. Ticket medio €9."
+  },
+  "en": {
+    "name": "Café & Co Franchise Operator Madrid",
+    "loc": "Madrid, IFEMA",
+    "desc": "Operator of 3 premium café franchise establishments in business zone. 7 years. Contracts with IFEMA and 2 corporate buildings. Average ticket €9."
+  },
+  "financials": {
+    "revenue": 1100000,
+    "ebitda": 154000,
+    "margin": 14,
+    "employees": 14,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 430000,
+    "high": 600000
+  },
+  "duns": {
+    "paydex": 79,
+    "defaultProb": "1.9%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Contratos de exclusividad en IFEMA y 2 edificios corporativos",
+      "3 ubicaciones con alta densidad de tráfico cautivo",
+      "Marca franquiciadora con soporte operativo y de marketing",
+      "Horario reducido (L-V 7:00-19:00) — gestión simplificada",
+      "Pipeline de 4ª ubicación en nuevo edificio corporativo"
+    ],
+    "en": [
+      "Exclusivity contracts in IFEMA and 2 corporate buildings",
+      "3 locations with high captive traffic density",
+      "Franchise brand with operational and marketing support",
+      "Reduced hours (M-F 7:00-19:00) — simplified management",
+      "4th location pipeline in new corporate building"
+    ]
+  }
+}

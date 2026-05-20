@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-2444",
+  "sectorId": "services",
+  "subsectorId": "education",
+  "icon": "🚗",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Autoescuela Drive&Go",
+    "loc": "Zaragoza, Delicias",
+    "desc": "Autoescuela con 18 años en el barrio de Delicias. 2 vehículos propios, simulador de conducción. Alta tasa de aprobados en primera convocatoria (78%). Propietario sin herederos."
+  },
+  "en": {
+    "name": "Drive&Go Driving School",
+    "loc": "Zaragoza, Delicias",
+    "desc": "Driving school with 18 years in the Delicias neighbourhood. 2 own vehicles, driving simulator. High first-attempt pass rate (78%). Owner without heirs."
+  },
+  "financials": {
+    "revenue": 220000,
+    "ebitda": 66000,
+    "margin": 30,
+    "employees": 4,
+    "yearsActive": 18
+  },
+  "valuation": {
+    "low": 220000,
+    "high": 310000
+  },
+  "duns": {
+    "paydex": 74,
+    "defaultProb": "2.7%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Tasa de aprobados 78% — referencia del barrio",
+      "Reputación sólida con referencias intergeneracionales",
+      "Permiso B y A — doble licencia diferenciadora",
+      "Contrato de arrendamiento favorable hasta 2030",
+      "Posibilidad de incorporar permiso de camión (C) como extensión"
+    ],
+    "en": [
+      "78% pass rate — neighbourhood reference",
+      "Solid reputation with intergenerational referrals",
+      "Licence B and A — dual licence differentiator",
+      "Favourable lease until 2030",
+      "Possibility of adding truck licence (C) as extension"
+    ]
+  }
+}

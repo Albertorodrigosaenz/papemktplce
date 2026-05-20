@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-5101",
+  "sectorId": "energy",
+  "subsectorId": "solar",
+  "icon": "☀️",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "SolarTech Instalaciones Renovables",
+    "loc": "Murcia, Zona Industrial",
+    "desc": "Instaladora fotovoltaica para industrial y residencial. 8 años. Homologación de instalador en 6 CCAA. 140 proyectos ejecutados. Fundadores buscan salida estratégica."
+  },
+  "en": {
+    "name": "SolarTech Renewable Installations",
+    "loc": "Murcia, Industrial Zone",
+    "desc": "Photovoltaic installer for industrial and residential. 8 years. Installer approval in 6 autonomous communities. 140 projects completed. Founders seeking strategic exit."
+  },
+  "financials": {
+    "revenue": 2800000,
+    "ebitda": 392000,
+    "margin": 14,
+    "employees": 18,
+    "yearsActive": 8
+  },
+  "valuation": {
+    "low": 1400000,
+    "high": 1900000
+  },
+  "duns": {
+    "paydex": 77,
+    "defaultProb": "2.3%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "Homologación en 6 CCAA — barrera de entrada significativa",
+      "140 proyectos ejecutados con 98% de satisfacción",
+      "Pipeline firmado de €3.2M para próximos 18 meses",
+      "Equipo técnico de 12 instaladores certificados",
+      "Acuerdos con 3 distribuidores de paneles tier-1"
+    ],
+    "en": [
+      "Approval in 6 autonomous communities — significant barrier to entry",
+      "140 completed projects with 98% satisfaction",
+      "Signed pipeline of €3.2M for next 18 months",
+      "Technical team of 12 certified installers",
+      "Agreements with 3 tier-1 panel distributors"
+    ]
+  }
+}

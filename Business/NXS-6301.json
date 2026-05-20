@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-6301",
+  "sectorId": "retail",
+  "subsectorId": "fashion",
+  "icon": "👗",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Boutique Moda Contemporánea Elisa",
+    "loc": "Barcelona, Gràcia",
+    "desc": "Boutique multimarca de moda femenina contemporánea. 14 años en Gràcia. Clientela fidelizada 35-55 años. Propietaria se jubila. Mix de marcas internacionales y diseñadores locales."
+  },
+  "en": {
+    "name": "Elisa Contemporary Fashion Boutique",
+    "loc": "Barcelona, Gràcia",
+    "desc": "Multi-brand contemporary womenswear boutique. 14 years in Gràcia. Loyal 35-55 year old clientele. Owner retiring. Mix of international brands and local designers."
+  },
+  "financials": {
+    "revenue": 480000,
+    "ebitda": 86400,
+    "margin": 18,
+    "employees": 4,
+    "yearsActive": 14
+  },
+  "valuation": {
+    "low": 230000,
+    "high": 340000
+  },
+  "duns": {
+    "paydex": 75,
+    "defaultProb": "2.6%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "2-3x EBITDA",
+  "details": {
+    "es": [
+      "Clientela fiel con tasa de retorno del 72% anual",
+      "Mix de 28 marcas — acuerdos directos con diseñadores",
+      "Renta por debajo de mercado hasta 2030",
+      "Canal Instagram activo: 18.000 seguidores con ventas online",
+      "Personal shopper incluido — servicio premium diferenciador"
+    ],
+    "en": [
+      "Loyal clientele with 72% annual return rate",
+      "Mix of 28 brands — direct designer agreements",
+      "Below-market rent until 2030",
+      "Active Instagram channel: 18,000 followers with online sales",
+      "Personal shopper included — premium differentiating service"
+    ]
+  }
+}

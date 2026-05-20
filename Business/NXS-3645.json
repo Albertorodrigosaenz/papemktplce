@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-3645",
+  "sectorId": "industry",
+  "subsectorId": "logistics",
+  "icon": "📦",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Almacenaje & Fulfillment LogiBox",
+    "loc": "Madrid, Coslada",
+    "desc": "Operador de fulfillment para ecommerce con nave de 3.000m² en Coslada. 7 años. 45 clientes ecommerce activos. Sistema WMS propio. Propietarios buscan salida estratégica."
+  },
+  "en": {
+    "name": "LogiBox Storage & Fulfillment",
+    "loc": "Madrid, Coslada",
+    "desc": "Fulfillment operator for ecommerce with 3,000m² warehouse in Coslada. 7 years. 45 active ecommerce clients. Own WMS system. Owners seeking strategic exit."
+  },
+  "financials": {
+    "revenue": 2200000,
+    "ebitda": 308000,
+    "margin": 14,
+    "employees": 28,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 900000,
+    "high": 1250000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.2%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "45 clientes ecommerce con contratos de servicio continuado",
+      "WMS propio integrable con Shopify, WooCommerce, Amazon",
+      "Nave estratégica en Coslada — hub logístico de Madrid",
+      "Capacidad de almacenaje 12.000 SKUs activos",
+      "Posibilidad de expansión a 2ª nave adyacente disponible"
+    ],
+    "en": [
+      "45 ecommerce clients with ongoing service contracts",
+      "Own WMS integrable with Shopify, WooCommerce, Amazon",
+      "Strategic warehouse in Coslada — Madrid logistics hub",
+      "Storage capacity 12,000 active SKUs",
+      "Expansion possibility to available adjacent 2nd warehouse"
+    ]
+  }
+}

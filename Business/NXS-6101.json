@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-6101",
+  "sectorId": "retail",
+  "subsectorId": "food",
+  "icon": "🛒",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Supermercado Frescos del Barrio",
+    "loc": "Madrid, Hortaleza",
+    "desc": "Supermercado independiente de 650m² especializado en producto fresco y ecológico. 13 años. Sin competencia directa en radio de 600m. Propietario fundador se jubila."
+  },
+  "en": {
+    "name": "Frescos del Barrio Supermarket",
+    "loc": "Madrid, Hortaleza",
+    "desc": "650m² independent supermarket specialised in fresh and organic produce. 13 years. No direct competition within 600m radius. Founding owner retiring."
+  },
+  "financials": {
+    "revenue": 2400000,
+    "ebitda": 192000,
+    "margin": 8,
+    "employees": 11,
+    "yearsActive": 13
+  },
+  "valuation": {
+    "low": 550000,
+    "high": 760000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.5%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "2-4x EBITDA",
+  "details": {
+    "es": [
+      "Sin competencia directa en radio de 600m",
+      "Sección ecológica: 28% de las ventas con margen superior",
+      "Acuerdo con 6 productores locales — diferenciador de producto",
+      "Clientela fidelizada de alto poder adquisitivo",
+      "Licencia de venta de alcohol y tabaco incluida"
+    ],
+    "en": [
+      "No direct competition within 600m radius",
+      "Organic section: 28% of sales with higher margin",
+      "Agreement with 6 local producers — product differentiator",
+      "Loyal high-income clientele",
+      "Alcohol and tobacco sales licence included"
+    ]
+  }
+}

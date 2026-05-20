@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-7189",
+  "sectorId": "realestate",
+  "subsectorId": "re-agencies",
+  "icon": "🏢",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Coldwell Banker Franquicia Valencia Norte",
+    "loc": "Valencia, Benimaclet",
+    "desc": "Operador de franquicia Coldwell Banker para Valencia Norte. 6 agentes. 9 años. Especialización en residencial de obra nueva y segunda mano segmento medio-alto."
+  },
+  "en": {
+    "name": "Coldwell Banker Valencia Norte Franchise",
+    "loc": "Valencia, Benimaclet",
+    "desc": "Coldwell Banker franchise operator for Northern Valencia. 6 agents. 9 years. Specialisation in new-build and second-hand residential mid-to-high segment."
+  },
+  "financials": {
+    "revenue": 780000,
+    "ebitda": 187200,
+    "margin": 24,
+    "employees": 7,
+    "yearsActive": 9
+  },
+  "valuation": {
+    "low": 620000,
+    "high": 870000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Marca Coldwell Banker — reconocimiento internacional",
+      "Zona Valencia Norte en fuerte apreciación — demanda estructural",
+      "6 agentes con media 5 años de antigüedad",
+      "CRM Coldwell Banker con herramientas de marketing integradas",
+      "Acuerdos con 4 promotoras de obra nueva en la zona"
+    ],
+    "en": [
+      "Coldwell Banker brand — international recognition",
+      "Northern Valencia area in strong appreciation — structural demand",
+      "6 agents with average 5 years tenure",
+      "Coldwell Banker CRM with integrated marketing tools",
+      "Agreements with 4 new-build developers in the area"
+    ]
+  }
+}

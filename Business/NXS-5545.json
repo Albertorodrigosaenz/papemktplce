@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-5545",
+  "sectorId": "energy",
+  "subsectorId": "waste",
+  "icon": "🌱",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "BioGreen Compostaje Industrial",
+    "loc": "Zaragoza, Polígono",
+    "desc": "Planta de compostaje de residuos orgánicos industriales. 7 años. Capacidad 4.800 toneladas/año. Contratos con 12 industrias alimentarias. Co-fundadores buscan capital para duplicar capacidad."
+  },
+  "en": {
+    "name": "BioGreen Industrial Composting",
+    "loc": "Zaragoza, Industrial Park",
+    "desc": "Industrial organic waste composting plant. 7 years. Capacity 4,800 tonnes/year. Contracts with 12 food industries. Co-founders seeking capital to double capacity."
+  },
+  "financials": {
+    "revenue": 980000,
+    "ebitda": 176400,
+    "margin": 18,
+    "employees": 9,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 680000,
+    "high": 950000
+  },
+  "duns": {
+    "paydex": 74,
+    "defaultProb": "2.8%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "Capacidad 4.800 t/año — autorización ambiental vigente",
+      "Contratos con 12 industrias alimentarias de la zona",
+      "Compost producido con certificación de calidad agrícola",
+      "Tierra disponible para duplicar planta sin nueva licencia",
+      "Tendencia regulatoria favorable — economía circular obligatoria"
+    ],
+    "en": [
+      "Capacity 4,800 t/year — valid environmental authorisation",
+      "Contracts with 12 local food industries",
+      "Produced compost with agricultural quality certification",
+      "Land available to double plant without new licence",
+      "Favourable regulatory trend — mandatory circular economy"
+    ]
+  }
+}

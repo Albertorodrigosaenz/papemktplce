@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-7545",
+  "sectorId": "realestate",
+  "subsectorId": "parking",
+  "icon": "🚗",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Garajes & Trasteros Almanzora",
+    "loc": "Almería, Centro",
+    "desc": "Operador de 3 garajes y 120 trasteros en Almería centro. 14 años. Ingresos recurrentes por contratos mensuales. Sociedad familiar busca desinvertir parcialmente."
+  },
+  "en": {
+    "name": "Almanzora Garages & Storage",
+    "loc": "Almería, Centre",
+    "desc": "Operator of 3 garages and 120 storage units in central Almería. 14 years. Recurring revenue through monthly contracts. Family company seeking partial divestment."
+  },
+  "financials": {
+    "revenue": 320000,
+    "ebitda": 140800,
+    "margin": 44,
+    "employees": 2,
+    "yearsActive": 14
+  },
+  "valuation": {
+    "low": 780000,
+    "high": 1050000
+  },
+  "duns": {
+    "paydex": 84,
+    "defaultProb": "0.9%",
+    "creditRisk": "Muy bajo",
+    "rating": "A-"
+  },
+  "sectorMultiple": "5-7x EBITDA",
+  "details": {
+    "es": [
+      "3 inmuebles propios — activos reales incluidos en valoración",
+      "280 contratos activos (160 plazas + 120 trasteros)",
+      "Tasa de ocupación media 94% — máxima estabilidad",
+      "Gestión con solo 2 empleados — modelo eficiente",
+      "Potencial de instalación de cargadores EV en los 3 garajes"
+    ],
+    "en": [
+      "3 own properties — real assets included in valuation",
+      "280 active contracts (160 parking + 120 storage)",
+      "Average occupancy rate 94% — maximum stability",
+      "Management with only 2 employees — efficient model",
+      "EV charger installation potential in all 3 garages"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "ref": "NXS-3689",
+  "sectorId": "industry",
+  "subsectorId": "logistics",
+  "icon": "🏍️",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Mensajería Urbana FlashRider",
+    "loc": "Barcelona, Poblenou",
+    "desc": "Empresa de mensajería urgente y última milla en Barcelona. Flota de 22 mensajeros en bicicleta eléctrica. Contratos con farmacéuticas y restaurantes premium. Búsqueda de inversión para expansión."
+  },
+  "en": {
+    "name": "FlashRider Urban Courier",
+    "loc": "Barcelona, Poblenou",
+    "desc": "Urgent and last-mile courier company in Barcelona. Fleet of 22 electric bike couriers. Contracts with pharmaceuticals and premium restaurants. Seeking investment for expansion."
+  },
+  "financials": {
+    "revenue": 780000,
+    "ebitda": 124800,
+    "margin": 16,
+    "employees": 24,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 370000,
+    "high": 520000
+  },
+  "duns": {
+    "paydex": 72,
+    "defaultProb": "3.2%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "22 mensajeros en bicicleta eléctrica — flota sostenible",
+      "Contratos B2B con 4 farmacéuticas y 12 restaurantes premium",
+      "SLA de entrega en 45 minutos — diferenciador clave",
+      "App de tracking propio con 98% de tasa de satisfacción",
+      "Modelo replicable — expansión a Madrid y Valencia en roadmap"
+    ],
+    "en": [
+      "22 electric bike couriers — sustainable fleet",
+      "B2B contracts with 4 pharmaceuticals and 12 premium restaurants",
+      "45-minute delivery SLA — key differentiator",
+      "Own tracking app with 98% satisfaction rate",
+      "Replicable model — Madrid and Valencia expansion in roadmap"
+    ]
+  }
+}
