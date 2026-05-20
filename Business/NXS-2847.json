@@ -1,0 +1,54 @@
+{
+  "ref": "NXS-2847",
+  "sectorId": "hospitality",
+  "subsectorId": "restaurants",
+  "icon": "🍷",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Restaurante Casa Merino",
+    "loc": "Madrid, Chamberí",
+    "desc": "Restaurante de cocina tradicional española con 22 años de trayectoria. Local propio de 180m², capacidad para 65 comensales. Alta fidelización de clientela local. Chef propietario busca jubilarse."
+  },
+  "en": {
+    "name": "Casa Merino Restaurant",
+    "loc": "Madrid, Chamberí",
+    "desc": "Traditional Spanish cuisine restaurant with 22 years of history. Own premises 180m², capacity for 65 diners. High local customer loyalty. Chef-owner looking to retire."
+  },
+  "financials": {
+    "revenue": 680000,
+    "ebitda": 142000,
+    "margin": 20.9,
+    "employees": 8,
+    "yearsActive": 22
+  },
+  "valuation": {
+    "low": 420000,
+    "high": 580000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.1%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Local propio (no alquiler) — activo diferencial",
+      "Cocina mediterránea con clientela recurrente mayor 40",
+      "Dos turnos completos viernes y sábado",
+      "Sin dependencia de plataformas de delivery",
+      "Carta de vinos con 180 referencias propias"
+    ],
+    "en": [
+      "Own premises (no rent) — key differentiator",
+      "Mediterranean kitchen with recurring 40+ customer base",
+      "Two full sittings Friday and Saturday",
+      "No delivery platform dependency",
+      "Wine list with 180 proprietary references"
+    ]
+  },
+  "lat": 40.4318,
+  "lng": -3.7002
+}
