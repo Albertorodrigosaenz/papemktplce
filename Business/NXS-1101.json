@@ -1,0 +1,54 @@
+{
+  "ref": "NXS-1101",
+  "sectorId": "tech",
+  "subsectorId": "ecommerce",
+  "icon": "🌿",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "NutriBio Tienda Online",
+    "loc": "Valencia / Remoto",
+    "desc": "Ecommerce de suplementos deportivos y nutrición natural. Marca propia con 5 años en el mercado. 18.000 clientes activos. Facturación creciente +35% anual. Fundador busca salida."
+  },
+  "en": {
+    "name": "NutriBio Online Store",
+    "loc": "Valencia / Remote",
+    "desc": "Sports supplements and natural nutrition ecommerce. Own brand with 5 years in the market. 18,000 active customers. Revenue growing +35% annually. Founder seeking exit."
+  },
+  "financials": {
+    "revenue": 980000,
+    "ebitda": 215600,
+    "margin": 22,
+    "employees": 6,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 750000,
+    "high": 1100000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.1%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "18.000 clientes activos con programa de fidelización",
+      "LTV medio por cliente €187 — retención alta",
+      "Marca propia registrada en España y UE",
+      "Canal Amazon: 30% ventas — 70% canal directo",
+      "Stock propio gestionado con ERP — sin dependencia 3PL"
+    ],
+    "en": [
+      "18,000 active customers with loyalty programme",
+      "Average customer LTV €187 — high retention",
+      "Own brand registered in Spain and EU",
+      "Amazon channel: 30% sales — 70% direct channel",
+      "Own stock managed with ERP — no 3PL dependency"
+    ]
+  },
+  "lat": 36.0924,
+  "lng": -5.2852
+}

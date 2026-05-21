@@ -1,0 +1,54 @@
+{
+  "ref": "NXS-2288",
+  "sectorId": "services",
+  "subsectorId": "consulting",
+  "icon": "⚖️",
+  "saleType": "full",
+  "urgent": true,
+  "es": {
+    "name": "Gestoría Integral Suárez & Asociados",
+    "loc": "Sevilla, Triana",
+    "desc": "Gestoría generalista con 35 años de historia en Triana. 520 clientes entre autónomos y sociedades. Los dos socios fundadores se jubilan simultáneamente. Equipo técnico dispuesto a continuar."
+  },
+  "en": {
+    "name": "Suárez & Associates Management",
+    "loc": "Seville, Triana",
+    "desc": "General management firm with 35 years of history in Triana. 520 clients. Both founding partners retiring simultaneously. Technical team willing to continue."
+  },
+  "financials": {
+    "revenue": 540000,
+    "ebitda": 162000,
+    "margin": 30,
+    "employees": 7,
+    "yearsActive": 35
+  },
+  "valuation": {
+    "low": 600000,
+    "high": 820000
+  },
+  "duns": {
+    "paydex": 82,
+    "defaultProb": "1.4%",
+    "creditRisk": "Bajo",
+    "rating": "BBB"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "520 clientes con contratos de servicios continuados",
+      "Equipo técnico de 5 personas dispuesto a continuar",
+      "Oficina céntrica de 220m² con renta por debajo de mercado",
+      "Software actualizado compatible con Administración Electrónica",
+      "Reputación consolidada en Triana — referencias intergeneracionales"
+    ],
+    "en": [
+      "520 clients with ongoing service contracts",
+      "Technical team of 5 people willing to continue",
+      "Central 220m² office with below-market rent",
+      "Software updated compatible with Electronic Administration",
+      "Consolidated reputation in Triana — intergenerational referrals"
+    ]
+  },
+  "lat": 41.4453,
+  "lng": 2.27
+}

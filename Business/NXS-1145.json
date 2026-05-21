@@ -1,0 +1,54 @@
+{
+  "ref": "NXS-1145",
+  "sectorId": "tech",
+  "subsectorId": "ecommerce",
+  "icon": "👶",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "PequesMundo Kids Online",
+    "loc": "Madrid / Remoto",
+    "desc": "Tienda online de juguetes y material educativo para 0-10 años. Selección curada de producto europeo sostenible. 9.500 clientes activos. Propietaria busca salida."
+  },
+  "en": {
+    "name": "PequesMundo Kids Online",
+    "loc": "Madrid / Remote",
+    "desc": "Online toy and educational materials store for ages 0-10. Curated selection of sustainable European products. 9,500 active customers. Owner seeking exit."
+  },
+  "financials": {
+    "revenue": 640000,
+    "ebitda": 115200,
+    "margin": 18,
+    "employees": 4,
+    "yearsActive": 6
+  },
+  "valuation": {
+    "low": 420000,
+    "high": 600000
+  },
+  "duns": {
+    "paydex": 80,
+    "defaultProb": "1.7%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "9.500 clientes activos, tasa de recompra 62%",
+      "Catálogo de 800 referencias — selección curada sostenible",
+      "90% proveedores europeos — posicionamiento premium",
+      "Newsletter con 24.000 suscriptores activos y tasa apertura 38%",
+      "Acuerdo con 3 colegios para material escolar — B2B en crecimiento"
+    ],
+    "en": [
+      "9,500 active customers, 62% repurchase rate",
+      "Catalogue of 800 references — curated sustainable selection",
+      "90% European suppliers — premium positioning",
+      "Newsletter with 24,000 active subscribers and 38% open rate",
+      "Agreement with 3 schools for school materials — growing B2B"
+    ]
+  },
+  "lat": 40.5465,
+  "lng": -3.7435
+}

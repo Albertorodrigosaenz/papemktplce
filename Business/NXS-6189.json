@@ -1,0 +1,54 @@
+{
+  "ref": "NXS-6189",
+  "sectorId": "retail",
+  "subsectorId": "food",
+  "icon": "🥖",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Panadería Artesana El Obrador",
+    "loc": "Málaga, Pedregalejo",
+    "desc": "Panadería artesanal con horno de leña y obrador propio. 16 años. Distribución a 12 restaurantes del barrio. Turno de madrugada consolidado. Fundador se jubila."
+  },
+  "en": {
+    "name": "El Obrador Artisan Bakery",
+    "loc": "Málaga, Pedregalejo",
+    "desc": "Artisan bakery with wood-fired oven and own workshop. 16 years. Distribution to 12 neighbourhood restaurants. Consolidated night shift. Founder retiring."
+  },
+  "financials": {
+    "revenue": 380000,
+    "ebitda": 91200,
+    "margin": 24,
+    "employees": 6,
+    "yearsActive": 16
+  },
+  "valuation": {
+    "low": 240000,
+    "high": 340000
+  },
+  "duns": {
+    "paydex": 74,
+    "defaultProb": "2.9%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "2-3x EBITDA",
+  "details": {
+    "es": [
+      "Horno de leña — diferenciador de producto único",
+      "Distribución B2B a 12 restaurantes: 40% de ingresos",
+      "Masa madre propia de 16 años — patrimonio inmaterial",
+      "Obrador de 200m² propio — activo incluido",
+      "Ticket de desayuno fidelizado en zona turística"
+    ],
+    "en": [
+      "Wood-fired oven — unique product differentiator",
+      "B2B distribution to 12 restaurants: 40% of revenue",
+      "Own 16-year sourdough starter — intangible heritage",
+      "Own 200m² workshop — included asset",
+      "Loyal breakfast clientele in tourist area"
+    ]
+  },
+  "lat": 41.4675,
+  "lng": 2.293
+}
