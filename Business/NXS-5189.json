@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-5189",
+  "sectorId": "energy",
+  "subsectorId": "solar",
+  "icon": "🔋",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Almacenamiento Energético StorageX",
+    "loc": "Madrid, Leganés",
+    "desc": "Empresa de sistemas de almacenamiento energético (baterías) para instalaciones industriales y agrícolas. 5 años. Distribuidor exclusivo de marca coreana tier-1 para España."
+  },
+  "en": {
+    "name": "StorageX Energy Storage Systems",
+    "loc": "Madrid, Leganés",
+    "desc": "Energy storage systems company (batteries) for industrial and agricultural installations. 5 years. Exclusive distributor of Korean tier-1 brand for Spain."
+  },
+  "financials": {
+    "revenue": 1800000,
+    "ebitda": 270000,
+    "margin": 15,
+    "employees": 9,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 950000,
+    "high": 1300000
+  },
+  "duns": {
+    "paydex": 75,
+    "defaultProb": "2.6%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "Distribución exclusiva marca coreana tier-1 — ventaja estratégica",
+      "Cartera de 280 instalaciones activas con contratos mantenimiento",
+      "Sector con crecimiento estructural — obligatoriedad regulatoria emergente",
+      "Equipo técnico de 6 ingenieros energéticos certificados",
+      "Servicio de monitorización remota propio: ingresos recurrentes €180K/año"
+    ],
+    "en": [
+      "Exclusive distribution of Korean tier-1 brand — strategic advantage",
+      "Portfolio of 280 active installations with maintenance contracts",
+      "Structurally growing sector — emerging regulatory obligation",
+      "Technical team of 6 certified energy engineers",
+      "Own remote monitoring service: recurring revenue €180K/year"
+    ]
+  },
+  "lat": 40.5537,
+  "lng": -3.8128,
+  "category": [
+    "recurring_revenue",
+    "asset_backed"
+  ],
+  "reasonForSale": "Full exit",
+  "salePercent": 100,
+  "reasonForSaleEs": "Salida total"
+}

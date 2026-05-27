@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-2105",
+  "sectorId": "health",
+  "subsectorId": "gyms",
+  "icon": "🏋️",
+  "saleType": "transfer",
+  "urgent": true,
+  "es": {
+    "name": "Centro Deportivo FitZone Zaragoza",
+    "loc": "Zaragoza, Centro",
+    "desc": "Gimnasio de 1.200m² con 1.847 socios activos. Equipamiento renovado en 2023. Contrato de arrendamiento ventajoso hasta 2031. Propietario emigra al extranjero."
+  },
+  "en": {
+    "name": "FitZone Sports Center Zaragoza",
+    "loc": "Zaragoza, City Centre",
+    "desc": "1,200m² gym with 1,847 active members. Equipment renewed in 2023. Advantageous lease until 2031. Owner emigrating abroad."
+  },
+  "financials": {
+    "revenue": 520000,
+    "ebitda": 104000,
+    "margin": 20,
+    "employees": 9,
+    "yearsActive": 11
+  },
+  "valuation": {
+    "low": 310000,
+    "high": 420000
+  },
+  "duns": {
+    "paydex": 75,
+    "defaultProb": "2.8%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "1.847 socios con cuota media €28/mes",
+      "Alquiler €4.200/mes — muy por debajo de mercado",
+      "Clases grupales con lista de espera consistente",
+      "App propia de reservas con 78% de adopción",
+      "Upsells: nutrición, entrenamiento personal, fisio"
+    ],
+    "en": [
+      "1,847 members at average €28/month fee",
+      "Rent €4,200/month — well below market",
+      "Group classes with consistent waiting lists",
+      "Own booking app with 78% adoption",
+      "Upsells: nutrition, personal training, physio"
+    ]
+  },
+  "lat": 40.5633,
+  "lng": -3.659,
+  "category": [
+    "recurring_revenue",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner emigrating abroad",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario emigra al extranjero"
+}

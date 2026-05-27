@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-7589",
+  "sectorId": "realestate",
+  "subsectorId": "parking",
+  "icon": "🏍️",
+  "saleType": "full",
+  "urgent": true,
+  "es": {
+    "name": "Parkmotos & Bicicletas UrbanPark",
+    "loc": "Valencia, Ruzafa",
+    "desc": "Operador de parking para motos y bicicletas en Ruzafa con servicio de mantenimiento básico. 7 años. 380 contratos activos. Propietario cambia de ciudad."
+  },
+  "en": {
+    "name": "UrbanPark Motorbike & Bike Parking",
+    "loc": "Valencia, Ruzafa",
+    "desc": "Motorbike and bicycle parking operator in Ruzafa with basic maintenance service. 7 years. 380 active contracts. Owner relocating."
+  },
+  "financials": {
+    "revenue": 195000,
+    "ebitda": 78000,
+    "margin": 40,
+    "employees": 3,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 320000,
+    "high": 450000
+  },
+  "duns": {
+    "paydex": 74,
+    "defaultProb": "2.8%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "380 contratos activos — 280 motos y 100 bicicletas",
+      "Servicio de lavado y mantenimiento básico: 22% de ingresos",
+      "Ubicación Ruzafa — zona de alta densidad y crecimiento",
+      "Local de 800m² con renta favorable hasta 2030",
+      "Potencial de expansión a segundo local ya identificado"
+    ],
+    "en": [
+      "380 active contracts — 280 motorbikes and 100 bicycles",
+      "Washing and basic maintenance service: 22% of revenue",
+      "Ruzafa location — high density and growth area",
+      "800m² premises with favourable rent until 2030",
+      "Expansion potential to already identified second premises"
+    ]
+  },
+  "lat": 43.2502,
+  "lng": -3.6389,
+  "category": [
+    "recurring_revenue",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner relocating",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario cambia de ciudad"
+}

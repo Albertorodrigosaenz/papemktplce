@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-0891",
+  "sectorId": "tech",
+  "subsectorId": "saas",
+  "icon": "☁️",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "GestiónPro Software",
+    "loc": "Sevilla / Remoto",
+    "desc": "SaaS vertical de gestión para clínicas veterinarias. 340 clínicas suscriptoras en España y LATAM. MRR de €28.400. Fundador busca salida total tras 6 años de desarrollo."
+  },
+  "en": {
+    "name": "GestiónPro Software",
+    "loc": "Seville / Remote",
+    "desc": "Vertical SaaS for veterinary clinic management. 340 subscriber clinics in Spain and LATAM. MRR of €28,400. Founder seeking full exit after 6 years of development."
+  },
+  "financials": {
+    "revenue": 340800,
+    "ebitda": 136320,
+    "margin": 40,
+    "employees": 4,
+    "yearsActive": 6
+  },
+  "valuation": {
+    "low": 950000,
+    "high": 1300000
+  },
+  "duns": {
+    "paydex": 82,
+    "defaultProb": "1.2%",
+    "creditRisk": "Bajo",
+    "rating": "BBB"
+  },
+  "sectorMultiple": "7-9x ARR",
+  "details": {
+    "es": [
+      "340 clínicas activas, churn anual <5%",
+      "MRR €28.400 — ARR €340.800",
+      "Stack técnico moderno (React + Node + AWS)",
+      "Contratos anuales prepago con 92% de renovación",
+      "Oportunidad clara de expansión a LATAM"
+    ],
+    "en": [
+      "340 active clinics, annual churn <5%",
+      "MRR €28,400 — ARR €340,800",
+      "Modern tech stack (React + Node + AWS)",
+      "Annual prepaid contracts with 92% renewal",
+      "Clear LATAM expansion opportunity"
+    ]
+  },
+  "lat": 40.4499,
+  "lng": -3.5085,
+  "category": [
+    "recurring_revenue",
+    "high_margin"
+  ],
+  "reasonForSale": "Founder full exit after 6 years",
+  "salePercent": 100,
+  "reasonForSaleEs": "Fundador sale tras 6 años"
+}

@@ -1,0 +1,62 @@
+{
+  "ref": "NXS-3545",
+  "sectorId": "industry",
+  "subsectorId": "manufacturing",
+  "icon": "🪑",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Ebanistería Artesana Lerma",
+    "loc": "Salamanca, Polígono",
+    "desc": "Fabricante artesanal de mobiliario de alto standing para contract y particular. 31 años. Referencia en Castilla para interioristas premium. Propietario mayor de 65 sin sucesor claro."
+  },
+  "en": {
+    "name": "Lerma Artisan Furniture & Joinery",
+    "loc": "Salamanca, Industrial Park",
+    "desc": "Artisan manufacturer of high-end furniture for contract and private clients. 31 years. Reference in Castilla for premium interior designers. Owner over 65 without clear successor."
+  },
+  "financials": {
+    "revenue": 680000,
+    "ebitda": 136000,
+    "margin": 20,
+    "employees": 8,
+    "yearsActive": 31
+  },
+  "valuation": {
+    "low": 420000,
+    "high": 570000
+  },
+  "duns": {
+    "paydex": 73,
+    "defaultProb": "3.0%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Reputación premium en Castilla y León — 31 años de referencias",
+      "Cartera de 45 interioristas y arquitectos colaboradores",
+      "Taller de 800m² propio con maquinaria especializada",
+      "Ticket medio por proyecto €15.000 — nicho premium",
+      "Lista de espera de 6 meses en temporada alta"
+    ],
+    "en": [
+      "Premium reputation in Castilla y León — 31 years of referrals",
+      "Portfolio of 45 collaborating interior designers and architects",
+      "Own 800m² workshop with specialised machinery",
+      "Average project ticket €15,000 — premium niche",
+      "6-month waiting list in high season"
+    ]
+  },
+  "lat": 41.3444,
+  "lng": 2.0495,
+  "category": [
+    "high_margin",
+    "owner_operated",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner over 65, no clear successor",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario +65 sin sucesor claro"
+}

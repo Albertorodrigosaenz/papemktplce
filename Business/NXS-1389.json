@@ -1,0 +1,62 @@
+{
+  "ref": "NXS-1389",
+  "sectorId": "tech",
+  "subsectorId": "digital-agencies",
+  "icon": "🔍",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "SEO & Contenidos Rankup",
+    "loc": "Sevilla / Remoto",
+    "desc": "Agencia especializada en SEO técnico y estrategia de contenidos para ecommerce. 52 clientes activos. 5 años. Fundadores buscan entrada de capital para internacionalización."
+  },
+  "en": {
+    "name": "Rankup SEO & Content",
+    "loc": "Seville / Remote",
+    "desc": "Agency specialised in technical SEO and content strategy for ecommerce. 52 active clients. 5 years. Founders seeking capital entry for internationalisation."
+  },
+  "financials": {
+    "revenue": 680000,
+    "ebitda": 190400,
+    "margin": 28,
+    "employees": 9,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 680000,
+    "high": 960000
+  },
+  "duns": {
+    "paydex": 79,
+    "defaultProb": "1.9%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "52 clientes activos — 80% en ecommerce y retail digital",
+      "Metodología SEO propia con resultados demostrables",
+      "Herramientas y procesos documentados — escalable",
+      "MRR €56.700 — base de facturación recurrente",
+      "Pipeline UK y LATAM con 3 prospectos avanzados"
+    ],
+    "en": [
+      "52 active clients — 80% in ecommerce and digital retail",
+      "Own SEO methodology with demonstrable results",
+      "Documented tools and processes — scalable",
+      "MRR €56,700 — recurring billing base",
+      "UK and LATAM pipeline with 3 advanced prospects"
+    ]
+  },
+  "lat": 40.421,
+  "lng": -3.7865,
+  "category": [
+    "recurring_revenue",
+    "high_margin",
+    "growth"
+  ],
+  "reasonForSale": "Seeking capital for internationalisation",
+  "salePercent": 40,
+  "reasonForSaleEs": "Busca capital para internacionalizar"
+}

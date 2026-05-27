@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-5345",
+  "sectorId": "energy",
+  "subsectorId": "efficiency",
+  "icon": "❄️",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "ClimaOptima HVAC Industrial",
+    "loc": "Valencia, Paterna",
+    "desc": "Empresa de climatización industrial y comercial con servicio de mantenimiento. 17 años. 95 contratos de mantenimiento anual. Propietario mayor de 65 sin sucesor."
+  },
+  "en": {
+    "name": "ClimaOptima Industrial HVAC",
+    "loc": "Valencia, Paterna",
+    "desc": "Industrial and commercial air conditioning company with maintenance service. 17 years. 95 annual maintenance contracts. Owner over 65 without successor."
+  },
+  "financials": {
+    "revenue": 1100000,
+    "ebitda": 198000,
+    "margin": 18,
+    "employees": 12,
+    "yearsActive": 17
+  },
+  "valuation": {
+    "low": 700000,
+    "high": 950000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.4%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-5x EBITDA",
+  "details": {
+    "es": [
+      "95 contratos de mantenimiento anual — base recurrente €420K",
+      "Homologación instalador frigorista F-Gas — barrera regulatoria",
+      "Flota de 6 vehículos taller propios incluida",
+      "Almacén de materiales valorado en €140.000",
+      "Acuerdos de distribución con Daikin y Mitsubishi Electric"
+    ],
+    "en": [
+      "95 annual maintenance contracts — €420K recurring base",
+      "F-Gas refrigeration installer approval — regulatory barrier",
+      "Fleet of 6 own workshop vehicles included",
+      "Materials warehouse valued at €140,000",
+      "Distribution agreements with Daikin and Mitsubishi Electric"
+    ]
+  },
+  "lat": 40.5417,
+  "lng": -3.5499,
+  "category": [
+    "recurring_revenue",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner over 65, no successor",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario +65 sin sucesor"
+}

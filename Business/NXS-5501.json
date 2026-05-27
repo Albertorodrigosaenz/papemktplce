@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-5501",
+  "sectorId": "energy",
+  "subsectorId": "waste",
+  "icon": "♻️",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "ReciclaPlus Gestión de Residuos",
+    "loc": "Bilbao, Zona Industrial",
+    "desc": "Gestora de residuos industriales no peligrosos. 14 años. Licencia ambiental con 6 flujos de residuo autorizados. Propietario se jubila. Contratos con 80 clientes industriales."
+  },
+  "en": {
+    "name": "ReciclaPlus Waste Management",
+    "loc": "Bilbao, Industrial Zone",
+    "desc": "Non-hazardous industrial waste manager. 14 years. Environmental licence with 6 authorised waste streams. Owner retiring. Contracts with 80 industrial clients."
+  },
+  "financials": {
+    "revenue": 1600000,
+    "ebitda": 240000,
+    "margin": 15,
+    "employees": 14,
+    "yearsActive": 14
+  },
+  "valuation": {
+    "low": 850000,
+    "high": 1150000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.1%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-5x EBITDA",
+  "details": {
+    "es": [
+      "Licencia ambiental — barrera de entrada casi insalvable",
+      "80 clientes industriales con contratos anuales",
+      "6 flujos de residuo autorizados: plástico, papel, metal, vidrio, orgánico, mixto",
+      "Flota propia de 5 camiones con compactador",
+      "Convenio de valorización con planta de reciclaje local"
+    ],
+    "en": [
+      "Environmental licence — near-insurmountable barrier to entry",
+      "80 industrial clients with annual contracts",
+      "6 authorised waste streams: plastic, paper, metal, glass, organic, mixed",
+      "Own fleet of 5 trucks with compactor",
+      "Recovery agreement with local recycling plant"
+    ]
+  },
+  "lat": 40.4921,
+  "lng": -3.8036,
+  "category": [
+    "recurring_revenue",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner retiring",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario se jubila"
+}

@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-6145",
+  "sectorId": "retail",
+  "subsectorId": "food",
+  "icon": "🧀",
+  "saleType": "transfer",
+  "urgent": true,
+  "es": {
+    "name": "Delicatessen & Quesería Artesana",
+    "loc": "San Sebastián, Centro",
+    "desc": "Tienda delicatessen especializada en quesos artesanos, embutidos ibéricos y conservas gourmet. 9 años. Clientela premium local y turística. Propietaria cambia de país."
+  },
+  "en": {
+    "name": "Artisan Delicatessen & Cheesemonger",
+    "loc": "San Sebastián, Centre",
+    "desc": "Delicatessen shop specialised in artisan cheeses, Iberian cold cuts and gourmet preserves. 9 years. Premium local and tourist clientele. Owner moving country."
+  },
+  "financials": {
+    "revenue": 480000,
+    "ebitda": 115200,
+    "margin": 24,
+    "employees": 4,
+    "yearsActive": 9
+  },
+  "valuation": {
+    "low": 320000,
+    "high": 440000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "2-4x EBITDA",
+  "details": {
+    "es": [
+      "Más de 120 referencias de queso artesano en stock",
+      "Clientela premium local + flujo turístico garantizado",
+      "Envío online a toda España: 22% de las ventas",
+      "Acuerdos directos con 18 productores artesanos",
+      "Ubicación céntrica prime de San Sebastián"
+    ],
+    "en": [
+      "Over 120 artisan cheese references in stock",
+      "Premium local clientele + guaranteed tourist flow",
+      "Online shipping across Spain: 22% of sales",
+      "Direct agreements with 18 artisan producers",
+      "Prime central location in San Sebastián"
+    ]
+  },
+  "lat": 36.1874,
+  "lng": -5.41,
+  "category": [
+    "high_margin",
+    "asset_backed"
+  ],
+  "reasonForSale": "Owner moving country",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietaria cambia de país"
+}

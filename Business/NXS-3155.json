@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-3155",
+  "sectorId": "hospitality",
+  "subsectorId": "bars",
+  "icon": "☕",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Cafetería & Obrador La Mañanera",
+    "loc": "Zaragoza, Gran Vía",
+    "desc": "Cafetería con obrador propio de bollería artesanal. 8 años en ubicación prime de Gran Vía. 60% ingresos de desayunos y brunch. Propietaria busca salida por cambio de vida."
+  },
+  "en": {
+    "name": "La Mañanera Café & Bakery",
+    "loc": "Zaragoza, Gran Vía",
+    "desc": "Café with own artisan pastry workshop. 8 years in prime Gran Vía location. 60% revenue from breakfast and brunch. Owner seeking exit for lifestyle change."
+  },
+  "financials": {
+    "revenue": 310000,
+    "ebitda": 77500,
+    "margin": 25,
+    "employees": 5,
+    "yearsActive": 8
+  },
+  "valuation": {
+    "low": 180000,
+    "high": 260000
+  },
+  "duns": {
+    "paydex": 79,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "2-3x EBITDA",
+  "details": {
+    "es": [
+      "Obrador propio — control total de producto",
+      "Ubicación prime en Gran Vía con alto tráfico peatonal",
+      "Clientela fidelizada de oficinas del entorno",
+      "Proveedores locales con contratos estables",
+      "Redes sociales con 12.000 seguidores activos"
+    ],
+    "en": [
+      "Own bakery — full product control",
+      "Prime Gran Vía location with high footfall",
+      "Loyal office clientele in the area",
+      "Local suppliers with stable contracts",
+      "Social media with 12,000 active followers"
+    ]
+  },
+  "lat": 40.5537,
+  "lng": -3.5095,
+  "category": [
+    "high_margin",
+    "owner_operated"
+  ],
+  "reasonForSale": "Lifestyle change",
+  "salePercent": 100,
+  "reasonForSaleEs": "Cambio de vida"
+}

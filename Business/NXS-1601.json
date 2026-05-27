@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-1601",
+  "sectorId": "hospitality",
+  "subsectorId": "hotels",
+  "icon": "🏩",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Apartamentos Turísticos Sol & Mar",
+    "loc": "Málaga, Costa del Sol",
+    "desc": "Complejo de 24 apartamentos turísticos en primera línea de playa. Licencia turística consolidada. Gestión profesionalizada con revenue manager externo. Propietario mayor de 70 años sin herederos interesados."
+  },
+  "en": {
+    "name": "Sol & Mar Tourist Apartments",
+    "loc": "Málaga, Costa del Sol",
+    "desc": "Complex of 24 beachfront tourist apartments. Consolidated tourist licence. Professionally managed with external revenue manager. Owner over 70 with no interested heirs."
+  },
+  "financials": {
+    "revenue": 780000,
+    "ebitda": 202800,
+    "margin": 26,
+    "employees": 5,
+    "yearsActive": 21
+  },
+  "valuation": {
+    "low": 950000,
+    "high": 1250000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.4%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-6x EBITDA",
+  "details": {
+    "es": [
+      "Licencia turística irrepetible en zona saturada",
+      "24 unidades con vista al mar — diferenciador prime",
+      "Ocupación media anual del 81%",
+      "Canal directo: 42% de reservas sin OTA",
+      "Inmueble propio incluido en la valoración"
+    ],
+    "en": [
+      "Unrepeatable tourist licence in saturated zone",
+      "24 sea-view units — prime differentiator",
+      "Annual average occupancy 81%",
+      "Direct channel: 42% of bookings without OTA",
+      "Own property included in valuation"
+    ]
+  },
+  "lat": 41.4555,
+  "lng": 2.1954,
+  "category": [
+    "asset_backed",
+    "high_margin"
+  ],
+  "reasonForSale": "Owner retiring, no heirs",
+  "salePercent": 100,
+  "reasonForSaleEs": "Propietario se jubila sin herederos"
+}
