@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-2955",
+  "sectorId": "hospitality",
+  "subsectorId": "restaurants",
+  "icon": "🍕",
+  "saleType": "transfer",
+  "urgent": true,
+  "es": {
+    "name": "Pizzería Napoli Express",
+    "loc": "Valencia, Ruzafa",
+    "desc": "Cadena de 3 locales de pizza artesanal napolitana en el barrio más trendy de Valencia. Horno de leña importado. Facturación creciente +22% anual. Fundador se traslada a Italia."
+  },
+  "en": {
+    "name": "Napoli Express Pizzeria",
+    "loc": "Valencia, Ruzafa",
+    "desc": "Chain of 3 artisan Neapolitan pizza venues in Valencia's trendiest neighbourhood. Imported wood-fired oven. Revenue growing +22% annually. Founder relocating to Italy."
+  },
+  "financials": {
+    "revenue": 890000,
+    "ebitda": 187000,
+    "margin": 21,
+    "employees": 14,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 550000,
+    "high": 750000
+  },
+  "duns": {
+    "paydex": 74,
+    "defaultProb": "2.9%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "3 locales en zonas prime de Ruzafa",
+      "Masa madre con fermentación 72h — diferenciador producto",
+      "Delivery propio con app: 35% de ingresos",
+      "Contrato de arrendamiento favorable en los 3 locales",
+      "Instagram con 48.000 seguidores activos"
+    ],
+    "en": [
+      "3 venues in prime Ruzafa locations",
+      "72h fermented sourdough — product differentiator",
+      "Own delivery app: 35% of revenue",
+      "Favourable lease contracts on all 3 venues",
+      "Instagram with 48,000 active followers"
+    ]
+  },
+  "lat": 36.0889,
+  "lng": -5.2997,
+  "category": [
+    "growth",
+    "recurring_revenue"
+  ],
+  "reasonForSale": "Founder relocating",
+  "salePercent": 100
+}

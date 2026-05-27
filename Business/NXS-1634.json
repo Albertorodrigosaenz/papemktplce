@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-1634",
+  "sectorId": "hospitality",
+  "subsectorId": "hotels",
+  "icon": "🏰",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Hostal Boutique El Camino",
+    "loc": "Burgos, Camino de Santiago",
+    "desc": "Hostal boutique con 22 habitaciones en pleno Camino Francés. Premio al mejor alojamiento del Camino 2022. Restaurante con menú del peregrino. Desinversión parcial 40% para financiar renovación."
+  },
+  "en": {
+    "name": "El Camino Boutique Hostal",
+    "loc": "Burgos, Camino de Santiago",
+    "desc": "22-room boutique hostal on the French Way of St James. Award for best Camino accommodation 2022. Restaurant with pilgrim menu. 40% partial divestment to finance renovation."
+  },
+  "financials": {
+    "revenue": 340000,
+    "ebitda": 85000,
+    "margin": 25,
+    "employees": 7,
+    "yearsActive": 12
+  },
+  "valuation": {
+    "low": 320000,
+    "high": 430000
+  },
+  "duns": {
+    "paydex": 77,
+    "defaultProb": "2.2%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Demanda garantizada por flujo anual del Camino",
+      "Inmueble histórico propio — valor patrimonial",
+      "Temporada alta 8 meses al año",
+      "Colaboración con asociaciones de peregrinos internacionales",
+      "Plan de renovación con licencia concedida"
+    ],
+    "en": [
+      "Guaranteed demand from annual Camino flow",
+      "Own historic property — heritage value",
+      "High season 8 months per year",
+      "Partnership with international pilgrim associations",
+      "Renovation plan with granted licence"
+    ]
+  },
+  "lat": 40.3759,
+  "lng": -3.818,
+  "category": [
+    "asset_backed",
+    "recurring_revenue"
+  ],
+  "reasonForSale": "Capital raise for renovation",
+  "salePercent": 40
+}

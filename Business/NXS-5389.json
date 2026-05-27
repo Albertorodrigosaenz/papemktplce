@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-5389",
+  "sectorId": "energy",
+  "subsectorId": "efficiency",
+  "icon": "💡",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "LedPro Iluminación Eficiente",
+    "loc": "Madrid, Getafe",
+    "desc": "Empresa de retrofit de iluminación LED para industria, retail y oficinas. 9 años. Modelo de financiación propia sin inversión del cliente. Co-fundadores buscan socio financiero."
+  },
+  "en": {
+    "name": "LedPro Efficient Lighting",
+    "loc": "Madrid, Getafe",
+    "desc": "LED lighting retrofit company for industry, retail and offices. 9 years. Own financing model with no client investment. Co-founders seeking financial partner."
+  },
+  "financials": {
+    "revenue": 1400000,
+    "ebitda": 252000,
+    "margin": 18,
+    "employees": 11,
+    "yearsActive": 9
+  },
+  "valuation": {
+    "low": 850000,
+    "high": 1200000
+  },
+  "duns": {
+    "paydex": 78,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Modelo de financiación propia — cliente sin inversión inicial",
+      "45 proyectos recurrentes en cartera activa",
+      "Ahorro medio garantizado por contrato del 68% en factura",
+      "Contratos de 7 años — visibilidad de ingresos a largo plazo",
+      "Pipeline de proyectos en negociación: €2.1M"
+    ],
+    "en": [
+      "Own financing model — no initial client investment",
+      "45 recurring projects in active portfolio",
+      "Average savings guaranteed by contract of 68% on bill",
+      "7-year contracts — long-term revenue visibility",
+      "Projects under negotiation pipeline: €2.1M"
+    ]
+  },
+  "lat": 43.3438,
+  "lng": -4.1094,
+  "category": [
+    "recurring_revenue",
+    "growth"
+  ],
+  "reasonForSale": "Seeking financial partner",
+  "salePercent": 40
+}

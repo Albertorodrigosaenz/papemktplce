@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-5301",
+  "sectorId": "energy",
+  "subsectorId": "efficiency",
+  "icon": "🌡️",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "EnergyAudit Consultoría Energética",
+    "loc": "Barcelona, Sant Cugat",
+    "desc": "Consultora de eficiencia energética y certificaciones para edificios corporativos y residenciales. 11 años. Marco de subvenciones Next Generation EU como catalizador."
+  },
+  "en": {
+    "name": "EnergyAudit Energy Consulting",
+    "loc": "Barcelona, Sant Cugat",
+    "desc": "Energy efficiency and certification consultancy for corporate and residential buildings. 11 years. Next Generation EU subsidy framework as catalyst."
+  },
+  "financials": {
+    "revenue": 680000,
+    "ebitda": 170000,
+    "margin": 25,
+    "employees": 8,
+    "yearsActive": 11
+  },
+  "valuation": {
+    "low": 620000,
+    "high": 870000
+  },
+  "duns": {
+    "paydex": 82,
+    "defaultProb": "1.4%",
+    "creditRisk": "Bajo",
+    "rating": "BBB"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Agente rehabilitador acreditado — acceso a subvenciones Next Gen EU",
+      "Cartera de 85 edificios en gestión continuada",
+      "Certificaciones energéticas: A, B y C — categorías de alta demanda",
+      "Convenio con 3 grandes promotoras inmobiliarias catalanas",
+      "Backlog firmado de €480.000 para próximos 9 meses"
+    ],
+    "en": [
+      "Accredited rehabilitation agent — access to Next Gen EU subsidies",
+      "Portfolio of 85 buildings under ongoing management",
+      "Energy certificates: A, B and C — high-demand categories",
+      "Agreement with 3 major Catalan property developers",
+      "Signed backlog of €480,000 for next 9 months"
+    ]
+  },
+  "lat": 42.8929,
+  "lng": -3.8443,
+  "category": [
+    "recurring_revenue",
+    "growth"
+  ],
+  "reasonForSale": "Full exit",
+  "salePercent": 100
+}

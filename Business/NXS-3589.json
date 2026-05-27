@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-3589",
+  "sectorId": "industry",
+  "subsectorId": "manufacturing",
+  "icon": "🧴",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Laboratorio Cosmético NaturalLab",
+    "loc": "Madrid, Leganés",
+    "desc": "Laboratorio de cosmética natural certificada. Fabricación para marcas blancas y marca propia. 11 años. Certificación orgánica COSMOS. Búsqueda de socio industrial para escalar producción."
+  },
+  "en": {
+    "name": "NaturalLab Cosmetic Laboratory",
+    "loc": "Madrid, Leganés",
+    "desc": "Certified natural cosmetics laboratory. Manufacturing for white labels and own brand. 11 years. COSMOS organic certification. Seeking industrial partner to scale production."
+  },
+  "financials": {
+    "revenue": 1100000,
+    "ebitda": 220000,
+    "margin": 20,
+    "employees": 13,
+    "yearsActive": 11
+  },
+  "valuation": {
+    "low": 750000,
+    "high": 1050000
+  },
+  "duns": {
+    "paydex": 79,
+    "defaultProb": "2.0%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-5x EBITDA",
+  "details": {
+    "es": [
+      "Certificación COSMOS orgánica — barrera de entrada significativa",
+      "Marca blanca para 8 clientes con contratos anuales",
+      "Marca propia en Amazon con 4.2 estrellas y 1.200 reseñas",
+      "GMP cosmético certificado — prerequisito exigente",
+      "Pipeline de 3 nuevos clientes de marca blanca en negociación"
+    ],
+    "en": [
+      "COSMOS organic certification — significant barrier to entry",
+      "White label for 8 clients with annual contracts",
+      "Own brand on Amazon with 4.2 stars and 1,200 reviews",
+      "GMP cosmetics certified — demanding prerequisite",
+      "Pipeline of 3 new white label clients under negotiation"
+    ]
+  },
+  "lat": 40.4058,
+  "lng": -3.7015,
+  "category": [
+    "growth",
+    "recurring_revenue"
+  ],
+  "reasonForSale": "Seeking industrial partner to scale",
+  "salePercent": 49
+}

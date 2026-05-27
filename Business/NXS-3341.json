@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-3341",
+  "sectorId": "industry",
+  "subsectorId": "workshops",
+  "icon": "🔧",
+  "saleType": "full",
+  "urgent": true,
+  "es": {
+    "name": "Talleres García e Hijos",
+    "loc": "Valencia, Zona Industrial",
+    "desc": "Taller mecánico y de carrocería con concesión de ITV privada. Nave propia de 850m², 6 elevadores, equipos de diagnosis modernos. Tercera generación, propietario sin sucesor."
+  },
+  "en": {
+    "name": "García & Sons Workshop",
+    "loc": "Valencia, Industrial Zone",
+    "desc": "Mechanical and bodywork workshop with private ITV concession. Own 850m² warehouse, 6 lifts, modern diagnostic equipment. Third generation, owner without successor."
+  },
+  "financials": {
+    "revenue": 1240000,
+    "ebitda": 186000,
+    "margin": 15,
+    "employees": 12,
+    "yearsActive": 38
+  },
+  "valuation": {
+    "low": 580000,
+    "high": 780000
+  },
+  "duns": {
+    "paydex": 71,
+    "defaultProb": "3.4%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Nave industrial propia — activo inmobiliario incluido",
+      "Concesión ITV privada renovada hasta 2031",
+      "Contratos de mantenimiento con 3 flotas empresariales",
+      "Marca consolidada en zona con 38 años de reputación",
+      "Equipamiento valorado en €280.000 incluido en precio"
+    ],
+    "en": [
+      "Own industrial warehouse — real estate asset included",
+      "Private ITV concession renewed until 2031",
+      "Maintenance contracts with 3 corporate fleets",
+      "38-year consolidated brand reputation in area",
+      "Equipment valued at €280,000 included in price"
+    ]
+  },
+  "lat": 42.7047,
+  "lng": -7.9833,
+  "category": [
+    "asset_backed",
+    "owner_operated"
+  ],
+  "reasonForSale": "Third generation, no successor",
+  "salePercent": 100
+}

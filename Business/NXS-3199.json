@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-3199",
+  "sectorId": "hospitality",
+  "subsectorId": "bars",
+  "icon": "🍸",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Coctelería Botánica",
+    "loc": "Barcelona, Born",
+    "desc": "Coctelería premium en el barrio del Born con 6 años de trayectoria. Reconocida en guías de ocio barcelonesas. Capacidad 45 personas, lista de espera habitual en fin de semana."
+  },
+  "en": {
+    "name": "Botánica Cocktail Bar",
+    "loc": "Barcelona, Born",
+    "desc": "Premium cocktail bar in the Born neighbourhood with 6 years of history. Featured in Barcelona leisure guides. Capacity 45 people, regular weekend waiting list."
+  },
+  "financials": {
+    "revenue": 280000,
+    "ebitda": 78400,
+    "margin": 28,
+    "employees": 4,
+    "yearsActive": 6
+  },
+  "valuation": {
+    "low": 190000,
+    "high": 270000
+  },
+  "duns": {
+    "paydex": 75,
+    "defaultProb": "2.6%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "2-4x EBITDA",
+  "details": {
+    "es": [
+      "Carta de autor con 40 cócteles propios",
+      "Colaboraciones con destilerías premium nacionales",
+      "Ubicación Born — zona de alta demanda turística y local",
+      "Ticket medio €18 — posicionamiento premium claro",
+      "Posibilidad de expansión a segunda ubicación"
+    ],
+    "en": [
+      "Signature menu with 40 proprietary cocktails",
+      "Collaborations with premium national distilleries",
+      "Born location — high tourist and local demand area",
+      "Average ticket €18 — clear premium positioning",
+      "Expansion possibility to second location"
+    ]
+  },
+  "lat": 40.5563,
+  "lng": -3.67,
+  "category": [
+    "high_margin",
+    "growth"
+  ],
+  "reasonForSale": "Full exit",
+  "salePercent": 100
+}

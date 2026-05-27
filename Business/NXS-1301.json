@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-1301",
+  "sectorId": "tech",
+  "subsectorId": "digital-agencies",
+  "icon": "📱",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Agencia Digital Magnetik",
+    "loc": "Madrid, Salamanca",
+    "desc": "Agencia de marketing digital especializada en performance y paid media. 45 clientes activos con retainers mensuales. 8 años. Co-fundador sale por acuerdo societario."
+  },
+  "en": {
+    "name": "Magnetik Digital Agency",
+    "loc": "Madrid, Salamanca",
+    "desc": "Digital marketing agency specialised in performance and paid media. 45 active clients with monthly retainers. 8 years. Co-founder exiting by shareholder agreement."
+  },
+  "financials": {
+    "revenue": 1100000,
+    "ebitda": 275000,
+    "margin": 25,
+    "employees": 14,
+    "yearsActive": 8
+  },
+  "valuation": {
+    "low": 950000,
+    "high": 1350000
+  },
+  "duns": {
+    "paydex": 83,
+    "defaultProb": "1.2%",
+    "creditRisk": "Bajo",
+    "rating": "BBB"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "45 clientes con retainers mensuales de €1.500-€8.000",
+      "Especialización en Performance & Paid Media — nicho premium",
+      "Google Partner Premier y Meta Business Partner certificado",
+      "NPS de 68 — referencial del sector agencia",
+      "Churn de clientes inferior al 8% anual"
+    ],
+    "en": [
+      "45 clients with monthly retainers of €1,500-€8,000",
+      "Performance & Paid Media specialisation — premium niche",
+      "Google Premier Partner and certified Meta Business Partner",
+      "Client NPS of 68 — agency sector benchmark",
+      "Client churn below 8% annually"
+    ]
+  },
+  "lat": 37.9436,
+  "lng": -1.1118,
+  "category": [
+    "recurring_revenue",
+    "high_margin"
+  ],
+  "reasonForSale": "Co-founder exit by shareholder agreement",
+  "salePercent": 100
+}

@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-5589",
+  "sectorId": "energy",
+  "subsectorId": "waste",
+  "icon": "🔩",
+  "saleType": "full",
+  "urgent": true,
+  "es": {
+    "name": "MetalRecicla Chatarra Industrial",
+    "loc": "Murcia, Polígono",
+    "desc": "Gestor y trader de chatarra industrial ferrosa y no ferrosa. 22 años. Contratos de suministro con 3 acerías nacionales. Propietario jubilación. Instalación propia con cizalla y prensa."
+  },
+  "en": {
+    "name": "MetalRecicla Industrial Scrap",
+    "loc": "Murcia, Industrial Park",
+    "desc": "Industrial ferrous and non-ferrous scrap manager and trader. 22 years. Supply contracts with 3 national steelworks. Owner retiring. Own installation with shear and press."
+  },
+  "financials": {
+    "revenue": 3200000,
+    "ebitda": 288000,
+    "margin": 9,
+    "employees": 11,
+    "yearsActive": 22
+  },
+  "valuation": {
+    "low": 850000,
+    "high": 1150000
+  },
+  "duns": {
+    "paydex": 72,
+    "defaultProb": "3.2%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Contratos de suministro con 3 acerías nacionales",
+      "Instalación propia con cizalla y prensa — inversión €480.000",
+      "Licencia de gestor de residuos metálicos — barrera regulatoria",
+      "22 años de relaciones con proveedores y clientes industriales",
+      "Solar de 8.000m² propio incluido en la valoración"
+    ],
+    "en": [
+      "Supply contracts with 3 national steelworks",
+      "Own installation with shear and press — €480,000 investment",
+      "Metallic waste manager licence — regulatory barrier",
+      "22 years of supplier and industrial client relationships",
+      "Own 8,000m² plot included in valuation"
+    ]
+  },
+  "lat": 43.2519,
+  "lng": -3.6006,
+  "category": [
+    "asset_backed",
+    "owner_operated",
+    "distressed"
+  ],
+  "reasonForSale": "Owner retiring, urgent",
+  "salePercent": 100
+}

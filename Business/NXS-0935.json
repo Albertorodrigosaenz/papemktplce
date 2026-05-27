@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-0935",
+  "sectorId": "tech",
+  "subsectorId": "saas",
+  "icon": "🏗️",
+  "saleType": "full",
+  "urgent": true,
+  "es": {
+    "name": "ConstructFlow SaaS",
+    "loc": "Madrid / Remoto",
+    "desc": "Software de gestión de obras y proyectos de construcción. 180 constructoras suscriptoras. MRR €19.800. Fundadores buscan salida tras captación fallida de Serie A."
+  },
+  "en": {
+    "name": "ConstructFlow SaaS",
+    "loc": "Madrid / Remote",
+    "desc": "Construction project and site management software. 180 subscriber construction companies. MRR €19,800. Founders seeking exit after failed Series A raise."
+  },
+  "financials": {
+    "revenue": 237600,
+    "ebitda": 95040,
+    "margin": 40,
+    "employees": 5,
+    "yearsActive": 4
+  },
+  "valuation": {
+    "low": 680000,
+    "high": 950000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.4%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "6-9x ARR",
+  "details": {
+    "es": [
+      "180 constructoras activas, churn <7% anual",
+      "Integración con software de contabilidad (SAP, Sage, Holded)",
+      "MRR creciente +4% mensual últimos 8 meses",
+      "Stack en AWS — escalable sin inversión en infraestructura",
+      "Documentación técnica completa para onboarding de nuevo equipo"
+    ],
+    "en": [
+      "180 active construction companies, churn <7% annually",
+      "Integration with accounting software (SAP, Sage, Holded)",
+      "MRR growing +4% monthly over last 8 months",
+      "AWS stack — scalable without infrastructure investment",
+      "Complete technical documentation for new team onboarding"
+    ]
+  },
+  "lat": 41.4744,
+  "lng": 2.3359,
+  "category": [
+    "recurring_revenue",
+    "growth",
+    "distressed"
+  ],
+  "reasonForSale": "Failed Series A, founders exiting",
+  "salePercent": 100
+}

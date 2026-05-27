@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-6589",
+  "sectorId": "retail",
+  "subsectorId": "franchise",
+  "icon": "🏋️",
+  "saleType": "transfer",
+  "urgent": true,
+  "es": {
+    "name": "Franquicia SportGym Sevilla Nervión",
+    "loc": "Sevilla, Nervión",
+    "desc": "Franquiciado de gimnasio low cost SportGym con 2.400 socios. 5 años. Modelo de cuota baja con alta densidad de socios. Propietario emigra por trabajo."
+  },
+  "en": {
+    "name": "SportGym Low Cost Franchise Seville",
+    "loc": "Seville, Nervión",
+    "desc": "SportGym low-cost gym franchisee with 2,400 members. 5 years. Low-fee model with high member density. Owner relocating for work."
+  },
+  "financials": {
+    "revenue": 480000,
+    "ebitda": 96000,
+    "margin": 20,
+    "employees": 5,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 280000,
+    "high": 400000
+  },
+  "duns": {
+    "paydex": 73,
+    "defaultProb": "3.0%",
+    "creditRisk": "Moderado",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "2.400 socios activos a €29/mes — modelo recurrente sólido",
+      "Instalaciones de 1.800m² con equipamiento reciente",
+      "Marca SportGym con soporte de marketing y sistema de gestión",
+      "Alquiler €6.500/mes — ratio razonable sobre facturación",
+      "Zona de alta densidad poblacional en Nervión"
+    ],
+    "en": [
+      "2,400 active members at €29/month — solid recurring model",
+      "1,800m² facilities with recent equipment",
+      "SportGym brand with marketing support and management system",
+      "Rent €6,500/month — reasonable ratio on revenue",
+      "High population density area in Nervión"
+    ]
+  },
+  "lat": 40.4227,
+  "lng": -3.6645,
+  "category": [
+    "recurring_revenue",
+    "distressed"
+  ],
+  "reasonForSale": "Owner relocating for work",
+  "salePercent": 100
+}

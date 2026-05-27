@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-6389",
+  "sectorId": "retail",
+  "subsectorId": "fashion",
+  "icon": "👟",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Tienda Streetwear UrbanBox",
+    "loc": "Valencia, Centro",
+    "desc": "Tienda multimarca de streetwear y sneakers premium. 7 años. 3.200 clientes activos. Canal online 45% de ventas. Co-fundadores buscan socio para segunda tienda en Madrid."
+  },
+  "en": {
+    "name": "UrbanBox Streetwear Store",
+    "loc": "Valencia, Centre",
+    "desc": "Streetwear and premium sneakers multi-brand store. 7 years. 3,200 active customers. Online channel 45% of sales. Co-founders seeking partner for second store in Madrid."
+  },
+  "financials": {
+    "revenue": 680000,
+    "ebitda": 122400,
+    "margin": 18,
+    "employees": 5,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 360000,
+    "high": 510000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.4%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "Canal online 45% — tienda física + Shopify integrados",
+      "Acuerdos con Nike, Adidas, New Balance y 8 marcas indie",
+      "Instagram 42.000 seguidores con conversión directa a ventas",
+      "Sistema de reservas para drops limitados — diferenciador",
+      "Ticket medio online €180 vs €210 física"
+    ],
+    "en": [
+      "Online channel 45% — physical store + integrated Shopify",
+      "Agreements with Nike, Adidas, New Balance and 8 indie brands",
+      "Instagram 42,000 followers with direct sales conversion",
+      "Reservation system for limited drops — differentiator",
+      "Average online ticket €180 vs €210 in-store"
+    ]
+  },
+  "lat": 43.559,
+  "lng": -9.669,
+  "category": [
+    "growth",
+    "recurring_revenue"
+  ],
+  "reasonForSale": "Seeking partner for Madrid expansion",
+  "salePercent": 40
+}

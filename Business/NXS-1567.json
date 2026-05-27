@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-1567",
+  "sectorId": "hospitality",
+  "subsectorId": "hotels",
+  "icon": "🏨",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Hotel Rural La Encina",
+    "loc": "Extremadura, Cáceres",
+    "desc": "Hotel rural de 18 habitaciones, restaurante con 40 plazas, piscina y zona de eventos. Certificado sostenible. Facturación creciente +18% anual últimos 3 años."
+  },
+  "en": {
+    "name": "La Encina Rural Hotel",
+    "loc": "Extremadura, Cáceres",
+    "desc": "18-room rural hotel, restaurant with 40 seats, pool and events area. Sustainability certified. Revenue growing +18% annually over last 3 years."
+  },
+  "financials": {
+    "revenue": 420000,
+    "ebitda": 105000,
+    "margin": 25,
+    "employees": 6,
+    "yearsActive": 16
+  },
+  "valuation": {
+    "low": 480000,
+    "high": 650000
+  },
+  "duns": {
+    "paydex": 80,
+    "defaultProb": "1.9%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Inmueble propio valorado en €380.000 independientemente",
+      "RevPAR de €87 con ocupación media del 72%",
+      "Bodas y eventos: 30% de los ingresos con alta predictibilidad",
+      "Certificado Biosphere Hotel — premium de precio demostrado",
+      "Acuerdo de distribución con 4 OTAs premium"
+    ],
+    "en": [
+      "Own property independently valued at €380,000",
+      "RevPAR of €87 with average 72% occupancy",
+      "Weddings and events: 30% of revenue, highly predictable",
+      "Biosphere Hotel certified — demonstrated price premium",
+      "Distribution agreement with 4 premium OTAs"
+    ]
+  },
+  "lat": 36.142,
+  "lng": -5.4023,
+  "category": [
+    "asset_backed",
+    "recurring_revenue"
+  ],
+  "reasonForSale": "Partial exit for capital",
+  "salePercent": 40
+}

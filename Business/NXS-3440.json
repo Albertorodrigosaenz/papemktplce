@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-3440",
+  "sectorId": "industry",
+  "subsectorId": "workshops",
+  "icon": "🔩",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Taller de Mecanizado Precisión CNC",
+    "loc": "Barcelona, Sant Andreu",
+    "desc": "Taller de mecanizado de precisión con 5 centros CNC de última generación. Clientes en aeronáutica, automoción y médico. Facturación estable con alta barrera técnica de entrada."
+  },
+  "en": {
+    "name": "CNC Precision Machining Workshop",
+    "loc": "Barcelona, Sant Andreu",
+    "desc": "Precision machining workshop with 5 state-of-the-art CNC centres. Clients in aerospace, automotive and medical. Stable revenue with high technical barrier to entry."
+  },
+  "financials": {
+    "revenue": 1480000,
+    "ebitda": 266400,
+    "margin": 18,
+    "employees": 15,
+    "yearsActive": 16
+  },
+  "valuation": {
+    "low": 800000,
+    "high": 1100000
+  },
+  "duns": {
+    "paydex": 80,
+    "defaultProb": "1.8%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "3-4x EBITDA",
+  "details": {
+    "es": [
+      "5 centros de mecanizado CNC de 5 ejes — inversión €1.2M",
+      "Clientes en aeronáutica, automoción y medtech",
+      "Certificación ISO 9001 y AS9100 aeronáutica",
+      "Margen bruto 52% — ingresos de alto valor añadido",
+      "Propietario mantiene 20% y rol técnico — continuidad asegurada"
+    ],
+    "en": [
+      "5 x 5-axis CNC machining centres — €1.2M investment",
+      "Clients in aerospace, automotive and medtech",
+      "ISO 9001 and aeronautical AS9100 certification",
+      "52% gross margin — high value-added revenue",
+      "Owner retains 20% and technical role — continuity assured"
+    ]
+  },
+  "lat": 37.9165,
+  "lng": -1.5223,
+  "category": [
+    "recurring_revenue",
+    "high_margin",
+    "asset_backed"
+  ],
+  "reasonForSale": "Partial sale, owner retains technical role",
+  "salePercent": 80
+}

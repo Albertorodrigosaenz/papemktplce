@@ -1,0 +1,60 @@
+{
+  "ref": "NXS-7389",
+  "sectorId": "realestate",
+  "subsectorId": "coworking",
+  "icon": "🎓",
+  "saleType": "full",
+  "urgent": false,
+  "es": {
+    "name": "Campus CoLearn Barcelona",
+    "loc": "Barcelona, Poblenou",
+    "desc": "Centro de formación y coworking para startups universitarias. 7 años. Convenio con 3 universidades. 180 puestos. Propietario vende por cambio de foco empresarial."
+  },
+  "en": {
+    "name": "CoLearn Campus Barcelona",
+    "loc": "Barcelona, Poblenou",
+    "desc": "Training and coworking centre for university startups. 7 years. Agreement with 3 universities. 180 desks. Owner selling due to change of business focus."
+  },
+  "financials": {
+    "revenue": 640000,
+    "ebitda": 153600,
+    "margin": 24,
+    "employees": 8,
+    "yearsActive": 7
+  },
+  "valuation": {
+    "low": 580000,
+    "high": 820000
+  },
+  "duns": {
+    "paydex": 76,
+    "defaultProb": "2.4%",
+    "creditRisk": "Bajo",
+    "rating": "BB"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "Convenio con 3 universidades — flujo estable de clientes institucionales",
+      "180 puestos en 1.100m² con aulas, labs y zona eventos",
+      "Programa de mentoring propio con 45 mentores activos",
+      "Comunidad de 320 startups y alumni — ecosistema activo",
+      "Potencial de expansión con el modelo university tech hub"
+    ],
+    "en": [
+      "Agreement with 3 universities — stable institutional client flow",
+      "180 desks in 1,100m² with classrooms, labs and events area",
+      "Own mentoring programme with 45 active mentors",
+      "Community of 320 startups and alumni — active ecosystem",
+      "Expansion potential with university tech hub model"
+    ]
+  },
+  "lat": 38.2469,
+  "lng": -0.9241,
+  "category": [
+    "recurring_revenue",
+    "growth"
+  ],
+  "reasonForSale": "Owner changing business focus",
+  "salePercent": 100
+}

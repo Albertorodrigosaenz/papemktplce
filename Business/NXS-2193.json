@@ -1,0 +1,61 @@
+{
+  "ref": "NXS-2193",
+  "sectorId": "health",
+  "subsectorId": "gyms",
+  "icon": "🧘",
+  "saleType": "partial",
+  "urgent": false,
+  "es": {
+    "name": "Studio Pilates & Yoga Equilibrio",
+    "loc": "Barcelona, Eixample",
+    "desc": "Studio boutique de pilates reformer y yoga. 280 socios activos. Precio premium €120/mes. 5 años. Co-fundadoras buscan capital para abrir segundo estudio en Madrid."
+  },
+  "en": {
+    "name": "Equilibrio Pilates & Yoga Studio",
+    "loc": "Barcelona, Eixample",
+    "desc": "Boutique pilates reformer and yoga studio. 280 active members. Premium price €120/month. 5 years. Co-founders seeking capital to open second studio in Madrid."
+  },
+  "financials": {
+    "revenue": 403200,
+    "ebitda": 121000,
+    "margin": 30,
+    "employees": 6,
+    "yearsActive": 5
+  },
+  "valuation": {
+    "low": 450000,
+    "high": 630000
+  },
+  "duns": {
+    "paydex": 77,
+    "defaultProb": "2.2%",
+    "creditRisk": "Bajo",
+    "rating": "BB+"
+  },
+  "sectorMultiple": "4-5x EBITDA",
+  "details": {
+    "es": [
+      "280 socios a €120/mes — modelo premium con alta retención",
+      "14 reformers Balanced Body de gama alta",
+      "Lista de espera de 45 personas",
+      "Equipo de 4 instructoras con certificación internacional",
+      "Tienda de accesorios y ropa integrada: 12% de ingresos adicionales"
+    ],
+    "en": [
+      "280 members at €120/month — premium model with high retention",
+      "14 Balanced Body high-end reformers",
+      "Waiting list of 45 people",
+      "Team of 4 instructors with international certification",
+      "Integrated accessories and clothing shop: 12% additional revenue"
+    ]
+  },
+  "lat": 41.3781,
+  "lng": 2.2823,
+  "category": [
+    "recurring_revenue",
+    "high_margin",
+    "growth"
+  ],
+  "reasonForSale": "Seeking capital for second studio",
+  "salePercent": 40
+}
